@@ -1,0 +1,7 @@
+import { ArrowUpRight, MapPin, MessageCircle } from "lucide-react";
+import QuoteForm from "@/components/QuoteForm";
+
+export const metadata = { title: "Contact | JP Glass Balustrades", description: "Tell us about your glass project and request a quote from JP Glass Balustrades." };
+export default function ContactPage() {
+  return <main id="main-content"><section className="contact-intro wrap"><p className="eyebrow">Let’s talk glass</p><h1>Tell us what<br/><span>you’re planning.</span></h1><p>Share a few details about your project and we’ll be in touch to discuss the next step.</p></section><section className="contact-section"><div className="wrap contact-layout"><aside className="contact-aside"><p className="eyebrow">Start here</p><h2>A good project starts with a conversation.</h2><p>Use the form to tell us what you have in mind. You can include photos to help us understand your space.</p><div className="contact-aside-detail"><MessageCircle size={18}/><span>Share the basics and we’ll follow up.</span></div><div className="contact-aside-detail"><MapPin size={18}/><span>Service area to be confirmed.</span></div><p className="contact-aside-link">Business phone and email to be added when supplied <ArrowUpRight size={16}/></p></aside><div className="form-card"><div className="form-card-heading"><p className="eyebrow">Quote enquiry</p><h2>Project details</h2><p>Fields marked with * are required.</p></div><QuoteForm/></div></div></section></main>;
+}

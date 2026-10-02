@@ -1,0 +1,7 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowDown, ArrowRight, Check } from "lucide-react";
+
+export default function Hero() {
+  return <section className="hero"><div className="hero-grid wrap"><div className="hero-copy"><p className="eyebrow"><span className="eyebrow-line"/> Thoughtful glass, beautifully made</p><h1>Clarity in every <span>detail.</span></h1><p className="hero-lede">Glass balustrades, shower screens and custom glass solutions, shaped around the way you live.</p><div className="hero-actions"><Link href="/contact" className="button button-primary">Discuss your project <ArrowRight size={17}/></Link><Link href="/gallery" className="text-link">Explore our work <ArrowDown size={15}/></Link></div><div className="hero-note"><span className="note-icon"><Check size={15}/></span><span>Made to measure <i/> Professionally installed</span></div></div><div className="hero-visual"><div className="hero-photo"><Image src="/images/glass-placeholder.svg" alt="Illustrative architectural glass scene; replace with approved JP Glass project photography" fill priority sizes="(max-width: 900px) 100vw, 56vw"/><span className="image-tag">Project imagery placeholder</span></div><div className="hero-caption"><span>01 / 03</span><span>Designed for your space</span></div><div className="hero-side-label">GLASS · FORM · FUNCTION</div></div></div><div className="hero-bottom wrap"><span>01</span><span>Explore what we do</span><span className="bottom-rule"/></div></section>;
+}
