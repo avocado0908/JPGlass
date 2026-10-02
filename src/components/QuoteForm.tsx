@@ -39,7 +39,7 @@ export default function QuoteForm() {
     }
   }
 
-  return <form className="quote-form" onSubmit={handleSubmit(submit)} noValidate>
+  return <form id="quote-form" className="quote-form" onSubmit={handleSubmit(submit)} noValidate>
     <div className="form-grid">
       <Field label="Full name" error={errors.name?.message}><input autoComplete="name" placeholder="Your name" {...register("name")}/></Field>
       <Field label="Phone" error={errors.phone?.message}><input type="tel" autoComplete="tel" placeholder="021 000 0000" {...register("phone")}/></Field>

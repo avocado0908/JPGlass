@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { z } from "zod";
+import { businessContact } from "@/data/business";
 
 const quoteSchema = z.object({
   name: z.string().trim().min(2).max(100),
@@ -22,7 +23,7 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const recipient = process.env.QUOTE_TO_EMAIL;
+  const recipient = process.env.QUOTE_TO_EMAIL || businessContact.email;
   const sender = process.env.RESEND_FROM_EMAIL;
   if (!apiKey || !recipient || !sender) return Response.json({ error: "Quote enquiries are not available just yet. Please contact the business directly." }, { status: 503 });
 
