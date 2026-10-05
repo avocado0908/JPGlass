@@ -15,7 +15,7 @@ const quoteSchema = z.object({
   details: z.string().trim().min(10, "Please add a little more detail (at least 10 characters).").max(3000),
 });
 type QuoteValues = z.infer<typeof quoteSchema>;
-const services = ["Glass balustrades", "Shower screens", "Custom glass", "Other"];
+const services = ["Glass balustrades", "Frameless shower screens", "Sliding frameless shower screens", "Custom-made glass", "Glass pool fencing", "Glass handrails", "Other"];
 
 export default function QuoteForm() {
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
