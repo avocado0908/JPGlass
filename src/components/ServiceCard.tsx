@@ -10,7 +10,7 @@ export default function ServiceCard({ service }: { service: Service }) {
     <article className="service-card">
       <Link href={href} className="service-image" aria-label={`Explore ${service.title}`}>
         <Image src={service.image} alt={service.alt} fill sizes="(max-width: 700px) 100vw, 33vw" />
-        <span className="image-tag">Illustrative concept</span>
+        <span className="image-tag">{service.imageIsIllustrative === false ? "Project photo" : "Illustrative concept"}</span>
       </Link>
       <div className="service-copy">
         <span className="service-number">{service.number}</span>

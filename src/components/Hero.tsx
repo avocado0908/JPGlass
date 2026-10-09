@@ -7,19 +7,19 @@ import { ArrowDown, ArrowLeft, ArrowRight, Check, Pause, Play } from "lucide-rea
 
 const slides = [
   {
+    image: "/images/hero-glass-balustrade.jpg",
+    label: "Glass balcony balustrade",
+    note: "Tinted glass panels",
+  },
+  {
+    image: "/images/hero-deck-balustrade.jpg",
+    label: "Deck glass balustrade",
+    note: "Outdoor glass screening",
+  },
+  {
     image: "/images/hero-photo.jpg",
     label: "Glass balustrade",
     note: "A view kept open",
-  },
-  {
-    image: "/images/glass-placeholder.svg",
-    label: "Balustrade concept",
-    note: "Illustrative concept",
-  },
-  {
-    image: "/images/shower-placeholder.svg",
-    label: "Shower concept",
-    note: "Illustrative concept",
   },
 ];
 

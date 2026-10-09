@@ -38,7 +38,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         </div>
         <figure className={styles.heroImage}>
           <Image src={service.image} alt={service.alt} fill priority sizes="(max-width: 760px) 100vw, 58vw" />
-          <figcaption>Illustrative concept · Not a JP Glass project photograph</figcaption>
+          <figcaption>{service.imageIsIllustrative === false ? "Project photo" : "Illustrative concept · Not a JP Glass project photograph"}</figcaption>
         </figure>
       </section>
 

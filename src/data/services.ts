@@ -19,6 +19,7 @@ export type Service = {
   intro: string;
   image: string;
   alt: string;
+  imageIsIllustrative?: boolean;
   number: string;
   examples: ServiceExample[];
   finishes: ServiceFinish[];
@@ -56,13 +57,14 @@ export const services: Service[] = [
     slug: "frameless-shower-screens",
     title: "Frameless shower screens",
     cardTitle: "Frameless shower screens",
-    description: "Frameless shower glass concepts for a simple, open feel in the bathroom.",
-    intro: "Compare frameless shower screen concepts and hardware tones. Final glass and fitting options depend on the project and should be confirmed with JP Glass.",
-    image: "/images/shower-placeholder.svg",
-    alt: "Illustrative concept of a frameless glass shower screen",
+    description: "Frameless shower screens with clean glass lines and considered hardware.",
+    intro: "View a frameless shower screen photo and illustrative options for hardware and glass tones. Confirm available options with JP Glass for your project.",
+    image: "/images/frameless-shower-screen-stone.jpg",
+    alt: "Frameless glass shower enclosure in a warm stone-tiled bathroom",
+    imageIsIllustrative: false,
     number: "02",
     examples: [
-      { title: "Fixed panel concept", image: "/images/shower-placeholder.svg", alt: "Illustrative fixed glass shower panel" },
+      { title: "Frameless shower screen with warm stone tile", image: "/images/frameless-shower-screen-stone.jpg", alt: "Frameless glass shower enclosure in a warm stone-tiled bathroom", isIllustrative: false },
       { title: "Corner shower concept", image: "/images/custom-placeholder.svg", alt: "Illustrative glass shower enclosure in a tiled bathroom" },
     ],
     finishes: [...glassFinishes, ...fittingFinishes],
@@ -71,13 +73,14 @@ export const services: Service[] = [
     slug: "sliding-shower-screens",
     title: "Sliding frameless shower screens",
     cardTitle: "Sliding shower screens",
-    description: "Sliding shower screen concepts for bathrooms where a hinged door may not suit.",
-    intro: "See an illustrative sliding shower layout and a selection of glass and hardware tones to discuss. The right configuration is specific to your bathroom.",
-    image: "/images/sliding-shower-placeholder.svg",
-    alt: "Illustrative concept of a frameless sliding shower screen",
+    description: "Frameless sliding shower screens with clean glass lines and streamlined hardware.",
+    intro: "View a frameless sliding shower screen photo alongside illustrative glass and hardware options. The right configuration is specific to your bathroom.",
+    image: "/images/sliding-shower-screen.jpg",
+    alt: "Frameless sliding glass shower screen with black upper track and handle",
+    imageIsIllustrative: false,
     number: "03",
     examples: [
-      { title: "Sliding door concept", image: "/images/sliding-shower-placeholder.svg", alt: "Illustrative frameless sliding glass shower door" },
+      { title: "Frameless sliding shower screen", image: "/images/sliding-shower-screen.jpg", alt: "Frameless sliding glass shower screen with black upper track and handle", isIllustrative: false },
       { title: "Minimal enclosure concept", image: "/images/custom-placeholder.svg", alt: "Illustrative minimal glass shower enclosure" },
     ],
     finishes: [...glassFinishes, ...fittingFinishes],
@@ -101,13 +104,14 @@ export const services: Service[] = [
     slug: "pool-fencing",
     title: "Glass pool fencing",
     cardTitle: "Pool fencing",
-    description: "Pool fence concepts using glass to keep sightlines across the outdoor space.",
-    intro: "Explore an illustrative glass pool fence concept. Layout, hardware and suitable glass details should be confirmed for your site and project requirements.",
-    image: "/images/pool-fence-placeholder.svg",
-    alt: "Illustrative concept of glass fencing beside an outdoor pool",
+    description: "Glass pool fencing that keeps outdoor spaces open and sightlines clear.",
+    intro: "View a glass pool fence project photo alongside illustrative options. Layout, hardware and suitable glass details should be confirmed for your site and project requirements.",
+    image: "/images/glass-pool-fence-upright.jpg",
+    alt: "Frameless glass pool fence with stainless steel spigots along a paved outdoor area beside a home",
+    imageIsIllustrative: false,
     number: "05",
     examples: [
-      { title: "Poolside concept", image: "/images/pool-fence-placeholder.svg", alt: "Illustrative concept of glass panels around an outdoor pool area" },
+      { title: "Frameless glass pool fence", image: "/images/glass-pool-fence-upright.jpg", alt: "Frameless glass pool fence with stainless steel spigots along a paved outdoor area beside a home", isIllustrative: false },
       { title: "Outdoor boundary concept", image: "/images/custom-placeholder.svg", alt: "Illustrative glass boundary panels in a landscaped space" },
     ],
     finishes: [...glassFinishes, ...fittingFinishes.slice(0, 2)],
@@ -116,10 +120,11 @@ export const services: Service[] = [
     slug: "handrails",
     title: "Glass handrails",
     cardTitle: "Handrails",
-    description: "Handrail concepts to complement glass balustrades and stair details.",
-    intro: "View illustrative handrail and glass combinations, then talk with JP Glass about the style and details that suit your setting.",
-    image: "/images/handrail-placeholder.svg",
-    alt: "Illustrative concept of glass balustrade panels with a handrail",
+    description: "Glass stair balustrades and handrails, shown in a real residential interior.",
+    intro: "Explore a glass stair balustrade and handrail, along with illustrative combinations. Talk with JP Glass about the style and details that suit your setting.",
+    image: "/images/glass-stair-handrail.jpg",
+    alt: "Glass balustrade and metal handrail following an indoor staircase",
+    imageIsIllustrative: false,
     number: "06",
     examples: [
       { title: "Glass stair balustrade with a metal handrail", image: "/images/glass-stair-handrail.jpg", alt: "Glass balustrade and metal handrail following an indoor staircase", isIllustrative: false },
