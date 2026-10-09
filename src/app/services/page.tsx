@@ -3,7 +3,7 @@ import CTA from "@/components/CTA";
 
 export const metadata = {
   title: "Services | JP Glass Balustrades",
-  description: "Explore glass balustrades, frameless shower screens, custom-made glass, pool fencing and handrail solutions.",
+  description: "Explore shower boxes, fence glass, handrails, pool fence glass, and outside base and glass options from JP Glass.",
 };
 
 export default function ServicesPage() {
@@ -12,7 +12,7 @@ export default function ServicesPage() {
       <section className="page-hero wrap">
         <p className="eyebrow">What we do</p>
         <h1>Glass solutions<br /><span>for your space.</span></h1>
-        <p>Explore our glass services, browse illustrative styles and discuss a solution for your project.</p>
+        <p>Explore shower boxes, fence glass, handrails, pool fence glass, and outside base and glass options.</p>
       </section>
       <Services />
       <CTA />

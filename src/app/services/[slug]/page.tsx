@@ -64,20 +64,20 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
 
       <section className={`${styles.finishes} wrap`}>
         <div className={styles.sectionHeading}>
-          <div><p className="eyebrow">Colour & finish ideas</p><h2>Explore the tones</h2></div>
-          <p>These swatches are visual references only. Please ask JP Glass to confirm available glass, hardware and finish options for your project.</p>
+          <div><p className="eyebrow">Product options</p><h2>Available options</h2></div>
+          <p>The options listed here are supplied by JP Glass. Contact the team to discuss the right configuration for your project.</p>
         </div>
         <div className={styles.finishGrid}>
-          {service.finishes.map((finish) => (
-            <div className={styles.finish} key={finish.name}>
-              <span className={styles.swatch} style={{ backgroundColor: finish.tone }} aria-hidden="true" />
-              <span className={styles.finishName}>{finish.name}</span>
-              <span className={styles.finishNote}>{finish.note}</span>
+          {service.options.map((option) => (
+            <div className={styles.finish} key={option.name}>
+              <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />
+              <span className={styles.finishName}>{option.name}</span>
+              <span className={styles.finishNote}>{option.note}</span>
             </div>
           ))}
         </div>
-        <p className={styles.note}>Illustrative colour references only · Confirm suitability and availability with JP Glass.</p>
-        <Link href="/contact" className={styles.contactLink}>Ask about colours and finishes <ArrowUpRight size={16} /></Link>
+        <p className={styles.note}>Colour swatches are visual guides. Contact JP Glass to discuss your project requirements.</p>
+        <Link href="/contact" className={styles.contactLink}>Ask about these options <ArrowUpRight size={16} /></Link>
       </section>
 
       <CTA />
