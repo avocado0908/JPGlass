@@ -2,6 +2,7 @@ export type ServiceExample = {
   title: string;
   image: string;
   alt: string;
+  isIllustrative?: boolean;
 };
 
 export type ServiceFinish = {
@@ -121,7 +122,7 @@ export const services: Service[] = [
     alt: "Illustrative concept of glass balustrade panels with a handrail",
     number: "06",
     examples: [
-      { title: "Stair handrail concept", image: "/images/handrail-placeholder.svg", alt: "Illustrative glass stair balustrade with a handrail" },
+      { title: "Glass stair balustrade with a metal handrail", image: "/images/glass-stair-handrail.jpg", alt: "Glass balustrade and metal handrail following an indoor staircase", isIllustrative: false },
       { title: "Balcony handrail concept", image: "/images/custom-placeholder.svg", alt: "Illustrative glass handrail detail on a balcony" },
     ],
     finishes: fittingFinishes,

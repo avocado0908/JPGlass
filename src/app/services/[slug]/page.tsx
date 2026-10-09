@@ -46,14 +46,14 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         <div className="wrap">
           <div className={styles.sectionHeading}>
             <div><p className="eyebrow">Style references</p><h2>Example looks</h2></div>
-            <p>Illustrations to help start a conversation about your space and preferred style.</p>
+            <p>Project photos and illustrations to help start a conversation about your space and preferred style.</p>
           </div>
           <div className={styles.exampleGrid}>
             {service.examples.map((example, index) => (
               <figure className={styles.example} key={example.title}>
                 <div className={styles.exampleImage}>
                   <Image src={example.image} alt={example.alt} fill sizes="(max-width: 700px) 100vw, 50vw" />
-                  <span>Illustrative concept</span>
+                  <span>{example.isIllustrative === false ? "Project photo" : "Illustrative concept"}</span>
                 </div>
                 <figcaption><span>0{index + 1}</span>{example.title}</figcaption>
               </figure>
