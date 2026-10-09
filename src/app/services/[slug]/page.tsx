@@ -42,6 +42,39 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         </figure>
       </section>
 
+      <section className={`${styles.finishes} wrap`}>
+        <div className={styles.sectionHeading}>
+          <div><p className="eyebrow">Product options</p><h2>Available options</h2></div>
+          <p>The options listed here are supplied by JP Glass. Contact the team to discuss the right configuration for your project.</p>
+        </div>
+        <div className={styles.finishGrid}>
+          {service.options.map((option) => (
+            <div className={styles.finish} key={option.name}>
+              {option.image ? (
+                <div className={styles.optionImage}>
+                  <Image
+                    src={option.image}
+                    alt={option.imageAlt ?? option.name}
+                    fill
+                    sizes="(max-width: 460px) 50vw, (max-width: 900px) 45vw, 30vw"
+                  />
+                </div>
+              ) : (
+                <div className={styles.optionImagePlaceholder} aria-label={`Example photo needed for ${option.name}`}>
+                  <span>Photo coming soon</span>
+                </div>
+              )}
+              <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />
+              <span className={styles.finishName}>{option.name}</span>
+              <span className={styles.finishNote}>{option.note}</span>
+            </div>
+          ))}
+        </div>
+        <p className={styles.note}>Colour swatches are visual guides. Contact JP Glass to discuss your project requirements.</p>
+        <Link href="/contact" className={styles.contactLink}>Ask about these options <ArrowUpRight size={16} /></Link>
+      </section>
+
+
       <section className={styles.examples}>
         <div className="wrap">
           <div className={styles.sectionHeading}>
@@ -60,24 +93,6 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             ))}
           </div>
         </div>
-      </section>
-
-      <section className={`${styles.finishes} wrap`}>
-        <div className={styles.sectionHeading}>
-          <div><p className="eyebrow">Product options</p><h2>Available options</h2></div>
-          <p>The options listed here are supplied by JP Glass. Contact the team to discuss the right configuration for your project.</p>
-        </div>
-        <div className={styles.finishGrid}>
-          {service.options.map((option) => (
-            <div className={styles.finish} key={option.name}>
-              <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />
-              <span className={styles.finishName}>{option.name}</span>
-              <span className={styles.finishNote}>{option.note}</span>
-            </div>
-          ))}
-        </div>
-        <p className={styles.note}>Colour swatches are visual guides. Contact JP Glass to discuss your project requirements.</p>
-        <Link href="/contact" className={styles.contactLink}>Ask about these options <ArrowUpRight size={16} /></Link>
       </section>
 
       <CTA />

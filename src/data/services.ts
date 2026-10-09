@@ -9,6 +9,8 @@ export type ServiceOption = {
   name: string;
   tone: string;
   note: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 export type Service = {
@@ -26,11 +28,56 @@ export type Service = {
 };
 
 const showerBoxOptions = (boxType: string, includeGold = false): ServiceOption[] => [
-  { name: `Silver ${boxType}`, tone: "#b9c3ca", note: "Silver finish" },
-  { name: `Black ${boxType}`, tone: "#202a32", note: "Black finish" },
-  { name: `Gunmetal ${boxType}`, tone: "#515b65", note: "Gunmetal finish" },
-  { name: `Brushed Nickel ${boxType}`, tone: "#a4adb2", note: "Brushed nickel finish" },
-  ...(includeGold ? [{ name: `Gold ${boxType}`, tone: "#b9975b", note: "Gold finish" }] : []),
+  {
+    name: `Silver ${boxType}`,
+    tone: "#b9c3ca",
+    note: "Silver finish",
+    ...(boxType === "Frameless Shower Box"
+      ? { image: "/images/frameless-box-silver.jpg", imageAlt: "Frameless shower box with silver hardware" }
+      : boxType === "Sliding Shower Box"
+        ? { image: "/images/sliding-box-silver.jpg", imageAlt: "Sliding shower box with silver hardware" }
+        : {}),
+  },
+  {
+    name: `Black ${boxType}`,
+    tone: "#202a32",
+    note: "Black finish",
+    ...(boxType === "Frameless Shower Box"
+      ? { image: "/images/frameless-box-black.jpg", imageAlt: "Frameless shower box with black hardware" }
+      : boxType === "Sliding Shower Box"
+        ? { image: "/images/sliding-box-black.jpg", imageAlt: "Sliding shower box with black hardware" }
+        : {}),
+  },
+  {
+    name: `Gunmetal ${boxType}`,
+    tone: "#515b65",
+    note: "Gunmetal finish",
+    ...(boxType === "Frameless Shower Box"
+      ? { image: "/images/frameless-box-gunmetal.jpg", imageAlt: "Frameless shower box with gunmetal hardware" }
+      : boxType === "Sliding Shower Box"
+        ? { image: "/images/sliding-box-gunmetal.jpg", imageAlt: "Sliding shower box with gunmetal hardware" }
+        : {}),
+  },
+  {
+    name: `Brushed Nickel ${boxType}`,
+    tone: "#a4adb2",
+    note: "Brushed nickel finish",
+    ...(boxType === "Frameless Shower Box"
+      ? { image: "/images/frameless-box-brushed-nickel.jpg", imageAlt: "Frameless shower box with brushed nickel hardware" }
+      : boxType === "Sliding Shower Box"
+        ? { image: "/images/sliding-box-brushed-nickel.jpg", imageAlt: "Sliding shower box with brushed nickel hardware" }
+        : {}),
+  },
+  ...(includeGold
+    ? [{
+        name: `Gold ${boxType}`,
+        tone: "#b9975b",
+        note: "Gold finish",
+        ...(boxType === "Frameless Shower Box"
+          ? { image: "/images/frameless-box-gold.jpg", imageAlt: "Frameless shower box with gold hardware" }
+          : {}),
+      }]
+    : []),
 ];
 
 export const services: Service[] = [
@@ -81,9 +128,9 @@ export const services: Service[] = [
       { title: "Stair handrail and glass panels", image: "/images/glass-stair-handrail.jpg", alt: "Glass panels and a metal handrail following an indoor staircase", isIllustrative: false },
     ],
     options: [
-      { name: "Silver Fence Glass", tone: "#b9c3ca", note: "Silver finish" },
-      { name: "Black Fence Glass", tone: "#202a32", note: "Black finish" },
-      { name: "Custom-Made Stairs Glass", tone: "#dceef3", note: "Custom-made glass" },
+      { name: "Silver Fence Glass", tone: "#b9c3ca", note: "Silver finish", image: "/images/glass-pool-fence-upright.jpg", imageAlt: "Glass fence with silver metal spigots" },
+      { name: "Black Fence Glass", tone: "#202a32", note: "Black finish", image: "/images/hero-glass-balustrade.jpg", imageAlt: "Dark tinted glass fence panels on a home balcony" },
+      { name: "Custom-Made Stairs Glass", tone: "#dceef3", note: "Custom-made glass", image: "/images/glass-stair-handrail.jpg", imageAlt: "Glass panels fitted along an indoor staircase" },
     ],
   },
   {
@@ -101,7 +148,7 @@ export const services: Service[] = [
       { title: "Balcony handrail concept", image: "/images/custom-placeholder.svg", alt: "Illustrative glass handrail detail on a balcony" },
     ],
     options: [
-      { name: "Silver Handrail", tone: "#b9c3ca", note: "Including all fittings" },
+      { name: "Silver Handrail", tone: "#b9c3ca", note: "Including all fittings", image: "/images/glass-stair-handrail.jpg", imageAlt: "Silver metal handrail with glass stair panels" },
       { name: "Black Handrail", tone: "#202a32", note: "Including all fittings" },
     ],
   },
@@ -120,7 +167,7 @@ export const services: Service[] = [
       { title: "Outdoor boundary concept", image: "/images/custom-placeholder.svg", alt: "Illustrative glass boundary panels in a landscaped space" },
     ],
     options: [
-      { name: "Silver Pool Fence Glass", tone: "#b9c3ca", note: "Silver finish" },
+      { name: "Silver Pool Fence Glass", tone: "#b9c3ca", note: "Silver finish", image: "/images/glass-pool-fence-upright.jpg", imageAlt: "Glass pool fence with silver metal spigots" },
       { name: "Black Pool Fence Glass", tone: "#202a32", note: "Black finish" },
     ],
   },
@@ -139,7 +186,7 @@ export const services: Service[] = [
       { title: "Outdoor glass concept", image: "/images/glass-placeholder.svg", alt: "Illustrative glass panels in an outdoor setting" },
     ],
     options: [
-      { name: "Outside Black Base and Glass", tone: "#202a32", note: "Black base with glass" },
+      { name: "Outside Black Base and Glass", tone: "#202a32", note: "Black base with glass", image: "/images/hero-deck-balustrade.jpg", imageAlt: "Outdoor glass fence with dark fixing hardware along a timber deck" },
     ],
   },
 ];
