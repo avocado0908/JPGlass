@@ -54,7 +54,7 @@ export default function OptionImage({ src, alt, className }: OptionImageProps) {
       {isOpen && (
         <div
           className={styles.backdrop}
-          onMouseDown={(event) => {
+          onClick={(event) => {
             if (event.target === event.currentTarget) setIsOpen(false);
           }}
         >
