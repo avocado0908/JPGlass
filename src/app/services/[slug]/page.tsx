@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import CTA from "@/components/CTA";
 import OptionImage from "@/components/OptionImage";
+import ServiceExampleGallery from "@/components/ServiceExampleGallery";
 import { getService, services, type ServiceOption } from "@/data/services";
 import styles from "./service-detail.module.css";
 
@@ -114,16 +115,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             <div><p className="eyebrow">Style references</p><h2>Example looks</h2></div>
             <p>Project photos and illustrations to help start a conversation about your space and preferred style.</p>
           </div>
-          <div className={styles.exampleGrid}>
-            {service.examples.map((example, index) => (
-              <figure className={styles.example} key={example.image}>
-                <div className={styles.exampleImage}>
-                  <Image src={example.image} alt={example.alt} fill sizes="(max-width: 700px) 100vw, 50vw" />
-                </div>
-                <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{example.title}</figcaption>
-              </figure>
-            ))}
-          </div>
+          <ServiceExampleGallery examples={service.examples} />
         </div>
       </section>
 

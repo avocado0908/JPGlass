@@ -1,0 +1,20 @@
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.example{margin:0}
+.thumbnail{position:relative;display:block;width:100%;aspect-ratio:1.45;padding:0;border:0;overflow:hidden;background:#dce6e8;cursor:zoom-in;-webkit-tap-highlight-color:transparent}
+.thumbnail img{object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.example:hover .thumbnail img{transform:scale(1.025)}
+.thumbnail:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.example figcaption{display:flex;gap:13px;padding-top:13px;color:var(--navy);font-size:12px}
+.example figcaption span,.caption span{color:#8ba0b4;font-size:10px;letter-spacing:.1em}
+.backdrop{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:24px;background:rgba(5,16,30,.88)}
+.dialog{width:min(100%,1240px);padding:0;border:0;background:transparent;box-shadow:none;outline:none}
+.caption{display:flex;align-items:center;gap:12px;margin:0 0 12px;color:#fff;font-size:14px;font-weight:550;line-height:1.35}
+.imageViewport{position:relative;width:100%;height:min(78vh,900px);overflow:hidden;background:transparent;touch-action:pan-y}
+.largeImage{object-fit:contain}
+.navButton{position:absolute;top:50%;z-index:1;display:grid;width:44px;height:44px;place-items:center;transform:translateY(-50%);border:0;border-radius:50%;background:rgba(5,16,30,.62);color:#fff;cursor:pointer;transition:background .2s}
+.navButton:hover{background:rgba(5,16,30,.9)}
+.navButton svg{width:24px;height:24px}
+.previous{left:14px}.next{right:14px}
+@media(max-width:760px){.grid{gap:14px}.thumbnail{aspect-ratio:1.05}.example figcaption{font-size:11px}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.thumbnail{aspect-ratio:1.35}.backdrop{padding:0 16px}.dialog{position:relative;width:100%;height:100dvh}.imageViewport{height:100dvh}.caption{position:absolute;top:0;left:0;z-index:2;width:100%;margin:0;padding:16px 12px 30px;background:linear-gradient(rgba(5,16,30,.72),transparent);font-size:13px}.navButton{width:40px;height:40px}.previous{left:8px}.next{right:8px}}
+@media(prefers-reduced-motion:reduce){.thumbnail img{transition:none}}
