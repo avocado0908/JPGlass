@@ -25,7 +25,15 @@ export type Service = {
   number: string;
   examples: ServiceExample[];
   options: ServiceOption[];
+  showerSets?: ServiceOption[];
+  glassSupports?: ServiceOption[];
 };
+
+const showerSetOptions: ServiceOption[] = [
+  { name: "Silver Shower Set", tone: "#b9c3ca", note: "Silver finish" },
+  { name: "Black Shower Set", tone: "#202a32", note: "Black finish" },
+  { name: "Gold Shower Set", tone: "#b9975b", note: "Gold finish" },
+];
 
 const showerBoxOptions = (boxType: string, includeGold = false): ServiceOption[] => [
   {
@@ -98,6 +106,7 @@ export const services: Service[] = [
       { title: "Corner shower concept", image: "/images/custom-placeholder.svg", alt: "Illustrative glass shower enclosure in a tiled bathroom" },
     ],
     options: showerBoxOptions("Frameless Shower Box", true),
+    showerSets: showerSetOptions,
   },
   {
     slug: "sliding-shower-screens",
@@ -114,6 +123,7 @@ export const services: Service[] = [
       { title: "Minimal enclosure concept", image: "/images/custom-placeholder.svg", alt: "Illustrative minimal glass shower enclosure" },
     ],
     options: showerBoxOptions("Sliding Shower Box", true),
+    showerSets: showerSetOptions,
   },
   {
     slug: "fence-glass",
@@ -133,6 +143,12 @@ export const services: Service[] = [
       { name: "Silver Fence Glass", tone: "#b9c3ca", note: "Silver finish", image: "/images/glass-pool-fence-upright.jpg", imageAlt: "Glass fence with silver metal spigots" },
       { name: "Black Fence Glass", tone: "#202a32", note: "Black finish", image: "/images/hero-glass-balustrade.jpg", imageAlt: "Dark tinted glass fence panels on a home balcony" },
       { name: "Custom-Made Stairs Glass", tone: "#dceef3", note: "Custom-made glass", image: "/images/glass-stair-handrail.jpg", imageAlt: "Glass panels fitted along an indoor staircase" },
+    ],
+    glassSupports: [
+      { name: "Silver Round Glass Standoffs", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-round-standoffs.jpg", imageAlt: "Silver round glass standoff fixed through a glass panel" },
+      { name: "Black Round Glass Standoffs", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-round-standoffs.jpg", imageAlt: "Black round glass standoff fixed through a glass panel" },
+      { name: "Silver Bottom Glass Spigots", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-bottom-spigots.jpg", imageAlt: "Silver bottom glass spigot supporting a glass panel" },
+      { name: "Black Bottom Glass Spigots", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-bottom-spigots.jpg", imageAlt: "Black bottom glass spigot supporting a glass panel" },
     ],
   },
   {

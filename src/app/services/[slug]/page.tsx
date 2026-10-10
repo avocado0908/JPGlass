@@ -68,6 +68,41 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             </div>
           ))}
         </div>
+        {service.showerSets && (
+          <div className={styles.subOptionGroup}>
+            <h3 className={styles.subOptionHeading}>Shower set options</h3>
+            <div className={styles.finishGrid}>
+              {service.showerSets.map((option) => (
+                <div className={styles.finish} key={option.name}>
+                  <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />
+                  <span className={styles.finishName}>{option.name}</span>
+                  <span className={styles.finishNote}>{option.note}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        {service.glassSupports && (
+          <div className={styles.subOptionGroup}>
+            <h3 className={styles.subOptionHeading}>Glass support options</h3>
+            <div className={styles.finishGrid}>
+              {service.glassSupports.map((option) => (
+                <div className={styles.finish} key={option.name}>
+                  {option.image ? (
+                    <OptionImage
+                      src={option.image}
+                      alt={option.imageAlt ?? option.name}
+                      className={styles.optionImage}
+                    />
+                  ) : null}
+                  <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />
+                  <span className={styles.finishName}>{option.name}</span>
+                  <span className={styles.finishNote}>{option.note}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         <p className={styles.note}>Colour swatches are visual guides. Contact JP Glass to discuss your project requirements.</p>
         <Link href="/contact" className={styles.contactLink}>Ask about these options <ArrowUpRight size={16} /></Link>
       </section>
