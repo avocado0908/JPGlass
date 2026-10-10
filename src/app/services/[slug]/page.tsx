@@ -116,7 +116,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           </div>
           <div className={styles.exampleGrid}>
             {service.examples.map((example, index) => (
-              <figure className={styles.example} key={example.title}>
+              <figure className={styles.example} key={example.image}>
                 <div className={styles.exampleImage}>
                   <Image src={example.image} alt={example.alt} fill sizes="(max-width: 700px) 100vw, 50vw" />
                 </div>
