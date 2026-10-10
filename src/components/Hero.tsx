@@ -3,23 +3,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowLeft, ArrowRight, Check, Pause, Play } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Pause, Play } from "lucide-react";
 
 const slides = [
   {
-    image: "/images/hero-glass-balustrade.jpg",
-    label: "Glass balcony balustrade",
-    note: "Tinted glass panels",
+    image: "/images/hero-balcony-sunset.jpg",
+    label: "Modern glass balcony at sunset",
+    note: "Glass balcony balustrade",
   },
   {
-    image: "/images/hero-deck-balustrade.jpg",
-    label: "Deck glass balustrade",
-    note: "Outdoor glass screening",
+    image: "/images/hero-hillside-balustrade-sunset.jpg",
+    label: "Glass balustrade overlooking hills",
+    note: "Sunset hillside view",
   },
   {
-    image: "/images/hero-photo.jpg",
-    label: "Glass balustrade",
-    note: "A view kept open",
+    image: "/images/hero-glass-stairwell.jpg",
+    label: "Modern glass stairwell",
+    note: "Suburban views",
   },
 ];
 
@@ -72,11 +72,11 @@ export default function Hero() {
       <div className="hero-grid wrap">
         <div className="hero-copy">
           <p className="eyebrow"><span className="eyebrow-line" /> Custom glass solutions in Auckland</p>
-          <h1>Beautiful <span>glass</span> for Auckland homes.</h1>
-          <p className="hero-lede">Glass balustrades, frameless showers and custom glass solutions, designed around your home.</p>
+          <h1>Auckland&apos;s <span>Glass Installation</span> Specialists.</h1>
+          <p className="hero-lede">Expert glass installation across Auckland, from frameless showers and glass balustrades to pool fencing and custom glass solutions.</p>
           <div className="hero-actions">
-            <Link href="/contact" className="button button-white">Discuss your project <ArrowRight size={17} /></Link>
-            <Link href="/gallery" className="text-link">Explore our work <ArrowDown size={15} /></Link>
+            <Link href="/contact" className="button button-white">Get a Free Quote <ArrowRight size={17} /></Link>
+            <Link href="/services" className="text-link">View Our Services <ArrowRight size={15} /></Link>
           </div>
           <div className="hero-note"><span className="note-icon"><Check size={15} /></span><span>Made to measure <i /> Professionally installed</span></div>
         </div>
