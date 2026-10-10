@@ -71,8 +71,8 @@ export default function Hero() {
 
       <div className="hero-grid wrap">
         <div className="hero-copy">
-          <p className="eyebrow"><span className="eyebrow-line" /> Custom glass solutions in Auckland</p>
-          <h1>Auckland&apos;s <span>Glass Installation</span> Specialists.</h1>
+          <p className="eyebrow"><span className="eyebrow-line" /> Custom glass Specialists</p>
+          <h1>Auckland&apos;s <span>Glass Installation</span></h1>
           <p className="hero-lede">Expert glass installation across Auckland, from frameless showers and glass balustrades to pool fencing and custom glass solutions.</p>
           <div className="hero-actions">
             <Link href="/contact" className="button button-white">Get a Free Quote <ArrowRight size={17} /></Link>
