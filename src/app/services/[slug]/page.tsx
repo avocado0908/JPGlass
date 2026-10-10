@@ -54,7 +54,6 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         </div>
         <figure className={styles.heroImage}>
           <Image src={service.image} alt={service.alt} fill priority sizes="(max-width: 760px) 100vw, 58vw" />
-          <figcaption>{service.imageIsIllustrative === false ? "Project photo" : "Illustrative concept · Not a JP Glass project photograph"}</figcaption>
         </figure>
       </section>
 
@@ -120,9 +119,8 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
               <figure className={styles.example} key={example.title}>
                 <div className={styles.exampleImage}>
                   <Image src={example.image} alt={example.alt} fill sizes="(max-width: 700px) 100vw, 50vw" />
-                  <span>{example.isIllustrative === false ? "Project photo" : "Illustrative concept"}</span>
                 </div>
-                <figcaption><span>0{index + 1}</span>{example.title}</figcaption>
+                <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{example.title}</figcaption>
               </figure>
             ))}
           </div>

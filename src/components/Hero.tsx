@@ -12,9 +12,9 @@ const slides = [
     note: "Glass balcony balustrade",
   },
   {
-    image: "/images/hero-hillside-balustrade-sunset.jpg",
-    label: "Glass balustrade overlooking hills",
-    note: "Sunset hillside view",
+    image: "/images/hero-timber-glass-balcony.jpg",
+    label: "Timber and glass balcony",
+    note: "Modern balcony facade",
   },
   {
     image: "/images/hero-glass-stairwell.jpg",
