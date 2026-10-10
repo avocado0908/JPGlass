@@ -75,7 +75,9 @@ const showerBoxOptions = (boxType: string, includeGold = false): ServiceOption[]
         note: "Gold finish",
         ...(boxType === "Frameless Shower Box"
           ? { image: "/images/frameless-box-gold.jpg", imageAlt: "Frameless shower box with gold hardware" }
-          : {}),
+          : boxType === "Sliding Shower Box"
+            ? { image: "/images/sliding-box-gold.jpg", imageAlt: "Sliding shower box with gold hardware" }
+            : {}),
       }]
     : []),
 ];
@@ -111,7 +113,7 @@ export const services: Service[] = [
       { title: "Frameless sliding shower screen", image: "/images/sliding-shower-screen.jpg", alt: "Frameless sliding glass shower screen with black upper track and handle", isIllustrative: false },
       { title: "Minimal enclosure concept", image: "/images/custom-placeholder.svg", alt: "Illustrative minimal glass shower enclosure" },
     ],
-    options: showerBoxOptions("Sliding Shower Box"),
+    options: showerBoxOptions("Sliding Shower Box", true),
   },
   {
     slug: "fence-glass",

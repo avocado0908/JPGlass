@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import CTA from "@/components/CTA";
+import OptionImage from "@/components/OptionImage";
 import { getService, services } from "@/data/services";
 import styles from "./service-detail.module.css";
 
@@ -51,14 +52,11 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           {service.options.map((option) => (
             <div className={styles.finish} key={option.name}>
               {option.image ? (
-                <div className={styles.optionImage}>
-                  <Image
-                    src={option.image}
-                    alt={option.imageAlt ?? option.name}
-                    fill
-                    sizes="(max-width: 460px) 50vw, (max-width: 900px) 45vw, 30vw"
-                  />
-                </div>
+                <OptionImage
+                  src={option.image}
+                  alt={option.imageAlt ?? option.name}
+                  className={styles.optionImage}
+                />
               ) : (
                 <div className={styles.optionImagePlaceholder} aria-label={`Example photo needed for ${option.name}`}>
                   <span>Photo coming soon</span>
