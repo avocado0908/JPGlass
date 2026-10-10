@@ -25,6 +25,7 @@ export type Service = {
   number: string;
   examples: ServiceExample[];
   options: ServiceOption[];
+  optionGroups?: { title: string; options: ServiceOption[] }[];
   showerSets?: ServiceOption[];
   glassSupports?: ServiceOption[];
 };
@@ -92,57 +93,44 @@ const showerBoxOptions = (boxType: string, includeGold = false): ServiceOption[]
 
 export const services: Service[] = [
   {
-    slug: "frameless-shower-screens",
-    title: "Frameless Shower Boxes",
-    cardTitle: "Frameless Shower Boxes",
-    description: "Frameless shower boxes in a choice of hardware finishes.",
-    intro: "Choose from the listed frameless shower box finishes. Contact JP Glass to discuss the configuration that suits your bathroom.",
-    image: "/images/frameless-shower-screen-stone.jpg",
-    alt: "Frameless glass shower enclosure in a warm stone-tiled bathroom",
-    imageIsIllustrative: false,
+    slug: "shower-boxes",
+    title: "Shower Boxes (Frameless & Sliding)",
+    cardTitle: "Shower Boxes (Frameless & Sliding)",
+    description: "Frameless and sliding shower boxes in a choice of hardware finishes.",
+    intro: "Explore frameless and sliding shower box options, plus matching shower set finishes. Contact JP Glass to discuss the configuration that suits your bathroom.",
+    image: "/images/service-shower-boxes.jpg",
+    alt: "Frameless glass shower enclosure in a modern neutral bathroom",
+    imageIsIllustrative: true,
     number: "01",
     examples: [
       { title: "Frameless shower screen with warm stone tile", image: "/images/frameless-shower-screen-stone.jpg", alt: "Frameless glass shower enclosure in a warm stone-tiled bathroom", isIllustrative: false },
+      { title: "Sliding shower box with black hardware", image: "/images/sliding-shower-screen.jpg", alt: "Frameless sliding glass shower screen with black upper track and handle", isIllustrative: false },
       { title: "Corner shower concept", image: "/images/custom-placeholder.svg", alt: "Illustrative glass shower enclosure in a tiled bathroom" },
     ],
-    options: showerBoxOptions("Frameless Shower Box", true),
-    showerSets: showerSetOptions,
-  },
-  {
-    slug: "sliding-shower-screens",
-    title: "Sliding Shower Boxes",
-    cardTitle: "Sliding Shower Boxes",
-    description: "Sliding shower boxes in a choice of hardware finishes.",
-    intro: "Choose from the listed sliding shower box finishes. Contact JP Glass to discuss the configuration that suits your bathroom.",
-    image: "/images/sliding-shower-screen.jpg",
-    alt: "Frameless sliding glass shower screen with black upper track and handle",
-    imageIsIllustrative: false,
-    number: "02",
-    examples: [
-      { title: "Frameless sliding shower screen", image: "/images/sliding-shower-screen.jpg", alt: "Frameless sliding glass shower screen with black upper track and handle", isIllustrative: false },
-      { title: "Minimal enclosure concept", image: "/images/custom-placeholder.svg", alt: "Illustrative minimal glass shower enclosure" },
+    options: [],
+    optionGroups: [
+      { title: "Frameless Shower Boxes", options: showerBoxOptions("Frameless Shower Box", true) },
+      { title: "Sliding Shower Boxes", options: showerBoxOptions("Sliding Shower Box", true) },
     ],
-    options: showerBoxOptions("Sliding Shower Box", true),
     showerSets: showerSetOptions,
   },
   {
     slug: "fence-glass",
     title: "Fence Glass",
     cardTitle: "Fence Glass",
-    description: "Silver and black fence glass, plus custom-made stairs glass.",
-    intro: "Explore the listed fence glass and custom-made stairs glass options, then contact JP Glass to discuss your project.",
-    image: "/images/hero-deck-balustrade.jpg",
-    alt: "Clear glass fence panels along a timber deck",
-    imageIsIllustrative: false,
-    number: "03",
+    description: "Fence glass with a choice of silver or black support hardware.",
+    intro: "Explore fence glass and support hardware options, then contact JP Glass to discuss your project.",
+    image: "/images/service-fence-glass.jpg",
+    alt: "Glass fence panels with dark supports along an outdoor deck",
+    imageIsIllustrative: true,
+    number: "02",
     examples: [
       { title: "Glass fence panels on a deck", image: "/images/hero-deck-balustrade.jpg", alt: "Clear glass fence panels along a timber deck", isIllustrative: false },
-      { title: "Stair handrail and glass panels", image: "/images/glass-stair-handrail.jpg", alt: "Glass panels and a metal handrail following an indoor staircase", isIllustrative: false },
+      { title: "Glass fence panels beside a home", image: "/images/glass-pool-fence-upright.jpg", alt: "Clear glass fence panels with metal supports", isIllustrative: false },
     ],
     options: [
       { name: "Silver Fence Glass", tone: "#b9c3ca", note: "Silver finish", image: "/images/glass-pool-fence-upright.jpg", imageAlt: "Glass fence with silver metal spigots" },
       { name: "Black Fence Glass", tone: "#202a32", note: "Black finish", image: "/images/hero-glass-balustrade.jpg", imageAlt: "Dark tinted glass fence panels on a home balcony" },
-      { name: "Custom-Made Stairs Glass", tone: "#dceef3", note: "Custom-made glass", image: "/images/glass-stair-handrail.jpg", imageAlt: "Glass panels fitted along an indoor staircase" },
     ],
     glassSupports: [
       { name: "Silver Round Glass Standoffs", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-round-standoffs.jpg", imageAlt: "Silver round glass standoff fixed through a glass panel" },
@@ -152,14 +140,33 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "pool-fencing",
+    title: "Pool Fence Glass",
+    cardTitle: "Pool Fence Glass",
+    description: "Pool fence glass in silver or black.",
+    intro: "Choose from silver or black pool fence glass. Contact JP Glass to discuss your site and project requirements.",
+    image: "/images/service-pool-fence-glass.jpg",
+    alt: "Glass pool fencing around a swimming pool",
+    imageIsIllustrative: true,
+    number: "03",
+    examples: [
+      { title: "Frameless glass pool fence", image: "/images/glass-pool-fence-upright.jpg", alt: "Frameless glass pool fence with stainless steel spigots beside a home", isIllustrative: false },
+      { title: "Outdoor boundary concept", image: "/images/custom-placeholder.svg", alt: "Illustrative glass boundary panels in a landscaped space" },
+    ],
+    options: [
+      { name: "Silver Pool Fence Glass", tone: "#b9c3ca", note: "Silver finish", image: "/images/glass-pool-fence-upright.jpg", imageAlt: "Glass pool fence with silver metal spigots" },
+      { name: "Black Pool Fence Glass", tone: "#202a32", note: "Black finish" },
+    ],
+  },
+  {
     slug: "handrails",
     title: "Handrails",
     cardTitle: "Handrails",
     description: "Silver and black handrails, including all fittings.",
     intro: "Choose from silver or black handrails, including all fittings. Contact JP Glass to discuss your project.",
-    image: "/images/glass-stair-handrail.jpg",
-    alt: "Glass balustrade and metal handrail following an indoor staircase",
-    imageIsIllustrative: false,
+    image: "/images/service-handrails.jpg",
+    alt: "Metal handrails and glass balustrade beside an indoor staircase",
+    imageIsIllustrative: true,
     number: "04",
     examples: [
       { title: "Glass stair balustrade with a metal handrail", image: "/images/glass-stair-handrail.jpg", alt: "Glass balustrade and metal handrail following an indoor staircase", isIllustrative: false },
@@ -171,22 +178,20 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "pool-fencing",
-    title: "Pool Fence Glass",
-    cardTitle: "Pool Fence Glass",
-    description: "Pool fence glass in silver or black.",
-    intro: "Choose from silver or black pool fence glass. Contact JP Glass to discuss your site and project requirements.",
-    image: "/images/glass-pool-fence-upright.jpg",
-    alt: "Frameless glass pool fence with stainless steel spigots beside a home",
-    imageIsIllustrative: false,
+    slug: "custom-stairs-glass",
+    title: "Custom Stairs Glass",
+    cardTitle: "Custom Stairs Glass",
+    description: "Custom-made glass panels for stairways.",
+    intro: "Explore a glass stair installation example and contact JP Glass to discuss a custom solution for your staircase.",
+    image: "/images/service-custom-stairs-glass.jpg",
+    alt: "Custom glass panels fitted along a staircase",
+    imageIsIllustrative: true,
     number: "05",
     examples: [
-      { title: "Frameless glass pool fence", image: "/images/glass-pool-fence-upright.jpg", alt: "Frameless glass pool fence with stainless steel spigots beside a home", isIllustrative: false },
-      { title: "Outdoor boundary concept", image: "/images/custom-placeholder.svg", alt: "Illustrative glass boundary panels in a landscaped space" },
+      { title: "Glass panels along an indoor staircase", image: "/images/glass-stair-handrail.jpg", alt: "Glass panels fitted along an indoor staircase", isIllustrative: false },
     ],
     options: [
-      { name: "Silver Pool Fence Glass", tone: "#b9c3ca", note: "Silver finish", image: "/images/glass-pool-fence-upright.jpg", imageAlt: "Glass pool fence with silver metal spigots" },
-      { name: "Black Pool Fence Glass", tone: "#202a32", note: "Black finish" },
+      { name: "Custom Stairs Glass", tone: "#dceef3", note: "Custom-made glass", image: "/images/glass-stair-handrail.jpg", imageAlt: "Glass panels fitted along an indoor staircase" },
     ],
   },
   {
@@ -195,9 +200,9 @@ export const services: Service[] = [
     cardTitle: "Outside Base & Glass",
     description: "Outside black base and glass.",
     intro: "Ask JP Glass about the outside black base and glass option for your project.",
-    image: "/images/hero-glass-balustrade.jpg",
-    alt: "Tinted glass balustrade panels on the exterior of a home",
-    imageIsIllustrative: false,
+    image: "/images/service-outside-base-glass.jpg",
+    alt: "Exterior glass balustrade with a dark base on a modern home",
+    imageIsIllustrative: true,
     number: "06",
     examples: [
       { title: "Exterior glass panels", image: "/images/hero-glass-balustrade.jpg", alt: "Tinted glass balustrade panels on the exterior of a home", isIllustrative: false },

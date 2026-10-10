@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import CTA from "@/components/CTA";
 import OptionImage from "@/components/OptionImage";
-import { getService, services } from "@/data/services";
+import { getService, services, type ServiceOption } from "@/data/services";
 import styles from "./service-detail.module.css";
 
 export function generateStaticParams() {
@@ -26,6 +26,21 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
   const { slug } = await params;
   const service = getService(slug);
   if (!service) notFound();
+
+  const renderOptionCards = (options: ServiceOption[]) => options.map((option) => (
+    <div className={styles.finish} key={option.name}>
+      {option.image ? (
+        <OptionImage src={option.image} alt={option.imageAlt ?? option.name} className={styles.optionImage} />
+      ) : (
+        <div className={styles.optionImagePlaceholder} aria-label={`Example photo needed for ${option.name}`}>
+          <span>Photo coming soon</span>
+        </div>
+      )}
+      <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />
+      <span className={styles.finishName}>{option.name}</span>
+      <span className={styles.finishNote}>{option.note}</span>
+    </div>
+  ));
 
   return (
     <main id="main-content">
@@ -48,26 +63,12 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           <div><p className="eyebrow">Product options</p><h2>Available options</h2></div>
           <p>The options listed here are supplied by JP Glass. Contact the team to discuss the right configuration for your project.</p>
         </div>
-        <div className={styles.finishGrid}>
-          {service.options.map((option) => (
-            <div className={styles.finish} key={option.name}>
-              {option.image ? (
-                <OptionImage
-                  src={option.image}
-                  alt={option.imageAlt ?? option.name}
-                  className={styles.optionImage}
-                />
-              ) : (
-                <div className={styles.optionImagePlaceholder} aria-label={`Example photo needed for ${option.name}`}>
-                  <span>Photo coming soon</span>
-                </div>
-              )}
-              <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />
-              <span className={styles.finishName}>{option.name}</span>
-              <span className={styles.finishNote}>{option.note}</span>
-            </div>
-          ))}
-        </div>
+        {service.optionGroups ? service.optionGroups.map((group) => (
+          <div className={styles.subOptionGroup} key={group.title}>
+            <h3 className={styles.subOptionHeading}>{group.title}</h3>
+            <div className={styles.finishGrid}>{renderOptionCards(group.options)}</div>
+          </div>
+        )) : <div className={styles.finishGrid}>{renderOptionCards(service.options)}</div>}
         {service.showerSets && (
           <div className={styles.subOptionGroup}>
             <h3 className={styles.subOptionHeading}>Shower set options</h3>
