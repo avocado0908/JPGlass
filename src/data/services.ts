@@ -28,6 +28,7 @@ export type Service = {
   optionGroups?: { title: string; options: ServiceOption[] }[];
   showerSets?: ServiceOption[];
   glassSupports?: ServiceOption[];
+  handrails?: ServiceOption[];
 };
 
 const showerSetOptions: ServiceOption[] = [
@@ -210,10 +211,31 @@ export const services: Service[] = [
     imageIsIllustrative: true,
     number: "05",
     examples: [
-      { title: "Glass panels along an indoor staircase", image: "/images/glass-stair-handrail.jpg", alt: "Glass panels fitted along an indoor staircase", isIllustrative: false },
+      { title: "Stair glass — Silver frame and handrail", image: "/images/custom-stairs/01-silver-framed-stair-glass.jpg", alt: "Silver-framed glass balustrade with handrail beside a timber staircase" },
+      { title: "Outdoor stair glass — Black standoffs", image: "/images/custom-stairs/02-black-standoff-outdoor-stairs.jpg", alt: "Outdoor timber stairs with glass panels secured by black standoffs" },
+      { title: "Glass stair balustrade — Silver handrail", image: "/images/custom-stairs/03-silver-standoff-glass-stairs.jpg", alt: "Indoor glass stair balustrade with silver handrail and standoffs" },
+      { title: "Glass stair balustrade — Black handrail", image: "/images/custom-stairs/04-black-handrail-glass-stairs.jpg", alt: "Indoor glass stair balustrade with black handrail and standoffs" },
+      { title: "Outdoor stair glass — Black standoffs", image: "/images/custom-stairs/05-black-standoff-outdoor-glass-stairs.jpg", alt: "Outdoor timber staircase with glass balustrade and black standoffs" },
+      { title: "Landing glass balustrade — Silver frame", image: "/images/custom-stairs/06-silver-framed-indoor-glass-stairs.jpg", alt: "Silver-framed glass balustrade at an indoor stair landing" },
+      { title: "Indoor stair glass — Silver handrail", image: "/images/custom-stairs/07-silver-glass-stairs-handrail.jpg", alt: "Silver handrail and glass panels beside carpeted stairs" },
+      { title: "Outdoor stair balustrade — Silver handrail", image: "/images/custom-stairs/08-silver-outdoor-glass-stairs.jpg", alt: "Silver handrail with glass balustrade beside outdoor tiled stairs" },
+      { title: "Framed stair glass — Black", image: "/images/custom-stairs/09-black-framed-glass-stairs.jpg", alt: "Black-framed glass balustrade beside an indoor timber staircase" },
+      { title: "Indoor stair glass — Silver handrail and standoffs", image: "/images/custom-stairs/10-silver-handrail-glass-stairs.jpg", alt: "Silver handrail and standoff-mounted glass panels along an indoor staircase" },
+      { title: "Stair glass — Silver frame and handrail", image: "/images/custom-stairs/11-silver-framed-stair-glass.jpg", alt: "Silver handrail beside framed glass panels in a stairwell" },
+      { title: "Outdoor stair balustrade — Silver handrail", image: "/images/custom-stairs/12-silver-outdoor-handrail-glass-stairs.jpg", alt: "Outdoor glass stair balustrade with silver handrail" },
     ],
     options: [
-      { name: "Custom Stairs Glass", tone: "#dceef3", note: "Custom-made glass", image: "/images/glass-stair-handrail.jpg", imageAlt: "Glass panels fitted along an indoor staircase" },
+      { name: "Glass Balustrade Panel — Clear", tone: "#dceef3", note: "Clear glass panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
+      { name: "Glass Balustrade Panel — Silver Frame", tone: "#b9c3ca", note: "Clear glass with silver frame", image: "/images/custom-stairs/clear-glass-silver-frame.png", imageAlt: "Clear glass balustrade panel with a silver frame" },
+      { name: "Glass Balustrade Panel — Black Frame", tone: "#202a32", note: "Clear glass with black frame", image: "/images/custom-stairs/clear-glass-black-frame.png", imageAlt: "Clear glass balustrade panel with a black frame" },
+    ],
+    glassSupports: [
+      { name: "Silver Round Glass Standoffs", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-round-standoffs.jpg", imageAlt: "Silver round glass standoff fixed through a glass panel" },
+      { name: "Black Round Glass Standoffs", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-round-standoffs.jpg", imageAlt: "Black round glass standoff fixed through a glass panel" },
+    ],
+    handrails: [
+      { name: "Silver Handrail", tone: "#b9c3ca", note: "Including all fittings", image: "/images/handrails/option-silver-handrail.jpg", imageAlt: "Close-up of a silver handrail and bracket" },
+      { name: "Black Handrail", tone: "#202a32", note: "Including all fittings", image: "/images/handrails/option-black-handrail.jpg", imageAlt: "Close-up of a black handrail and bracket" },
     ],
   },
   {

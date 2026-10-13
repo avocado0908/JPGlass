@@ -104,6 +104,12 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             </div>
           </div>
         )}
+        {service.handrails && (
+          <div className={styles.subOptionGroup}>
+            <h3 className={styles.subOptionHeading}>Handrail options</h3>
+            <div className={styles.finishGrid}>{renderOptionCards(service.handrails)}</div>
+          </div>
+        )}
         <p className={styles.note}>Colour swatches are visual guides. Contact JP Glass to discuss your project requirements.</p>
         <Link href="/contact" className={styles.contactLink}>Ask about these options <ArrowUpRight size={16} /></Link>
       </section>
