@@ -137,8 +137,12 @@ export const services: Service[] = [
     imageIsIllustrative: true,
     number: "02",
     examples: [
-      { title: "Glass fence panels on a deck", image: "/images/hero-deck-balustrade.jpg", alt: "Clear glass fence panels along a timber deck", isIllustrative: false },
-      { title: "Glass fence panels beside a home", image: "/images/glass-pool-fence-upright.jpg", alt: "Clear glass fence panels with metal supports", isIllustrative: false },
+      { title: "Deck glass — Black standoffs", image: "/images/fence-glass/01-black-standoffs-deck.jpg", alt: "Clear glass deck fence secured with black standoffs", isIllustrative: false },
+      { title: "Fence glass — Silver standoffs", image: "/images/fence-glass/02-silver-standoffs-fence.jpg", alt: "Clear glass fence with silver standoff fixings", isIllustrative: false },
+      { title: "Deck glass — Black frame", image: "/images/fence-glass/03-black-frame-deck.png", alt: "Clear glass deck railing with a black frame", isIllustrative: false },
+      { title: "Fence glass — Black spigots and frame", image: "/images/fence-glass/04-black-spigots-frame.png", alt: "Clear glass deck fence supported by black spigots with a dark frame", isIllustrative: false },
+      { title: "Deck glass — Black standoffs and frame", image: "/images/fence-glass/05-black-standoffs-black-frame.png", alt: "Clear glass deck balustrade with black standoffs and frame", isIllustrative: false },
+      { title: "Fence glass — Black standoffs", image: "/images/fence-glass/06-black-standoffs-railing.png", alt: "Outdoor glass railing with black standoff hardware", isIllustrative: false },
     ],
     options: [
       { name: "Silver Fence Glass", tone: "#b9c3ca", note: "Silver finish", image: "/images/glass-pool-fence-upright.jpg", imageAlt: "Glass fence with silver metal spigots" },
@@ -163,7 +167,8 @@ export const services: Service[] = [
     number: "03",
     examples: [
       { title: "Frameless glass pool fence", image: "/images/glass-pool-fence-upright.jpg", alt: "Frameless glass pool fence with stainless steel spigots beside a home", isIllustrative: false },
-      { title: "Outdoor boundary concept", image: "/images/custom-placeholder.svg", alt: "Illustrative glass boundary panels in a landscaped space" },
+      { title: "Pool fence glass — Silver spigots", image: "/images/pool-fence/01-silver-spigots-pool-fence.png", alt: "Frameless pool fence with silver spigots beside a swimming pool", isIllustrative: false },
+      { title: "Pool fence glass — Silver spigots and frame", image: "/images/pool-fence/02-silver-spigots-silver-frame-pool-fence.png", alt: "Pool fence glass with silver spigots and a silver frame beside a home", isIllustrative: false },
     ],
     options: [
       { name: "Silver Pool Fence Glass", tone: "#b9c3ca", note: "Silver finish", image: "/images/glass-pool-fence-upright.jpg", imageAlt: "Glass pool fence with silver metal spigots" },
@@ -194,6 +199,7 @@ export const services: Service[] = [
       { title: "Glass stair balustrade and handrail — Black", image: "/images/handrails/11-black-glass-stair-handrail.jpg", alt: "Black handrail fitted beside glass panels and carpeted stairs" },
       { title: "Wall-mounted stair handrail — Silver", image: "/images/handrails/12-silver-wall-handrail.jpg", alt: "Silver wall-mounted handrail above a white staircase" },
       { title: "Framed glass handrail — Silver", image: "/images/handrails/13-silver-framed-glass-handrail.jpg", alt: "Silver handrail and glass railing above an indoor staircase" },
+      { title: "Framed glass handrail — Black", image: "/images/handrails/14-black-handrail-black-frame.png", alt: "Black handrail with a black-framed glass balustrade beside carpeted stairs" },
     ],
     options: [
       { name: "Silver Handrail", tone: "#b9c3ca", note: "Including all fittings", image: "/images/handrails/option-silver-handrail.jpg", imageAlt: "Close-up of a silver wall-mounted handrail and bracket" },
