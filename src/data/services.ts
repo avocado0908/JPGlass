@@ -249,8 +249,14 @@ export const services: Service[] = [
     imageIsIllustrative: true,
     number: "06",
     examples: [
-      { title: "Exterior glass panels", image: "/images/hero-glass-balustrade.jpg", alt: "Tinted glass balustrade panels on the exterior of a home", isIllustrative: false },
-      { title: "Outdoor glass concept", image: "/images/glass-placeholder.svg", alt: "Illustrative glass panels in an outdoor setting" },
+      { title: "Balcony glass — Silver standoffs and black base", image: "/images/outside/01-silver-standoffs-black-base.jpg", alt: "Clear glass balcony balustrade with silver standoffs and a dark base", isIllustrative: false },
+      { title: "Balcony glass — Black frame", image: "/images/outside/02-black-frame-balcony.jpg", alt: "Glass balcony balustrade with a black frame on a modern home", isIllustrative: false },
+      { title: "Balcony glass — Black frame", image: "/images/outside/03-black-frame-balcony.png", alt: "Black-framed glass balcony railing on a white home", isIllustrative: false },
+      { title: "Balcony glass — Black glass and frame", image: "/images/outside/04-black-glass-black-frame.png", alt: "Dark glass balcony balustrade with a black base frame", isIllustrative: false },
+      { title: "Balcony glass — Silver spigots", image: "/images/outside/05-silver-spigots-balcony.png", alt: "Clear glass balcony balustrade supported by silver spigots", isIllustrative: false },
+      { title: "Balcony glass — Black spigots", image: "/images/outside/06-black-spigots-balcony.png", alt: "Clear glass balcony balustrade supported by black spigots", isIllustrative: false },
+      { title: "Balcony glass — Black standoffs and frame", image: "/images/outside/07-black-standoffs-balcony.png", alt: "Dark glass balcony balustrade fixed with black standoffs and frame", isIllustrative: false },
+      { title: "Balcony glass — Silver standoffs", image: "/images/outside/08-silver-standoffs-balcony.png", alt: "Clear glass balcony balustrade with silver standoffs and a timber base", isIllustrative: false },
     ],
     options: [
       { name: "Outside Black Base and Glass", tone: "#202a32", note: "Black base with glass", image: "/images/hero-deck-balustrade.jpg", imageAlt: "Outdoor glass fence with dark fixing hardware along a timber deck" },
