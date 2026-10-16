@@ -74,6 +74,27 @@ const straightAdditionalExamples: Record<string, string> = {
   Gold: "/images/shower-boxes/frameless-straight-showerbox-gold.png",
 };
 
+const slidingStraightExamples: Record<string, string> = {
+  Silver: "/images/shower-boxes/sliding-shower-straight-silver.png",
+  Black: "/images/shower-boxes/sliding-shower-straight-black.png",
+  Gunmetal: "/images/shower-boxes/sliding-shower-straight-gunmetal.png",
+  "Brushed Nickel": "/images/shower-boxes/sliding-shower-straight-brushed-nickel.png",
+  Gold: "/images/shower-boxes/sliding-shower-straight-gold.png",
+};
+
+const slidingRectangularExamples: Record<string, string> = {
+  Silver: "/images/shower-boxes/sliding-shower-rectangular-silver.png",
+  Black: "/images/shower-boxes/sliding-shower-rectangular-black.png",
+  Gunmetal: "/images/shower-boxes/sliding-shower-rectangular-gunmetal.png",
+  "Brushed Nickel": "/images/shower-boxes/sliding-shower-rectangular-brushed-nickel.png",
+  Gold: "/images/shower-boxes/sliding-shower-rectangular-gold.png",
+};
+
+const slidingAdditionalExamples: Record<string, string> = {
+  Black: "/images/shower-boxes/sliding-shower-straight-black-02.jpg",
+  "Brushed Nickel": "/images/shower-boxes/sliding-shower-straight-brushed-nickel-02.png",
+};
+
 export default function FramelessShowerSelector({ shapes, colours, variant = "frameless" }: FramelessShowerSelectorProps) {
   const [selectedColours, setSelectedColours] = useState<Record<string, string>>({});
   const [imageIndexes, setImageIndexes] = useState<Record<string, number>>({});
@@ -84,9 +105,11 @@ export default function FramelessShowerSelector({ shapes, colours, variant = "fr
         {shapes.map((shape, index) => {
           const selectedColour = selectedColours[shape] ?? "Silver";
           const images = temporaryExamples[selectedColour] ?? temporaryExamples.Silver;
-          const slidingImages = [images[index % images.length], images[(index + 1) % images.length]];
+          const slidingPrimaryImage = shape === "Rectangular"
+            ? slidingRectangularExamples[selectedColour]
+            : slidingStraightExamples[selectedColour] ?? images[index % images.length];
           const primaryImage = variant === "sliding"
-            ? slidingImages[0]
+            ? slidingPrimaryImage
             : shape === "Diamond"
             ? diamondExamples[selectedColour]
             : shape === "Rectangular"
@@ -95,7 +118,9 @@ export default function FramelessShowerSelector({ shapes, colours, variant = "fr
                 ? straightExamples[selectedColour]
                 : images[index] ?? images[0];
           const imageSet = variant === "sliding"
-            ? slidingImages
+            ? shape === "Straight" && slidingAdditionalExamples[selectedColour]
+              ? [primaryImage, slidingAdditionalExamples[selectedColour]]
+              : [primaryImage]
             : shape === "Diamond" && selectedColour === "Silver"
             ? [primaryImage, "/images/shower-marble-bathroom.jpg"]
             : shape === "Diamond" && selectedColour === "Black"
