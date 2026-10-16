@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import CTA from "@/components/CTA";
 import OptionImage from "@/components/OptionImage";
 import ServiceExampleGallery from "@/components/ServiceExampleGallery";
@@ -53,9 +53,14 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           <p className={styles.intro}>{service.intro}</p>
           <Link href="/contact" className="button button-primary">Discuss your project <ArrowUpRight size={17} /></Link>
         </div>
-        <figure className={styles.heroImage}>
-          <Image src={service.image} alt={service.alt} fill priority sizes="(max-width: 760px) 100vw, 58vw" />
-        </figure>
+        <div className={styles.heroVisual}>
+          <figure className={styles.heroImage}>
+            <Image src={service.image} alt={service.alt} fill priority sizes="(max-width: 760px) 100vw, 58vw" />
+          </figure>
+          <Link href="#example-looks" className={`text-link ${styles.viewExamples}`}>
+            View example looks <ArrowRight size={15} />
+          </Link>
+        </div>
       </section>
 
       <section className={`${styles.finishes} wrap`}>
@@ -115,7 +120,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
       </section>
 
 
-      <section className={styles.examples}>
+      <section id="example-looks" className={styles.examples}>
         <div className="wrap">
           <div className={styles.sectionHeading}>
             <div><p className="eyebrow">Style references</p><h2>Example looks</h2></div>
