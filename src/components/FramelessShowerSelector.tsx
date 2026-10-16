@@ -8,6 +8,7 @@ import styles from "./frameless-shower-selector.module.css";
 type FramelessShowerSelectorProps = {
   shapes: ShowerBoxShape[];
   colours: ServiceOption[];
+  variant?: "frameless" | "sliding";
 };
 
 const temporaryExamples: Record<string, string[]> = {
@@ -54,6 +55,11 @@ const rectangularExamples: Record<string, string> = {
   Gold: "/images/shower-boxes/frameless-shower-box-rectangular-gold.png",
 };
 
+const rectangularAdditionalExamples: Record<string, string> = {
+  Gunmetal: "/images/shower-boxes/frameless-rectangular-showerbox-gunmetal.png",
+  Gold: "/images/shower-boxes/frameless-rectangular-showerbox-gold.png",
+};
+
 const straightExamples: Record<string, string> = {
   Silver: "/images/shower-boxes/frameless-shower-box-straight-silver.png",
   Black: "/images/shower-boxes/frameless-shower-box-straight-black.png",
@@ -62,34 +68,86 @@ const straightExamples: Record<string, string> = {
   Gold: "/images/shower-boxes/frameless-shower-box-straight-gold.png",
 };
 
-export default function FramelessShowerSelector({ shapes, colours }: FramelessShowerSelectorProps) {
+const straightAdditionalExamples: Record<string, string> = {
+  Silver: "/images/shower-boxes/frameless-straight-showerbox-silver-02.jpg",
+  Black: "/images/shower-boxes/frameless-straight-showerbox-black-02.jpg",
+  Gold: "/images/shower-boxes/frameless-straight-showerbox-gold.png",
+};
+
+export default function FramelessShowerSelector({ shapes, colours, variant = "frameless" }: FramelessShowerSelectorProps) {
   const [selectedColours, setSelectedColours] = useState<Record<string, string>>({});
+  const [imageIndexes, setImageIndexes] = useState<Record<string, number>>({});
 
   return (
     <div className={styles.selector}>
-      <div className={styles.shapeGrid}>
+      <div className={`${styles.shapeGrid} ${variant === "sliding" ? styles.twoShapeGrid : ""}`}>
         {shapes.map((shape, index) => {
           const selectedColour = selectedColours[shape] ?? "Silver";
           const images = temporaryExamples[selectedColour] ?? temporaryExamples.Silver;
-          const image = shape === "Diamond"
+          const slidingImages = [images[index % images.length], images[(index + 1) % images.length]];
+          const primaryImage = variant === "sliding"
+            ? slidingImages[0]
+            : shape === "Diamond"
             ? diamondExamples[selectedColour]
             : shape === "Rectangular"
               ? rectangularExamples[selectedColour]
               : shape === "Straight"
                 ? straightExamples[selectedColour]
                 : images[index] ?? images[0];
+          const imageSet = variant === "sliding"
+            ? slidingImages
+            : shape === "Diamond" && selectedColour === "Silver"
+            ? [primaryImage, "/images/shower-marble-bathroom.jpg"]
+            : shape === "Diamond" && selectedColour === "Black"
+              ? [primaryImage, "/images/shower-boxes/frameless-diamond-corner-showerbox-black-01.jpg"]
+              : shape === "Diamond" && selectedColour === "Gold"
+                ? [primaryImage, "/images/shower-boxes/frameless-diamond-corner-showerbox-gold-03.png"]
+                : shape === "Rectangular" && rectangularAdditionalExamples[selectedColour]
+                  ? [primaryImage, rectangularAdditionalExamples[selectedColour]]
+                : shape === "Straight" && straightAdditionalExamples[selectedColour]
+                  ? [primaryImage, straightAdditionalExamples[selectedColour]]
+                  : [primaryImage];
+          const imageIndex = Math.min(imageIndexes[shape] ?? 0, imageSet.length - 1);
+          const image = imageSet[imageIndex];
 
           return (
             <article className={styles.shapeCard} key={shape}>
               <div className={styles.shapeImage}>
                 <Image
-                  key={`${shape}-${selectedColour}`}
+                  key={`${shape}-${selectedColour}-${imageIndex}`}
                   src={image}
-                  alt={`Temporary ${selectedColour} finish example for a ${shape.toLowerCase()} frameless shower box`}
+                  alt={`${selectedColour} finish example for a ${shape.toLowerCase()} ${variant} shower box`}
                   fill
                   sizes="(max-width: 760px) 100vw, 33vw"
                   className={styles.fadeImage}
                 />
+                {imageSet.length > 1 && (
+                  <div className={styles.carouselControls} aria-label={`${shape} ${selectedColour} image gallery`}>
+                    <button
+                      className={styles.carouselButton}
+                      type="button"
+                      aria-label="Show previous image"
+                      onClick={() => setImageIndexes((current) => ({
+                        ...current,
+                        [shape]: (imageIndex - 1 + imageSet.length) % imageSet.length,
+                      }))}
+                    >
+                      ‹
+                    </button>
+                    <span className={styles.carouselCount} aria-live="polite">{imageIndex + 1} / {imageSet.length}</span>
+                    <button
+                      className={styles.carouselButton}
+                      type="button"
+                      aria-label="Show next image"
+                      onClick={() => setImageIndexes((current) => ({
+                        ...current,
+                        [shape]: (imageIndex + 1) % imageSet.length,
+                      }))}
+                    >
+                      ›
+                    </button>
+                  </div>
+                )}
               </div>
               <h4 className={styles.shapeName}>{shape}</h4>
               <div className={styles.cardColourSection}>
@@ -104,7 +162,10 @@ export default function FramelessShowerSelector({ shapes, colours }: FramelessSh
                       key={colour.name}
                       type="button"
                       aria-pressed={selectedColour === colour.name}
-                      onClick={() => setSelectedColours((current) => ({ ...current, [shape]: colour.name }))}
+                      onClick={() => {
+                        setSelectedColours((current) => ({ ...current, [shape]: colour.name }));
+                        setImageIndexes((current) => ({ ...current, [shape]: 0 }));
+                      }}
                     >
                       <span className={styles.colourSwatch} style={{ backgroundColor: colour.tone }} aria-hidden="true" />
                       <span>{colour.name}</span>

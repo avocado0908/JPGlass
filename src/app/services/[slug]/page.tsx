@@ -72,8 +72,12 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         {service.optionGroups ? service.optionGroups.map((group) => (
           <div className={styles.subOptionGroup} key={group.title}>
             <h3 className={styles.subOptionHeading}>{group.title}</h3>
-            {group.title === "Frameless Shower Boxes" && group.shapes ? (
-              <FramelessShowerSelector shapes={group.shapes} colours={group.options} />
+            {group.shapes && (group.title === "Frameless Shower Boxes" || group.title === "Sliding Shower Boxes") ? (
+              <FramelessShowerSelector
+                shapes={group.shapes}
+                colours={group.options}
+                variant={group.title === "Sliding Shower Boxes" ? "sliding" : "frameless"}
+              />
             ) : (
               <>
                 {group.shapes && (
