@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import CTA from "@/components/CTA";
+import FramelessShowerSelector from "@/components/FramelessShowerSelector";
 import OptionImage from "@/components/OptionImage";
 import ServiceExampleGallery from "@/components/ServiceExampleGallery";
 import { getService, services, type ServiceOption } from "@/data/services";
@@ -71,7 +72,35 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         {service.optionGroups ? service.optionGroups.map((group) => (
           <div className={styles.subOptionGroup} key={group.title}>
             <h3 className={styles.subOptionHeading}>{group.title}</h3>
-            <div className={styles.finishGrid}>{renderOptionCards(group.options)}</div>
+            {group.title === "Frameless Shower Boxes" && group.shapes ? (
+              <FramelessShowerSelector shapes={group.shapes} colours={group.options} />
+            ) : (
+              <>
+                {group.shapes && (
+                  <div className={styles.shapes}>
+                    <h4 className={styles.optionLabel}>Available shapes</h4>
+                    <div className={styles.shapeGrid}>
+                      {group.shapes.map((shape) => (
+                        <div className={styles.shapeCard} key={shape}>
+                          <svg viewBox="0 0 72 54" aria-hidden="true" className={styles.shapeIcon}>
+                            {shape === "Diamond" ? (
+                              <path d="M15 44V27L36 8l21 19v17H15Z" />
+                            ) : shape === "Rectangular" ? (
+                              <path d="M16 9h40v35H16z" />
+                            ) : (
+                              <path d="M20 9h32v35H20z" />
+                            )}
+                          </svg>
+                          <span>{shape}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                <h4 className={styles.optionLabel}>Hardware finishes</h4>
+                <div className={styles.finishGrid}>{renderOptionCards(group.options)}</div>
+              </>
+            )}
           </div>
         )) : <div className={styles.finishGrid}>{renderOptionCards(service.options)}</div>}
         {service.showerSets && (

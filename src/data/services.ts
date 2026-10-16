@@ -13,6 +13,8 @@ export type ServiceOption = {
   imageAlt?: string;
 };
 
+export type ShowerBoxShape = "Diamond" | "Rectangular" | "Straight";
+
 export type Service = {
   slug: string;
   title: string;
@@ -25,7 +27,7 @@ export type Service = {
   number: string;
   examples: ServiceExample[];
   options: ServiceOption[];
-  optionGroups?: { title: string; options: ServiceOption[] }[];
+  optionGroups?: { title: string; options: ServiceOption[]; shapes?: ShowerBoxShape[] }[];
   showerSets?: ServiceOption[];
   glassSupports?: ServiceOption[];
   handrails?: ServiceOption[];
@@ -37,9 +39,9 @@ const showerSetOptions: ServiceOption[] = [
   { name: "Gold Shower Set", tone: "#b9975b", note: "Gold finish" },
 ];
 
-const showerBoxOptions = (boxType: string, includeGold = false): ServiceOption[] => [
+const showerBoxOptions = (boxType: string): ServiceOption[] => [
   {
-    name: `Silver ${boxType}`,
+    name: "Silver",
     tone: "#b9c3ca",
     note: "Silver finish",
     ...(boxType === "Frameless Shower Box"
@@ -49,7 +51,7 @@ const showerBoxOptions = (boxType: string, includeGold = false): ServiceOption[]
         : {}),
   },
   {
-    name: `Black ${boxType}`,
+    name: "Black",
     tone: "#202a32",
     note: "Black finish",
     ...(boxType === "Frameless Shower Box"
@@ -59,7 +61,7 @@ const showerBoxOptions = (boxType: string, includeGold = false): ServiceOption[]
         : {}),
   },
   {
-    name: `Gunmetal ${boxType}`,
+    name: "Gunmetal",
     tone: "#515b65",
     note: "Gunmetal finish",
     ...(boxType === "Frameless Shower Box"
@@ -69,7 +71,7 @@ const showerBoxOptions = (boxType: string, includeGold = false): ServiceOption[]
         : {}),
   },
   {
-    name: `Brushed Nickel ${boxType}`,
+    name: "Brushed Nickel",
     tone: "#a4adb2",
     note: "Brushed nickel finish",
     ...(boxType === "Frameless Shower Box"
@@ -78,18 +80,16 @@ const showerBoxOptions = (boxType: string, includeGold = false): ServiceOption[]
         ? { image: "/images/sliding-box-brushed-nickel.jpg", imageAlt: "Sliding shower box with brushed nickel hardware" }
         : {}),
   },
-  ...(includeGold
-    ? [{
-        name: `Gold ${boxType}`,
-        tone: "#b9975b",
-        note: "Gold finish",
-        ...(boxType === "Frameless Shower Box"
-          ? { image: "/images/frameless-box-gold.jpg", imageAlt: "Frameless shower box with gold hardware" }
-          : boxType === "Sliding Shower Box"
-            ? { image: "/images/sliding-box-gold.jpg", imageAlt: "Sliding shower box with gold hardware" }
-            : {}),
-      }]
-    : []),
+  {
+    name: "Gold",
+    tone: "#b9975b",
+    note: "Gold finish",
+    ...(boxType === "Frameless Shower Box"
+      ? { image: "/images/frameless-box-gold.jpg", imageAlt: "Frameless shower box with gold hardware" }
+      : boxType === "Sliding Shower Box"
+        ? { image: "/images/sliding-box-gold.jpg", imageAlt: "Sliding shower box with gold hardware" }
+        : {}),
+  },
 ];
 
 export const services: Service[] = [
@@ -121,8 +121,8 @@ export const services: Service[] = [
     ],
     options: [],
     optionGroups: [
-      { title: "Frameless Shower Boxes", options: showerBoxOptions("Frameless Shower Box", true) },
-      { title: "Sliding Shower Boxes", options: showerBoxOptions("Sliding Shower Box", true) },
+      { title: "Frameless Shower Boxes", shapes: ["Diamond", "Rectangular", "Straight"], options: showerBoxOptions("Frameless Shower Box") },
+      { title: "Sliding Shower Boxes", shapes: ["Rectangular", "Straight"], options: showerBoxOptions("Sliding Shower Box") },
     ],
     showerSets: showerSetOptions,
   },
