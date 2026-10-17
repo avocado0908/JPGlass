@@ -79,9 +79,31 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           <div><p className="eyebrow">Product options</p><h2>Available options</h2></div>
           <p>The options listed here are supplied by JP Glass. Contact the team to discuss the right configuration for your project.</p>
         </div>
+        {service.slug === "shower-boxes" && (
+          <nav className={styles.showerOptionCards} aria-label="Available shower box options">
+            <a className={styles.showerOptionCard} href="#frameless-shower-box">
+              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/frameless-straight-showerbox-black-02.jpg" alt="Black frameless straight shower box" fill sizes="(max-width: 640px) 100vw, 33vw" /></span>
+              <span className={styles.showerOptionTitle}>Frameless Shower Box</span>
+            </a>
+            <a className={styles.showerOptionCard} href="#sliding-shower-box">
+              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/sliding-straight-shower-silver.png" alt="Silver straight sliding shower box" fill sizes="(max-width: 640px) 100vw, 33vw" /></span>
+              <span className={styles.showerOptionTitle}>Sliding Shower Box</span>
+            </a>
+            <a className={styles.showerOptionCard} href="#no-door-shower-box">
+              <span className={styles.showerOptionImage}><Image src="/images/shower-grey-walk-in.jpg" alt="No door walk-in shower screen" fill sizes="(max-width: 640px) 100vw, 33vw" /></span>
+              <span className={styles.showerOptionTitle}>No Door Shower Box</span>
+            </a>
+          </nav>
+        )}
         {service.optionGroups ? service.optionGroups.map((group) => (
-          <div className={styles.subOptionGroup} key={group.title}>
-            <h3 className={styles.subOptionHeading}>{group.title}</h3>
+          <div
+            className={`${styles.subOptionGroup} ${styles.showerChoiceSection}`}
+            id={group.title === "Frameless Shower Boxes" ? "frameless-shower-box" : group.title === "Sliding Shower Boxes" ? "sliding-shower-box" : undefined}
+            key={group.title}
+          >
+            <h3 className={styles.subOptionHeading}>
+              {group.title === "Frameless Shower Boxes" ? "Frameless Shower Box" : group.title === "Sliding Shower Boxes" ? "Sliding Shower Box" : group.title}
+            </h3>
             {group.shapes && (group.title === "Frameless Shower Boxes" || group.title === "Sliding Shower Boxes") ? (
               <FramelessShowerSelector
                 shapes={group.shapes}
@@ -117,6 +139,13 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             )}
           </div>
         )) : service.options.length > 0 ? <div className={styles.finishGrid}>{renderOptionCards(service.options)}</div> : null}
+        {service.noDoorExamples && (
+          <div className={`${styles.subOptionGroup} ${styles.showerChoiceSection}`} id="no-door-shower-box">
+            <h3 className={styles.subOptionHeading}>No Door Shower Box</h3>
+            <p className={styles.showerChoiceDescription}>Explore open walk-in shower screens without a door. Select an image to view it larger.</p>
+            <ServiceExampleGallery examples={service.noDoorExamples} />
+          </div>
+        )}
         {service.glassPanels && (
           <div className={styles.subOptionGroup}>
             <h3 className={styles.subOptionHeading}>Glass Balustrade Panel options</h3>

@@ -30,6 +30,7 @@ export type Service = {
   optionGroups?: { title: string; options: ServiceOption[]; shapes?: ShowerBoxShape[] }[];
   glassPanels?: ServiceOption[];
   showerSets?: ServiceOption[];
+  noDoorExamples?: ServiceExample[];
   glassSupports?: ServiceOption[];
   handrails?: ServiceOption[];
 };
@@ -103,7 +104,7 @@ export const services: Service[] = [
     image: "/images/service-shower-boxes.jpg",
     alt: "Frameless glass shower enclosure in a modern neutral bathroom",
     imageIsIllustrative: true,
-    number: "01",
+    number: "03",
     examples: [
       { title: "Frameless Shower Box — Silver", image: "/images/shower-marble-bathroom.jpg", alt: "Glass shower enclosure in a marble tiled bathroom" },
       { title: "Frameless Shower Box — Black", image: "/images/shower-black-framed-marble.jpg", alt: "Black-framed glass shower with marble wall tiles" },
@@ -120,43 +121,17 @@ export const services: Service[] = [
       { title: "Frameless Shower Box — Black", image: "/images/shower-geometric-tile.jpg", alt: "Glass shower with geometric patterned bathroom tiles" },
       { title: "Frameless Shower Box — Gold", image: "/images/shower-frameless-gold-custom.jpg", alt: "Frameless glass shower box with gold hardware in a stone-tiled bathroom" },
     ],
+    noDoorExamples: [
+      { title: "No Door Shower Box", image: "/images/shower-grey-walk-in.jpg", alt: "Walk-in shower screen without a door" },
+      { title: "No Door Shower Box", image: "/images/shower-marble-walk-in.jpg", alt: "Walk-in shower enclosure without a door" },
+      { title: "No Door Shower Box", image: "/images/shower-marble-tile-walk-in.jpg", alt: "Open walk-in shower screen without a door" },
+    ],
     options: [],
     optionGroups: [
       { title: "Frameless Shower Boxes", shapes: ["Diamond", "Rectangular", "Straight"], options: showerBoxOptions("Frameless Shower Box") },
       { title: "Sliding Shower Boxes", shapes: ["Rectangular", "Straight"], options: showerBoxOptions("Sliding Shower Box") },
     ],
     showerSets: showerSetOptions,
-  },
-  {
-    slug: "fence-glass",
-    title: "Fence Glass",
-    cardTitle: "Fence Glass",
-    description: "Fence glass with a choice of silver or black support hardware.",
-    intro: "Explore fence glass and support hardware options, then contact JP Glass to discuss your project.",
-    image: "/images/service-fence-glass.jpg",
-    alt: "Glass fence panels with dark supports along an outdoor deck",
-    imageIsIllustrative: true,
-    number: "02",
-    examples: [
-      { title: "Deck glass — Black standoffs", image: "/images/fence-glass/01-black-standoffs-deck.jpg", alt: "Clear glass deck fence secured with black standoffs", isIllustrative: false },
-      { title: "Fence glass — Silver standoffs", image: "/images/fence-glass/02-silver-standoffs-fence.jpg", alt: "Clear glass fence with silver standoff fixings", isIllustrative: false },
-      { title: "Deck glass — Black frame", image: "/images/fence-glass/03-black-frame-deck.png", alt: "Clear glass deck railing with a black frame", isIllustrative: false },
-      { title: "Fence glass — Black spigots and frame", image: "/images/fence-glass/04-black-spigots-frame.png", alt: "Clear glass deck fence supported by black spigots with a dark frame", isIllustrative: false },
-      { title: "Deck glass — Black standoffs and frame", image: "/images/fence-glass/05-black-standoffs-black-frame.png", alt: "Clear glass deck balustrade with black standoffs and frame", isIllustrative: false },
-      { title: "Fence glass — Black standoffs", image: "/images/fence-glass/06-black-standoffs-railing.png", alt: "Outdoor glass railing with black standoff hardware", isIllustrative: false },
-    ],
-    options: [
-    ],
-    glassPanels: [
-      { name: "Clear", tone: "#dceef3", note: "Clear glass balustrade panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
-      { name: "Euro Black", tone: "#252a2e", note: "Euro Black glass balustrade panel", image: "/images/fence-glass/euro-black-glass-panel.png", imageAlt: "Euro Black glass panel" },
-    ],
-    glassSupports: [
-      { name: "Silver Round Glass Standoffs", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-round-standoffs.jpg", imageAlt: "Silver round glass standoff fixed through a glass panel" },
-      { name: "Black Round Glass Standoffs", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-round-standoffs.jpg", imageAlt: "Black round glass standoff fixed through a glass panel" },
-      { name: "Silver Bottom Glass Spigots", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-bottom-spigots.jpg", imageAlt: "Silver bottom glass spigot supporting a glass panel" },
-      { name: "Black Bottom Glass Spigots", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-bottom-spigots.jpg", imageAlt: "Black bottom glass spigot supporting a glass panel" },
-    ],
   },
   {
     slug: "pool-fencing",
@@ -167,7 +142,7 @@ export const services: Service[] = [
     image: "/images/service-pool-fence-glass.jpg",
     alt: "Glass pool fencing around a swimming pool",
     imageIsIllustrative: true,
-    number: "03",
+    number: "02",
     examples: [
       { title: "Frameless glass pool fence", image: "/images/glass-pool-fence-upright.jpg", alt: "Frameless glass pool fence with stainless steel spigots beside a home", isIllustrative: false },
       { title: "Pool fence glass — Silver spigots", image: "/images/pool-fence/01-silver-spigots-pool-fence.png", alt: "Frameless pool fence with silver spigots beside a swimming pool", isIllustrative: false },
@@ -187,7 +162,7 @@ export const services: Service[] = [
     image: "/images/service-handrails.jpg",
     alt: "Metal handrails and glass balustrade beside an indoor staircase",
     imageIsIllustrative: true,
-    number: "04",
+    number: "05",
     examples: [
       { title: "Wall-mounted stair handrail — Silver", image: "/images/handrails/01-silver-wall-handrail.jpg", alt: "Silver handrail following a carpeted staircase" },
       { title: "Wall-mounted stair handrail — Black", image: "/images/handrails/02-black-wall-handrail.jpg", alt: "Black wall-mounted handrail following an indoor staircase" },
@@ -218,7 +193,7 @@ export const services: Service[] = [
     image: "/images/service-custom-stairs-glass.jpg",
     alt: "Custom glass panels fitted along a staircase",
     imageIsIllustrative: true,
-    number: "05",
+    number: "04",
     examples: [
       { title: "Stair glass — Silver frame and handrail", image: "/images/custom-stairs/01-silver-framed-stair-glass.jpg", alt: "Silver-framed glass balustrade with handrail beside a timber staircase" },
       { title: "Outdoor stair glass — Black standoffs", image: "/images/custom-stairs/02-black-standoff-outdoor-stairs.jpg", alt: "Outdoor timber stairs with glass panels secured by black standoffs" },
@@ -248,27 +223,43 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "outside-base-glass",
-    title: "Outside Base & Glass",
-    cardTitle: "Outside Base & Glass",
-    description: "Outside black base and glass.",
-    intro: "Ask JP Glass about the outside black base and glass option for your project.",
+    slug: "glass-balustrades",
+    title: "Glass Balustrades",
+    cardTitle: "Glass Balustrades",
+    description: "Glass balustrades for decks, balconies, and outdoor spaces, with a choice of panel and support options.",
+    intro: "Explore glass balustrade examples and choose from clear or Euro Black panels with silver or black support hardware. Contact JP Glass to discuss your project.",
     image: "/images/service-outside-base-glass.jpg",
     alt: "Exterior glass balustrade with a dark base on a modern home",
     imageIsIllustrative: true,
-    number: "06",
+    number: "01",
     examples: [
-      { title: "Balcony glass — Silver standoffs and black base", image: "/images/outside/01-silver-standoffs-black-base.jpg", alt: "Clear glass balcony balustrade with silver standoffs and a dark base", isIllustrative: false },
-      { title: "Balcony glass — Black frame", image: "/images/outside/02-black-frame-balcony.jpg", alt: "Glass balcony balustrade with a black frame on a modern home", isIllustrative: false },
-      { title: "Balcony glass — Black frame", image: "/images/outside/03-black-frame-balcony.png", alt: "Black-framed glass balcony railing on a white home", isIllustrative: false },
-      { title: "Balcony glass — Black glass and frame", image: "/images/outside/04-black-glass-black-frame.png", alt: "Dark glass balcony balustrade with a black base frame", isIllustrative: false },
-      { title: "Balcony glass — Silver spigots", image: "/images/outside/05-silver-spigots-balcony.png", alt: "Clear glass balcony balustrade supported by silver spigots", isIllustrative: false },
-      { title: "Balcony glass — Black spigots", image: "/images/outside/06-black-spigots-balcony.png", alt: "Clear glass balcony balustrade supported by black spigots", isIllustrative: false },
-      { title: "Balcony glass — Black standoffs and frame", image: "/images/outside/07-black-standoffs-balcony.png", alt: "Dark glass balcony balustrade fixed with black standoffs and frame", isIllustrative: false },
-      { title: "Balcony glass — Silver standoffs", image: "/images/outside/08-silver-standoffs-balcony.png", alt: "Clear glass balcony balustrade with silver standoffs and a timber base", isIllustrative: false },
+      { title: "Black standoffs on timber deck", image: "/images/outside/01-black-standoffs-deck.jpg", alt: "Black standoffs on timber deck", isIllustrative: false },
+      { title: "Silver standoffs on concrete wall", image: "/images/outside/02-silver-standoffs-fence.jpg", alt: "Silver standoffs on concrete wall", isIllustrative: false },
+      { title: "Black standoffs with top rail", image: "/images/outside/05-black-standoffs-black-frame.png", alt: "Black standoffs with top rail", isIllustrative: false },
+      { title: "Black standoffs along deck", image: "/images/outside/06-black-standoffs-railing.png", alt: "Black standoffs along deck", isIllustrative: false },
+      { title: "Black standoffs along deck", image: "/images/outside/07-black-standoffs-balcony.png", alt: "Black standoffs along deck", isIllustrative: false },
+      { title: "Silver standoffs on balcony", image: "/images/outside/08-silver-standoffs-balcony.png", alt: "Silver standoffs on balcony", isIllustrative: false },
+      { title: "Black framed deck glass", image: "/images/fence-glass/03-black-frame-deck.png", alt: "Black framed deck glass", isIllustrative: false },
+      { title: "Black spigots with top rail", image: "/images/fence-glass/04-black-spigots-frame.png", alt: "Black spigots with top rail", isIllustrative: false },
+      { title: "Side-fixed glass on a raised deck", image: "/images/fence-glass/01-silver-standoffs-black-base.jpg", alt: "Side-fixed glass on a raised deck", isIllustrative: false },
+      { title: "Black base-mounted balcony glass", image: "/images/fence-glass/02-black-frame-balcony.jpg", alt: "Black base-mounted balcony glass", isIllustrative: false },
+      { title: "Black framed balcony glass", image: "/images/fence-glass/03-black-frame-balcony.png", alt: "Black framed balcony glass", isIllustrative: false },
+      { title: "Tinted glass with black frame", image: "/images/fence-glass/04-black-glass-black-frame.png", alt: "Tinted glass with black frame", isIllustrative: false },
+      { title: "Silver spigots on deck", image: "/images/fence-glass/05-silver-spigots-balcony.png", alt: "Silver spigots on deck", isIllustrative: false },
+      { title: "Black spigots on balcony", image: "/images/fence-glass/06-black-spigots-balcony.png", alt: "Black spigots on balcony", isIllustrative: false },
     ],
     options: [
       { name: "Outside Black Base and Glass", tone: "#202a32", note: "Black base with glass", image: "/images/hero-deck-balustrade.jpg", imageAlt: "Outdoor glass fence with dark fixing hardware along a timber deck" },
+    ],
+    glassPanels: [
+      { name: "Clear", tone: "#dceef3", note: "Clear glass balustrade panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
+      { name: "Euro Black", tone: "#252a2e", note: "Euro Black glass balustrade panel", image: "/images/fence-glass/euro-black-glass-panel.png", imageAlt: "Euro Black glass panel" },
+    ],
+    glassSupports: [
+      { name: "Silver Round Glass Standoffs", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-round-standoffs.jpg", imageAlt: "Silver round glass standoff fixed through a glass panel" },
+      { name: "Black Round Glass Standoffs", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-round-standoffs.jpg", imageAlt: "Black round glass standoff fixed through a glass panel" },
+      { name: "Silver Bottom Glass Spigots", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-bottom-spigots.jpg", imageAlt: "Silver bottom glass spigot supporting a glass panel" },
+      { name: "Black Bottom Glass Spigots", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-bottom-spigots.jpg", imageAlt: "Black bottom glass spigot supporting a glass panel" },
     ],
   },
 ];
