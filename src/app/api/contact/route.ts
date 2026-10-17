@@ -15,7 +15,7 @@ const allowedTypes = new Set(["image/jpeg", "image/png", "image/webp"]);
 
 export async function POST(request: Request) {
   const form = await request.formData();
-  const parsed = quoteSchema.safeParse(Object.fromEntries(["name", "phone", "email", "suburb", "service", "colour", "details"].map(key => [key, (form.get(key) ?? "")]))));
+  const parsed = quoteSchema.safeParse(Object.fromEntries(["name", "phone", "email", "suburb", "service", "colour", "details"].map(key => [key, form.get(key) ?? ""])));
   if (!parsed.success) return Response.json({ error: "Please check your details and try again." }, { status: 400 });
 
   const uploads = form.getAll("photos").filter((entry): entry is File => entry instanceof File && entry.size > 0);
