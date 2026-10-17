@@ -243,7 +243,10 @@ export const services: Service[] = [
       { title: "Black spigots on balcony", image: "/images/fence-glass/06-black-spigots-balcony.png", alt: "Black spigots on balcony", isIllustrative: false },
     ],
     options: [
-      { name: "Outside Black Base and Glass", tone: "#202a32", note: "Black base with glass", image: "/images/hero-deck-balustrade.jpg", imageAlt: "Outdoor glass fence with dark fixing hardware along a timber deck" },
+      { name: "Deck Glass", tone: "#dceef3", note: "Glass balustrades for decks", image: "/images/outside/01-black-standoffs-deck.jpg", imageAlt: "Glass balustrade along a timber deck" },
+      { name: "Balcony Glass", tone: "#dceef3", note: "Glass balustrades for balconies", image: "/images/outside/07-black-standoffs-balcony.png", imageAlt: "Glass balustrade with black standoffs along a balcony" },
+      { name: "Fence Glass", tone: "#dceef3", note: "Glass balustrades for fences", image: "/images/outside/02-silver-standoffs-fence.jpg", imageAlt: "Glass fence balustrade with silver standoffs" },
+      { name: "Outdoor Stair Glass", tone: "#dceef3", note: "Glass balustrades for outdoor stairs", image: "/images/custom-stairs/02-black-standoff-outdoor-stairs.jpg", imageAlt: "Glass balustrade along outdoor stairs" },
     ],
     glassPanels: [
       { name: "Clear", tone: "#dceef3", note: "Clear glass balustrade panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },

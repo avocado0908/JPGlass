@@ -12,20 +12,31 @@ const quoteSchema = z.object({
   email: z.string().trim().email("Enter a valid email address.").max(254),
   suburb: z.string().trim().min(2, "Please enter your suburb.").max(100),
   service: z.string().min(1, "Choose a service.").max(60),
+  colour: z.string().max(60).optional(),
   details: z.string().trim().min(10, "Please add a little more detail (at least 10 characters).").max(3000),
 });
 type QuoteValues = z.infer<typeof quoteSchema>;
 const services = ["Glass Balustrades", "Pool Fence Glass", "Shower Boxes (Frameless & Sliding)", "Custom Stairs Glass", "Handrails", "Other"];
+const serviceColours: Record<string, string[]> = {
+  "Glass Balustrades": ["Clear", "Euro Black", "Silver hardware", "Black hardware"],
+  "Pool Fence Glass": ["Silver", "Black"],
+  "Shower Boxes (Frameless & Sliding)": ["Silver", "Black", "Gunmetal", "Brushed Nickel", "Gold"],
+  "Custom Stairs Glass": ["Clear", "Silver frame", "Black frame"],
+  Handrails: ["Silver", "Black"],
+};
 
 export default function QuoteForm() {
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
   const [files, setFiles] = useState<File[]>([]);
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<QuoteValues>({ resolver: zodResolver(quoteSchema) });
+  const { register, handleSubmit, reset, watch, setValue, formState: { errors, isSubmitting } } = useForm<QuoteValues>({ resolver: zodResolver(quoteSchema) });
+
+  const selectedService = watch("service");
+  const colourOptions = serviceColours[selectedService] ?? [];
 
   async function submit(values: QuoteValues) {
     setMessage(null);
     const data = new FormData();
-    Object.entries(values).forEach(([key, value]) => data.set(key, value));
+    Object.entries(values).forEach(([key, value]) => { if (value !== undefined) data.set(key, value); });
     files.forEach(file => data.append("photos", file));
     try {
       const response = await fetch("/api/contact", { method: "POST", body: data });
@@ -45,7 +56,8 @@ export default function QuoteForm() {
       <Field label="Phone" error={errors.phone?.message}><input type="tel" autoComplete="tel" placeholder="021 000 0000" {...register("phone")}/></Field>
       <Field label="Email" error={errors.email?.message}><input type="email" autoComplete="email" placeholder="you@example.com" {...register("email")}/></Field>
       <Field label="Suburb" error={errors.suburb?.message}><input autoComplete="address-level2" placeholder="Where is your project?" {...register("suburb")}/></Field>
-      <Field label="Service" error={errors.service?.message}><select defaultValue="" {...register("service")}><option value="" disabled>Select a service</option>{services.map(service => <option key={service}>{service}</option>)}</select></Field>
+      <Field label="Service" error={errors.service?.message}><select defaultValue="" {...register("service", { onChange: () => setValue("colour", "") })}><option value="" disabled>Select a service</option>{services.map(service => <option key={service}>{service}</option>)}</select></Field>
+      {colourOptions.length > 0 && <Field label="Colour / finish"><select defaultValue="" {...register("colour")}><option value="">Not sure yet</option>{colourOptions.map(colour => <option key={colour} value={colour}>{colour}</option>)}</select></Field>}
       <div className="field"><label htmlFor="photos">Project photos <span>(optional)</span></label><label className="file-picker" htmlFor="photos"><Paperclip size={16}/><span>{files.length ? `${files.length} photo${files.length === 1 ? "" : "s"} selected` : "Add photos (up to 4, 5 MB each)"}</span></label><input id="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple className="sr-only" onChange={event => { const chosen = Array.from(event.target.files ?? []); if (chosen.length > 4 || chosen.some(file => file.size > 5 * 1024 * 1024)) { setMessage({ type: "error", text: "Choose up to 4 images, each smaller than 5 MB." }); event.target.value = ""; setFiles([]); } else { setMessage(null); setFiles(chosen); } }}/></div>
       <Field label="Project details" error={errors.details?.message} className="field-full"><textarea rows={5} placeholder="Tell us a little about what you have in mind…" {...register("details")}/></Field>
     </div>

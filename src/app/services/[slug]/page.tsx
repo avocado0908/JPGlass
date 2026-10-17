@@ -35,7 +35,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
       : []);
 
     return options.map((option) => (
-    <div className={styles.finish} key={option.name}>
+    <div className={`${styles.finish} ${service.slug === "glass-balustrades" && ["Deck Glass", "Balcony Glass", "Fence Glass", "Outdoor Stair Glass"].includes(option.name) ? styles.balustradeOption : ""}`} key={option.name}>
       {option.image ? (
         <OptionImage src={option.image} alt={option.imageAlt ?? option.name} className={styles.optionImage} gallery={gallery} />
       ) : (
@@ -43,9 +43,18 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           <span>Photo coming soon</span>
         </div>
       )}
-      <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />
-      <span className={styles.finishName}>{option.name}</span>
-      <span className={styles.finishNote}>{option.note}</span>
+      {!(service.slug === "glass-balustrades" && ["Deck Glass", "Balcony Glass", "Fence Glass", "Outdoor Stair Glass"].includes(option.name)) && <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />}
+      {service.slug === "glass-balustrades" && ["Deck Glass", "Balcony Glass", "Fence Glass", "Outdoor Stair Glass"].includes(option.name) ? (
+        <div className={styles.balustradeCopy}>
+          <span className={styles.finishName}>{option.name}</span>
+          <span className={styles.finishNote}>{option.note}</span>
+        </div>
+      ) : (
+        <>
+          <span className={styles.finishName}>{option.name}</span>
+          <span className={styles.finishNote}>{option.note}</span>
+        </>
+      )}
     </div>
     ));
   };
