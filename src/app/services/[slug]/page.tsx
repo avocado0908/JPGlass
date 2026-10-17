@@ -106,7 +106,13 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
               </>
             )}
           </div>
-        )) : <div className={styles.finishGrid}>{renderOptionCards(service.options)}</div>}
+        )) : service.options.length > 0 ? <div className={styles.finishGrid}>{renderOptionCards(service.options)}</div> : null}
+        {service.glassPanels && (
+          <div className={styles.subOptionGroup}>
+            <h3 className={styles.subOptionHeading}>Glass Balustrade Panel options</h3>
+            <div className={styles.finishGrid}>{renderOptionCards(service.glassPanels)}</div>
+          </div>
+        )}
         {service.showerSets && (
           <div className={styles.subOptionGroup}>
             <h3 className={styles.subOptionHeading}>Shower set options</h3>

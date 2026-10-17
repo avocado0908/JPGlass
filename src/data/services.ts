@@ -28,6 +28,7 @@ export type Service = {
   examples: ServiceExample[];
   options: ServiceOption[];
   optionGroups?: { title: string; options: ServiceOption[]; shapes?: ShowerBoxShape[] }[];
+  glassPanels?: ServiceOption[];
   showerSets?: ServiceOption[];
   glassSupports?: ServiceOption[];
   handrails?: ServiceOption[];
@@ -145,8 +146,10 @@ export const services: Service[] = [
       { title: "Fence glass — Black standoffs", image: "/images/fence-glass/06-black-standoffs-railing.png", alt: "Outdoor glass railing with black standoff hardware", isIllustrative: false },
     ],
     options: [
-      { name: "Silver Fence Glass", tone: "#b9c3ca", note: "Silver finish", image: "/images/glass-pool-fence-upright.jpg", imageAlt: "Glass fence with silver metal spigots" },
-      { name: "Black Fence Glass", tone: "#202a32", note: "Black finish", image: "/images/hero-glass-balustrade.jpg", imageAlt: "Dark tinted glass fence panels on a home balcony" },
+    ],
+    glassPanels: [
+      { name: "Clear", tone: "#dceef3", note: "Clear glass balustrade panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
+      { name: "Euro Black", tone: "#252a2e", note: "Euro Black glass balustrade panel", image: "/images/fence-glass/euro-black-glass-panel.png", imageAlt: "Euro Black glass panel" },
     ],
     glassSupports: [
       { name: "Silver Round Glass Standoffs", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-round-standoffs.jpg", imageAlt: "Silver round glass standoff fixed through a glass panel" },
