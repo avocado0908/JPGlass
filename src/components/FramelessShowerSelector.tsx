@@ -8,7 +8,7 @@ import styles from "./frameless-shower-selector.module.css";
 type FramelessShowerSelectorProps = {
   shapes: ShowerBoxShape[];
   colours: ServiceOption[];
-  variant?: "frameless" | "sliding";
+  variant?: "frameless" | "sliding" | "noDoor";
 };
 
 const temporaryExamples: Record<string, string[]> = {
@@ -121,14 +121,23 @@ const slidingAdditionalExamples: Record<string, string[]> = {
   Gold: ["/images/shower-boxes/sliding-straight-shower-gold.png"],
 };
 
+const noDoorImages: Record<string, string> = {
+  Silver: "/images/shower-grey-walk-in.jpg",
+  Black: "/images/shower-grey-walk-in.jpg",
+  Gunmetal: "/images/shower-grey-walk-in.jpg",
+  "Brushed Nickel": "/images/shower-grey-walk-in.jpg",
+  Gold: "/images/shower-grey-walk-in.jpg",
+};
+
 type ShowerGalleryImage = {
   colour: string;
   src: string;
   imageIndex: number;
 };
 
-function getShapeImages(shape: ShowerBoxShape, colour: string, variant: "frameless" | "sliding", shapeIndex: number) {
+function getShapeImages(shape: ShowerBoxShape, colour: string, variant: "frameless" | "sliding" | "noDoor", shapeIndex: number) {
   const images = temporaryExamples[colour] ?? temporaryExamples.Silver;
+  if (variant === "noDoor") return [noDoorImages[colour] ?? noDoorImages.Silver];
   const slidingPrimaryImage = shape === "Rectangular"
     ? slidingRectangularExamples[colour]
     : slidingStraightExamples[colour] ?? images[shapeIndex % images.length];
@@ -232,6 +241,9 @@ export default function FramelessShowerSelector({ shapes, colours, variant = "fr
       <div className={`${styles.shapeGrid} ${variant === "sliding" ? styles.twoShapeGrid : ""}`}>
         {shapes.map((shape, index) => {
           const selectedColour = selectedColours[shape] ?? "Silver";
+          const boxLabel = variant === "noDoor"
+            ? "No Door Shower Box"
+            : `${shape} ${variant === "sliding" ? "Sliding" : "Frameless"} Shower Box`;
           const imageSet = getShapeImages(shape, selectedColour, variant, index);
           const imageIndex = Math.min(imageIndexes[shape] ?? 0, imageSet.length - 1);
           const image = imageSet[imageIndex];
@@ -242,13 +254,13 @@ export default function FramelessShowerSelector({ shapes, colours, variant = "fr
                 <button
                   className={styles.openLightboxButton}
                   type="button"
-                  aria-label={`Open ${selectedColour} ${shape.toLowerCase()} shower box image gallery`}
+                  aria-label={`Open ${selectedColour} ${boxLabel.toLowerCase()} image gallery`}
                   onClick={() => openLightbox(shape, selectedColour, imageIndex, index)}
                 >
                   <Image
                     key={`${shape}-${selectedColour}-${imageIndex}`}
                     src={image}
-                    alt={`${selectedColour} finish example for a ${shape.toLowerCase()} ${variant} shower box`}
+                    alt={variant === "noDoor" ? `${selectedColour} colour option for an open walk-in shower screen` : `${selectedColour} finish example for a ${shape.toLowerCase()} ${variant} shower box`}
                     fill
                     sizes="(max-width: 760px) 100vw, 33vw"
                     className={styles.fadeImage}
@@ -282,7 +294,7 @@ export default function FramelessShowerSelector({ shapes, colours, variant = "fr
                   </div>
                 )}
               </div>
-              <h4 className={styles.shapeName}>{shape}</h4>
+            <h4 className={styles.shapeName}>{variant === "noDoor" ? "No Door" : shape}</h4>
               <div className={styles.cardColourSection}>
                 <div className={styles.cardColourHeading}>
                   <h5>Colour Options</h5>
@@ -330,7 +342,7 @@ export default function FramelessShowerSelector({ shapes, colours, variant = "fr
             setTouchStartX(null);
           }}
         >
-          <section className={styles.lightboxDialog} role="dialog" aria-modal="true" aria-label={`${lightboxShape} ${variant === "frameless" ? "Frameless" : "Sliding"} Shower Box image gallery`}>
+          <section className={styles.lightboxDialog} role="dialog" aria-modal="true" aria-label={variant === "noDoor" ? "No Door Shower Box image gallery" : `${lightboxShape} ${variant === "frameless" ? "Frameless" : "Sliding"} Shower Box image gallery`}>
             <button className={styles.lightboxClose} type="button" aria-label="Close image gallery" onClick={() => setLightboxShape(null)}>×</button>
             <div className={styles.lightboxStage}>
               <button className={`${styles.lightboxArrow} ${styles.lightboxPrevious}`} type="button" aria-label="Previous image" onClick={() => selectLightboxImage(lightboxIndex - 1)}>‹</button>
@@ -338,7 +350,7 @@ export default function FramelessShowerSelector({ shapes, colours, variant = "fr
                 <Image
                   key={`${activeLightboxImage.colour}-${activeLightboxImage.src}`}
                   src={activeLightboxImage.src}
-                  alt={`${activeLightboxImage.colour} finish for ${lightboxShape.toLowerCase()} shower box`}
+                  alt={variant === "noDoor" ? `${activeLightboxImage.colour} colour option for an open walk-in shower screen` : `${activeLightboxImage.colour} finish for ${lightboxShape.toLowerCase()} shower box`}
                   fill
                   sizes="85vw"
                   className={styles.lightboxImage}
@@ -347,7 +359,7 @@ export default function FramelessShowerSelector({ shapes, colours, variant = "fr
               </div>
               <button className={`${styles.lightboxArrow} ${styles.lightboxNext}`} type="button" aria-label="Next image" onClick={() => selectLightboxImage(lightboxIndex + 1)}>›</button>
             </div>
-            <p className={styles.lightboxColour} aria-live="polite">{lightboxShape} {variant === "frameless" ? "Frameless" : "Sliding"} Shower Box - {activeLightboxImage.colour}</p>
+            <p className={styles.lightboxColour} aria-live="polite">{variant === "noDoor" ? "No Door Shower Box" : `${lightboxShape} ${variant === "frameless" ? "Frameless" : "Sliding"} Shower Box`} - {activeLightboxImage.colour}</p>
             <div className={styles.lightboxThumbnailViewport} aria-label="All shower box colours and images">
               <div className={styles.lightboxThumbnails}>
                 {lightboxImages.map((item, index) => (

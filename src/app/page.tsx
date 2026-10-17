@@ -6,5 +6,5 @@ import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
 export default function Home() {
-  return <main id="main-content"><Hero/><Services/><WhyChooseUs/><Gallery/><About/><CTA/></main>;
+  return <main id="main-content"><Hero/><Services order={["glass-balustrades", "pool-fencing", "shower-boxes", "custom-stairs-glass", "handrails"]}/><WhyChooseUs/><Gallery/><About/><CTA/></main>;
 }

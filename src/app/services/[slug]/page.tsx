@@ -139,11 +139,11 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             )}
           </div>
         )) : service.options.length > 0 ? <div className={styles.finishGrid}>{renderOptionCards(service.options)}</div> : null}
-        {service.noDoorExamples && (
+        {service.slug === "shower-boxes" && (
           <div className={`${styles.subOptionGroup} ${styles.showerChoiceSection}`} id="no-door-shower-box">
             <h3 className={styles.subOptionHeading}>No Door Shower Box</h3>
-            <p className={styles.showerChoiceDescription}>Explore open walk-in shower screens without a door. Select an image to view it larger.</p>
-            <ServiceExampleGallery examples={service.noDoorExamples} />
+            <p className={styles.showerChoiceDescription}>Choose a hardware colour for your open walk-in shower screen.</p>
+            <FramelessShowerSelector shapes={["No Door"]} colours={service.optionGroups?.[0]?.options ?? []} variant="noDoor" />
           </div>
         )}
         {service.glassPanels && (

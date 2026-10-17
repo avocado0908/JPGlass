@@ -13,7 +13,7 @@ export type ServiceOption = {
   imageAlt?: string;
 };
 
-export type ShowerBoxShape = "Diamond" | "Rectangular" | "Straight";
+export type ShowerBoxShape = "Diamond" | "Rectangular" | "Straight" | "No Door";
 
 export type Service = {
   slug: string;
@@ -30,7 +30,6 @@ export type Service = {
   optionGroups?: { title: string; options: ServiceOption[]; shapes?: ShowerBoxShape[] }[];
   glassPanels?: ServiceOption[];
   showerSets?: ServiceOption[];
-  noDoorExamples?: ServiceExample[];
   glassSupports?: ServiceOption[];
   handrails?: ServiceOption[];
 };
@@ -120,11 +119,6 @@ export const services: Service[] = [
       { title: "Frameless Shower Box — Silver", image: "/images/shower-grey-walk-in.jpg", alt: "Walk-in glass shower in a modern grey tiled bathroom" },
       { title: "Frameless Shower Box — Black", image: "/images/shower-geometric-tile.jpg", alt: "Glass shower with geometric patterned bathroom tiles" },
       { title: "Frameless Shower Box — Gold", image: "/images/shower-frameless-gold-custom.jpg", alt: "Frameless glass shower box with gold hardware in a stone-tiled bathroom" },
-    ],
-    noDoorExamples: [
-      { title: "No Door Shower Box", image: "/images/shower-grey-walk-in.jpg", alt: "Walk-in shower screen without a door" },
-      { title: "No Door Shower Box", image: "/images/shower-marble-walk-in.jpg", alt: "Walk-in shower enclosure without a door" },
-      { title: "No Door Shower Box", image: "/images/shower-marble-tile-walk-in.jpg", alt: "Open walk-in shower screen without a door" },
     ],
     options: [],
     optionGroups: [
