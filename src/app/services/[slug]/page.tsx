@@ -29,10 +29,15 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
   const service = getService(slug);
   if (!service) notFound();
 
-  const renderOptionCards = (options: ServiceOption[]) => options.map((option) => (
+  const renderOptionCards = (options: ServiceOption[]) => {
+    const gallery = options.flatMap((option) => option.image
+      ? [{ src: option.image, alt: option.imageAlt ?? option.name }]
+      : []);
+
+    return options.map((option) => (
     <div className={styles.finish} key={option.name}>
       {option.image ? (
-        <OptionImage src={option.image} alt={option.imageAlt ?? option.name} className={styles.optionImage} />
+        <OptionImage src={option.image} alt={option.imageAlt ?? option.name} className={styles.optionImage} gallery={gallery} />
       ) : (
         <div className={styles.optionImagePlaceholder} aria-label={`Example photo needed for ${option.name}`}>
           <span>Photo coming soon</span>
@@ -42,7 +47,12 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
       <span className={styles.finishName}>{option.name}</span>
       <span className={styles.finishNote}>{option.note}</span>
     </div>
-  ));
+    ));
+  };
+
+  const glassSupportGallery = service.glassSupports?.flatMap((option) => option.image
+    ? [{ src: option.image, alt: option.imageAlt ?? option.name }]
+    : []);
 
   return (
     <main id="main-content">
@@ -138,6 +148,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
                       src={option.image}
                       alt={option.imageAlt ?? option.name}
                       className={styles.optionImage}
+                      gallery={glassSupportGallery}
                     />
                   ) : null}
                   <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />

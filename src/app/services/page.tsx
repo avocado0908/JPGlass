@@ -14,7 +14,7 @@ export default function ServicesPage() {
         <h1>Glass solutions<br /><span>for your space.</span></h1>
         <p>Explore frameless and sliding shower boxes, fence glass, pool fence glass, handrails, custom stairs glass, and outside base and glass options.</p>
       </section>
-      <Services />
+      <Services order={["outside-base-glass", "fence-glass", "pool-fencing", "shower-boxes", "custom-stairs-glass", "handrails"]} />
       <CTA />
     </main>
   );

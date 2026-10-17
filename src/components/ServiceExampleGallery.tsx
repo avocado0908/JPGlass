@@ -97,15 +97,34 @@ export default function ServiceExampleGallery({ examples }: ServiceExampleGaller
               touchStartX.current = null;
             }}
           >
-            <p className={styles.caption} aria-live="polite">
-              <span>{String(activeIndex + 1).padStart(2, "0")}</span>{activeExample.title}
-            </p>
+            <button type="button" className={styles.closeButton} onClick={() => setActiveIndex(null)} aria-label="Close image gallery">×</button>
             <div className={styles.imageViewport}>
               <Image src={activeExample.image} alt={activeExample.alt} fill sizes="100vw" className={styles.largeImage} priority />
               {examples.length > 1 && <>
                 <button type="button" className={`${styles.navButton} ${styles.previous}`} onClick={() => move(-1)} aria-label="Previous image"><ChevronLeft aria-hidden="true" /></button>
                 <button type="button" className={`${styles.navButton} ${styles.next}`} onClick={() => move(1)} aria-label="Next image"><ChevronRight aria-hidden="true" /></button>
               </>}
+            </div>
+            <p className={styles.caption} aria-live="polite">
+              <span>{String(activeIndex + 1).padStart(2, "0")}</span>{activeExample.title}
+            </p>
+            <div className={styles.thumbnailViewport} aria-label="All example images">
+              <div className={styles.thumbnails}>
+                {examples.map((example, index) => (
+                  <button
+                    type="button"
+                    key={example.image}
+                    className={`${styles.popupThumbnail} ${index === activeIndex ? styles.popupThumbnailSelected : ""}`}
+                    aria-label={`Show ${example.title}`}
+                    aria-pressed={index === activeIndex}
+                    onClick={() => setActiveIndex(index)}
+                  >
+                    <span className={styles.thumbnailImage}>
+                      <Image src={example.image} alt="" fill sizes="100px" />
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           </section>
         </div>
