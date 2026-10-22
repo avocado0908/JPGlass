@@ -17,5 +17,16 @@
 .finish .balustradeCopy{grid-column:1/-1;display:flex;min-width:0;flex-direction:column;align-items:flex-start;gap:7px}
 .balustradeOptionLink{cursor:pointer;transition:border-color .2s,box-shadow .2s}.balustradeOptionLink:hover{border-color:#91b9e8;box-shadow:0 8px 22px rgba(2,87,152,.08)}.balustradeOptionLink:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 
+.frameOption{grid-template-columns:52px 1fr;grid-template-rows:auto auto auto auto;align-items:center;min-height:0}
+.poolPanelOptionColumns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start}
+.poolPanelOptionColumn{min-width:0}
+.poolPanelOptionColumn .finishGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:760px){.poolPanelOptionColumns{grid-template-columns:1fr;gap:0}.poolPanelOptionColumn+.poolPanelOptionColumn{margin-top:32px}}
+.glassChoiceLabel{grid-column:1/-1;margin-top:7px;color:var(--muted);font-size:10px;font-weight:650}
+.glassChoice{grid-column:1/-1;display:flex;gap:7px}
+.glassChoiceButton{flex:1;min-height:34px;border:1px solid #dce4ec;background:#fff;color:var(--navy);font:inherit;font-size:10px;cursor:pointer}
+.glassChoiceButton[aria-pressed="true"]{border-color:#6f9fce;background:#edf5fc;color:#173f65}
+.glassChoiceButton:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
 .showerBoxExtraGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 @media(max-width:760px){.showerBoxExtraGrid{grid-template-columns:1fr;gap:0}}

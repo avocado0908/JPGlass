@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import CTA from "@/components/CTA";
 import FramelessShowerSelector from "@/components/FramelessShowerSelector";
 import OptionImage from "@/components/OptionImage";
+import GlassFrameOptions from "@/components/GlassFrameOptions";
 import ServiceExampleGallery from "@/components/ServiceExampleGallery";
 import { getService, services, type ServiceOption } from "@/data/services";
 import styles from "./service-detail.module.css";
@@ -192,8 +193,26 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         )}
         {service.glassPanels && (
           <div className={styles.subOptionGroup}>
-            <h3 className={styles.subOptionHeading}>Glass Balustrade Panel options</h3>
-            <div className={styles.finishGrid}>{renderOptionCards(service.glassPanels)}</div>
+            {service.slug === "pool-fencing" ? (
+              <div className={styles.poolPanelOptionColumns}>
+                <section className={styles.poolPanelOptionColumn}>
+                  <h3 className={styles.subOptionHeading}>Glass Balustrade Panel options</h3>
+                  <div className={styles.finishGrid}>{renderOptionCards(service.glassPanels.slice(0, 2))}</div>
+                </section>
+                <section className={styles.poolPanelOptionColumn}>
+                  <h3 className={styles.subOptionHeading}>Frame options</h3>
+                  <GlassFrameOptions options={[
+                    { ...service.glassPanels[2], clearImage: "/images/fence-glass/clear-glass-sliver-frame.png", euroBlackImage: "/images/fence-glass/euroblack-glass-sliver-frame.png" },
+                    { ...service.glassPanels[3], clearImage: "/images/custom-stairs/clear-glass-black-frame.png", euroBlackImage: "/images/fence-glass/euroblack-glass-black-frame.png" },
+                  ]} />
+                </section>
+              </div>
+            ) : (
+              <>
+                <h3 className={styles.subOptionHeading}>Glass Balustrade Panel options</h3>
+                <div className={styles.finishGrid}>{renderOptionCards(service.glassPanels)}</div>
+              </>
+            )}
           </div>
         )}
         {service.showerSets && (
