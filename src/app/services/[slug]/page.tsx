@@ -34,29 +34,48 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
       ? [{ src: option.image, alt: option.imageAlt ?? option.name }]
       : []);
 
-    return options.map((option) => (
-    <div className={`${styles.finish} ${service.slug === "glass-balustrades" && ["Deck Glass", "Balcony Glass", "Fence Glass", "Outdoor Stair Glass"].includes(option.name) ? styles.balustradeOption : ""}`} key={option.name}>
-      {option.image ? (
-        <OptionImage src={option.image} alt={option.imageAlt ?? option.name} className={styles.optionImage} gallery={gallery} />
-      ) : (
-        <div className={styles.optionImagePlaceholder} aria-label={`Example photo needed for ${option.name}`}>
-          <span>Photo coming soon</span>
-        </div>
-      )}
-      {!(service.slug === "glass-balustrades" && ["Deck Glass", "Balcony Glass", "Fence Glass", "Outdoor Stair Glass"].includes(option.name)) && <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />}
-      {service.slug === "glass-balustrades" && ["Deck Glass", "Balcony Glass", "Fence Glass", "Outdoor Stair Glass"].includes(option.name) ? (
-        <div className={styles.balustradeCopy}>
-          <span className={styles.finishName}>{option.name}</span>
-          <span className={styles.finishNote}>{option.note}</span>
-        </div>
-      ) : (
+    return options.map((option) => {
+      const isBalustradeOption = service.slug === "glass-balustrades"
+        && ["Deck Glass", "Balcony Glass", "Fence Glass", "Outdoor Stair Glass"].includes(option.name);
+      const categoryId = `example-category-${option.name.toLowerCase().replaceAll(" ", "-")}`;
+      const cardContent = (
         <>
-          <span className={styles.finishName}>{option.name}</span>
-          <span className={styles.finishNote}>{option.note}</span>
+          {option.image ? (
+            isBalustradeOption ? (
+              <span className={styles.optionImage}>
+                <Image src={option.image} alt={option.imageAlt ?? option.name} fill sizes="(max-width: 700px) 100vw, 25vw" />
+              </span>
+            ) : (
+              <OptionImage src={option.image} alt={option.imageAlt ?? option.name} className={styles.optionImage} gallery={gallery} />
+            )
+          ) : (
+            <div className={styles.optionImagePlaceholder} aria-label={`Example photo needed for ${option.name}`}>
+              <span>Photo coming soon</span>
+            </div>
+          )}
+          {!isBalustradeOption && <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />}
+          {isBalustradeOption ? (
+            <span className={styles.balustradeCopy}>
+              <span className={styles.finishName}>{option.name}</span>
+              <span className={styles.finishNote}>{option.note}</span>
+            </span>
+          ) : (
+            <>
+              <span className={styles.finishName}>{option.name}</span>
+              <span className={styles.finishNote}>{option.note}</span>
+            </>
+          )}
         </>
-      )}
-    </div>
-    ));
+      );
+
+      return isBalustradeOption ? (
+        <a className={`${styles.finish} ${styles.balustradeOption} ${styles.balustradeOptionLink}`} href={`#${categoryId}`} key={option.name}>
+          {cardContent}
+        </a>
+      ) : (
+        <div className={styles.finish} key={option.name}>{cardContent}</div>
+      );
+    });
   };
 
   const glassSupportGallery = service.glassSupports?.flatMap((option) => option.image

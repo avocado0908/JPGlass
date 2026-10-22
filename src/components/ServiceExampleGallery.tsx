@@ -53,28 +53,47 @@ export default function ServiceExampleGallery({ examples }: ServiceExampleGaller
     setActiveIndex((i) => i === null ? null : (i + direction + examples.length) % examples.length);
   };
   const activeExample = activeIndex === null ? null : examples[activeIndex];
+  const exampleGroups = examples.some((example) => example.category)
+    ? Array.from(examples.reduce((groups, example) => {
+      const category = example.category ?? "Other examples";
+      const group = groups.get(category) ?? [];
+      group.push(example);
+      groups.set(category, group);
+      return groups;
+    }, new Map<string, ServiceExample[]>()))
+    : null;
+
+  const renderExamples = (groupExamples: ServiceExample[]) => groupExamples.map((example) => {
+    const index = examples.indexOf(example);
+    return (
+      <figure className={styles.example} key={example.image}>
+        <button
+          ref={(element) => { triggerRefs.current[index] = element; }}
+          type="button"
+          className={styles.thumbnail}
+          onClick={() => {
+            lastTriggerIndex.current = index;
+            setActiveIndex(index);
+          }}
+          aria-label={`View ${example.title}`}
+        >
+          <Image src={example.image} alt={example.alt} fill sizes="(max-width: 700px) 100vw, 50vw" />
+        </button>
+        <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{example.title}</figcaption>
+      </figure>
+    );
+  });
 
   return (
     <>
-      <div className={styles.grid}>
-        {examples.map((example, index) => (
-          <figure className={styles.example} key={example.image}>
-            <button
-              ref={(element) => { triggerRefs.current[index] = element; }}
-              type="button"
-              className={styles.thumbnail}
-              onClick={() => {
-                lastTriggerIndex.current = index;
-                setActiveIndex(index);
-              }}
-              aria-label={`View ${example.title}`}
-            >
-              <Image src={example.image} alt={example.alt} fill sizes="(max-width: 700px) 100vw, 50vw" />
-            </button>
-            <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{example.title}</figcaption>
-          </figure>
-        ))}
-      </div>
+      {exampleGroups ? exampleGroups.map(([category, groupExamples]) => (
+        <section className={styles.exampleGroup} id={`example-category-${category.toLowerCase().replaceAll(" ", "-")}`} key={category}>
+          <h3 className={styles.groupTitle}>{category}</h3>
+          <div className={styles.grid}>{renderExamples(groupExamples)}</div>
+        </section>
+      )) : (
+        <div className={styles.grid}>{renderExamples(examples)}</div>
+      )}
 
       {activeExample && activeIndex !== null && (
         <div className={styles.backdrop} onClick={(event) => {

@@ -3,6 +3,7 @@ export type ServiceExample = {
   image: string;
   alt: string;
   isIllustrative?: boolean;
+  category?: string;
 };
 
 export type ServiceOption = {
@@ -244,20 +245,21 @@ export const services: Service[] = [
     imageIsIllustrative: true,
     number: "01",
     examples: [
-      { title: "Black standoffs on timber deck", image: "/images/outside/01-black-standoffs-deck.jpg", alt: "Black standoffs on timber deck", isIllustrative: false },
-      { title: "Silver standoffs on concrete wall", image: "/images/outside/02-silver-standoffs-fence.jpg", alt: "Silver standoffs on concrete wall", isIllustrative: false },
-      { title: "Black standoffs with top rail", image: "/images/outside/05-black-standoffs-black-frame.png", alt: "Black standoffs with top rail", isIllustrative: false },
-      { title: "Black standoffs along deck", image: "/images/outside/06-black-standoffs-railing.png", alt: "Black standoffs along deck", isIllustrative: false },
-      { title: "Black standoffs along deck", image: "/images/outside/07-black-standoffs-balcony.png", alt: "Black standoffs along deck", isIllustrative: false },
-      { title: "Silver standoffs on balcony", image: "/images/outside/08-silver-standoffs-balcony.png", alt: "Silver standoffs on balcony", isIllustrative: false },
-      { title: "Black framed deck glass", image: "/images/fence-glass/03-black-frame-deck.png", alt: "Black framed deck glass", isIllustrative: false },
-      { title: "Black spigots with top rail", image: "/images/fence-glass/04-black-spigots-frame.png", alt: "Black spigots with top rail", isIllustrative: false },
-      { title: "Side-fixed glass on a raised deck", image: "/images/fence-glass/01-silver-standoffs-black-base.jpg", alt: "Side-fixed glass on a raised deck", isIllustrative: false },
-      { title: "Black base-mounted balcony glass", image: "/images/fence-glass/02-black-frame-balcony.jpg", alt: "Black base-mounted balcony glass", isIllustrative: false },
-      { title: "Black framed balcony glass", image: "/images/fence-glass/03-black-frame-balcony.png", alt: "Black framed balcony glass", isIllustrative: false },
-      { title: "Tinted glass with black frame", image: "/images/fence-glass/04-black-glass-black-frame.png", alt: "Tinted glass with black frame", isIllustrative: false },
-      { title: "Silver spigots on deck", image: "/images/fence-glass/05-silver-spigots-balcony.png", alt: "Silver spigots on deck", isIllustrative: false },
-      { title: "Black spigots on balcony", image: "/images/fence-glass/06-black-spigots-balcony.png", alt: "Black spigots on balcony", isIllustrative: false },
+      { title: "Black standoffs on timber deck", category: "Deck Glass", image: "/images/outside/01-black-standoffs-deck.jpg", alt: "Black standoffs on timber deck", isIllustrative: false },
+      { title: "Black standoffs with top rail", category: "Deck Glass", image: "/images/outside/05-black-standoffs-black-frame.png", alt: "Black standoffs with top rail", isIllustrative: false },
+      { title: "Black standoffs along deck", category: "Deck Glass", image: "/images/outside/06-black-standoffs-railing.png", alt: "Black standoffs along deck", isIllustrative: false },
+      { title: "Black framed deck glass", category: "Deck Glass", image: "/images/fence-glass/03-black-frame-deck.png", alt: "Black framed deck glass", isIllustrative: false },
+      { title: "Side-fixed glass on a raised deck", category: "Deck Glass", image: "/images/fence-glass/01-silver-standoffs-black-base.jpg", alt: "Side-fixed glass on a raised deck", isIllustrative: false },
+      { title: "Black standoffs along balcony", category: "Balcony Glass", image: "/images/outside/07-black-standoffs-balcony.png", alt: "Black standoffs along balcony", isIllustrative: false },
+      { title: "Silver standoffs on balcony", category: "Balcony Glass", image: "/images/outside/08-silver-standoffs-balcony.png", alt: "Silver standoffs on balcony", isIllustrative: false },
+      { title: "Black base-mounted balcony glass", category: "Balcony Glass", image: "/images/fence-glass/02-black-frame-balcony.jpg", alt: "Black base-mounted balcony glass", isIllustrative: false },
+      { title: "Black framed balcony glass", category: "Balcony Glass", image: "/images/fence-glass/03-black-frame-balcony.png", alt: "Black framed balcony glass", isIllustrative: false },
+      { title: "Tinted glass with black frame", category: "Balcony Glass", image: "/images/fence-glass/04-black-glass-black-frame.png", alt: "Tinted glass with black frame", isIllustrative: false },
+      { title: "Silver spigots on balcony", category: "Balcony Glass", image: "/images/fence-glass/05-silver-spigots-balcony.png", alt: "Silver spigots on balcony", isIllustrative: false },
+      { title: "Black spigots on balcony", category: "Balcony Glass", image: "/images/fence-glass/06-black-spigots-balcony.png", alt: "Black spigots on balcony", isIllustrative: false },
+      { title: "Silver standoffs on fence", category: "Fence Glass", image: "/images/outside/02-silver-standoffs-fence.jpg", alt: "Silver standoffs on concrete fence", isIllustrative: false },
+      { title: "Black spigots with top rail", category: "Fence Glass", image: "/images/fence-glass/04-black-spigots-frame.png", alt: "Black spigots with top rail", isIllustrative: false },
+      { title: "Outdoor stair glass with black standoffs", category: "Outdoor Stair Glass", image: "/images/custom-stairs/02-black-standoff-outdoor-stairs.jpg", alt: "Glass panels with black standoffs along outdoor stairs", isIllustrative: false },
     ],
     options: [
       { name: "Deck Glass", tone: "#dceef3", note: "Glass balustrades for decks", image: "/images/outside/01-black-standoffs-deck.jpg", imageAlt: "Glass balustrade along a timber deck" },
