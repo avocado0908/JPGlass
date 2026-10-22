@@ -193,7 +193,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         )}
         {service.glassPanels && (
           <div className={styles.subOptionGroup}>
-            {service.slug === "pool-fencing" ? (
+            {service.slug === "pool-fencing" || service.slug === "glass-balustrades" ? (
               <div className={styles.poolPanelOptionColumns}>
                 <section className={styles.poolPanelOptionColumn}>
                   <h3 className={styles.subOptionHeading}>Glass Balustrade Panel options</h3>

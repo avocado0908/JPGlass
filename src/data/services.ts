@@ -40,16 +40,11 @@ const showerSetOptions: ServiceOption[] = [
   { name: "Black", tone: "#202a32", note: "Black finish" },
 ];
 
-const balustradeGlassPanels: ServiceOption[] = [
-  { name: "Clear", tone: "#dceef3", note: "Clear glass balustrade panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
-  { name: "Euro Black", tone: "#252a2e", note: "Euro Black glass balustrade panel", image: "/images/fence-glass/euro-black-glass-panel.png", imageAlt: "Euro Black glass panel" },
-];
-
 const poolFenceGlassPanels: ServiceOption[] = [
-  { name: "Glass Balustrade Panel — Clear", tone: "#dceef3", note: "Clear glass panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
-  { name: "Glass Balustrade Panel — Euro Black", tone: "#252a2e", note: "Euro Black glass panel", image: "/images/fence-glass/euro-black-glass-panel.png", imageAlt: "Euro Black glass balustrade panel" },
-  { name: "Glass Balustrade Panel — Silver Frame", tone: "#b9c3ca", note: "Clear glass panel with silver frame", image: "/images/custom-stairs/clear-glass-silver-frame.png", imageAlt: "Clear glass balustrade panel with silver frame" },
-  { name: "Glass Balustrade Panel — Black Frame", tone: "#202a32", note: "Clear glass panel with black frame", image: "/images/custom-stairs/clear-glass-black-frame.png", imageAlt: "Clear glass balustrade panel with black frame" },
+  { name: "Clear", tone: "#dceef3", note: "Clear glass panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
+  { name: "Euro Black", tone: "#252a2e", note: "Euro Black glass panel", image: "/images/fence-glass/euro-black-glass-panel.png", imageAlt: "Euro Black glass balustrade panel" },
+  { name: "Silver Frame", tone: "#b9c3ca", note: "Clear glass panel with silver frame", image: "/images/custom-stairs/clear-glass-silver-frame.png", imageAlt: "Clear glass balustrade panel with silver frame" },
+  { name: "Black Frame", tone: "#202a32", note: "Clear glass panel with black frame", image: "/images/custom-stairs/clear-glass-black-frame.png", imageAlt: "Clear glass balustrade panel with black frame" },
 ];
 
 const balustradeGlassSupports: ServiceOption[] = [
@@ -291,7 +286,7 @@ export const services: Service[] = [
       { name: "Fence Glass", tone: "#dceef3", note: "Glass balustrades for fences", image: "/images/outside/02-silver-standoffs-fence.jpg", imageAlt: "Glass fence balustrade with silver standoffs" },
       { name: "Outdoor Stair Glass", tone: "#dceef3", note: "Glass balustrades for outdoor stairs", image: "/images/custom-stairs/02-black-standoff-outdoor-stairs.jpg", imageAlt: "Glass balustrade along outdoor stairs" },
     ],
-    glassPanels: balustradeGlassPanels,
+    glassPanels: poolFenceGlassPanels,
     glassSupports: balustradeGlassSupports,
   },
 ];
