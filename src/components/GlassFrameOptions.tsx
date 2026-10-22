@@ -14,11 +14,10 @@ export default function GlassFrameOptions({ options }: { options: FrameOption[] 
   const [glassByFrame, setGlassByFrame] = useState<Record<string, "Clear" | "Euro Black">>({});
 
   return (
-    <div className={styles.finishGrid}>
+    <div className={`${styles.finishGrid} ${styles.frameOptionGrid}`}>
       {options.map((option) => {
         const glass = glassByFrame[option.name] ?? "Clear";
         const image = glass === "Clear" ? option.clearImage : option.euroBlackImage;
-        const glassName = glass === "Clear" ? "clear" : "Euro Black";
 
         return (
           <article className={`${styles.finish} ${styles.frameOption}`} key={option.name}>
@@ -26,7 +25,7 @@ export default function GlassFrameOptions({ options }: { options: FrameOption[] 
               <Image
                 key={image}
                 src={image}
-                alt={`${glassName} glass balustrade panel with ${option.name.replace("Glass Balustrade Panel — ", "").toLowerCase()}`}
+                alt={`${glass} glass balustrade panel with ${option.name.toLowerCase()}`}
                 fill
                 sizes="(max-width: 700px) 100vw, 25vw"
               />
