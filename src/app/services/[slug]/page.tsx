@@ -108,6 +108,18 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             </a>
           </nav>
         )}
+        {service.slug === "pool-fencing" && (
+          <nav className={`${styles.showerOptionCards} ${styles.poolFenceOptionCards}`} aria-label="Available pool fence options">
+            <a className={styles.showerOptionCard} href="#example-looks">
+              <span className={styles.showerOptionImage}><Image src="/images/pool-fence/01-silver-spigots-pool-fence.png" alt="Glass pool fencing with silver spigots" fill sizes="(max-width: 640px) 100vw, 50vw" /></span>
+              <span className={styles.showerOptionTitle}>Glass Pool Fencing</span>
+            </a>
+            <a className={styles.showerOptionCard} href="#example-looks">
+              <span className={styles.showerOptionImage}><Image src="/images/pool-fence/06-silver-spigots-pool-fence-door.png" alt="Glass pool gate with silver spigots" fill sizes="(max-width: 640px) 100vw, 50vw" /></span>
+              <span className={styles.showerOptionTitle}>Glass Pool Gates</span>
+            </a>
+          </nav>
+        )}
         {service.optionGroups ? service.optionGroups.map((group) => (
           <div
             className={`${styles.subOptionGroup} ${styles.showerChoiceSection}`}
