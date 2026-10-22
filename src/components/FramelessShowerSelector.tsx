@@ -124,8 +124,12 @@ const slidingRectangularAdditionalExamples: Record<string, string[]> = {
 };
 
 const slidingAdditionalExamples: Record<string, string[]> = {
-  Silver: ["/images/shower-boxes/sliding-straight-shower-silver.png"],
+  Silver: [
+    "/images/shower-boxes/sliding-straight-shower-silver.png",
+    "/images/shower-boxes/sliding-straight-shower-sliver-02.png",
+  ],
   Black: ["/images/shower-boxes/sliding-shower-straight-black-02.jpg"],
+  Gunmetal: ["/images/shower-boxes/sliding-straight-shower-gunmetal.png"],
   "Brushed Nickel": ["/images/shower-boxes/sliding-shower-straight-brushed-nickel-02.png"],
   Gold: ["/images/shower-boxes/sliding-straight-shower-gold.png"],
 };
