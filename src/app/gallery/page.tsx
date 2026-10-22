@@ -1,6 +1,7 @@
 import CTA from "@/components/CTA";
 import { services } from "@/data/services";
 import GalleryContent from "./GalleryContent";
+import styles from "./gallery.module.css";
 
 export const metadata = {
   title: "Gallery | JP Glass Balustrades",
