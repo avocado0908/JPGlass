@@ -100,7 +100,11 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             </a>
             <a className={styles.showerOptionCard} href="#no-door-shower-box">
               <span className={styles.showerOptionImage}><Image src="/images/shower-grey-walk-in.jpg" alt="No door walk-in shower screen" fill sizes="(max-width: 640px) 100vw, 33vw" /></span>
-              <span className={styles.showerOptionTitle}>No Door Shower Box</span>
+              <span className={styles.showerOptionTitle}>Walk In Shower Box</span>
+            </a>
+            <a className={styles.showerOptionCard} href="#shower-set-options">
+              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/shower-set-box-black-02.png" alt="Black Shower Set Shower Box" fill sizes="(max-width: 640px) 100vw, 25vw" /></span>
+              <span className={styles.showerOptionTitle}>Shower Set Shower Box</span>
             </a>
           </nav>
         )}
@@ -150,9 +154,9 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         )) : service.options.length > 0 ? <div className={styles.finishGrid}>{renderOptionCards(service.options)}</div> : null}
         {service.slug === "shower-boxes" && (
           <div className={`${styles.subOptionGroup} ${styles.showerChoiceSection}`} id="no-door-shower-box">
-            <h3 className={styles.subOptionHeading}>No Door Shower Box</h3>
+            <h3 className={styles.subOptionHeading}>Walk In Shower Box</h3>
             <p className={styles.showerChoiceDescription}>Choose a hardware colour for your open walk-in shower screen.</p>
-            <FramelessShowerSelector shapes={["No Door"]} colours={service.optionGroups?.[0]?.options ?? []} variant="noDoor" />
+            <FramelessShowerSelector shapes={["No Door"]} colours={service.optionGroups?.[0]?.options.filter((option) => option.name !== "Bronze") ?? []} variant="noDoor" />
           </div>
         )}
         {service.glassPanels && (
@@ -162,17 +166,9 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           </div>
         )}
         {service.showerSets && (
-          <div className={styles.subOptionGroup}>
-            <h3 className={styles.subOptionHeading}>Shower set options</h3>
-            <div className={styles.finishGrid}>
-              {service.showerSets.map((option) => (
-                <div className={styles.finish} key={option.name}>
-                  <span className={styles.swatch} style={{ backgroundColor: option.tone }} aria-hidden="true" />
-                  <span className={styles.finishName}>{option.name}</span>
-                  <span className={styles.finishNote}>{option.note}</span>
-                </div>
-              ))}
-            </div>
+          <div className={styles.subOptionGroup} id="shower-set-options">
+            <h3 className={styles.subOptionHeading}>Shower Set Shower Box</h3>
+            <FramelessShowerSelector shapes={["Straight"]} colours={service.showerSets} variant="showerSet" />
           </div>
         )}
         {service.glassSupports && (

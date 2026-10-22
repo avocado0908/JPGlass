@@ -35,9 +35,8 @@ export type Service = {
 };
 
 const showerSetOptions: ServiceOption[] = [
-  { name: "Silver Shower Set", tone: "#b9c3ca", note: "Silver finish" },
-  { name: "Black Shower Set", tone: "#202a32", note: "Black finish" },
-  { name: "Gold Shower Set", tone: "#b9975b", note: "Gold finish" },
+  { name: "Silver", tone: "#b9c3ca", note: "Silver finish" },
+  { name: "Black", tone: "#202a32", note: "Black finish" },
 ];
 
 const balustradeGlassPanels: ServiceOption[] = [
@@ -93,6 +92,9 @@ const showerBoxOptions = (boxType: string): ServiceOption[] => [
         ? { image: "/images/sliding-box-brushed-nickel.jpg", imageAlt: "Sliding shower box with brushed nickel hardware" }
         : {}),
   },
+  ...(boxType === "Frameless Shower Box"
+    ? [{ name: "Bronze", tone: "#8b5a2b", note: "Bronze finish" }]
+    : []),
   {
     name: "Gold",
     tone: "#b9975b",
