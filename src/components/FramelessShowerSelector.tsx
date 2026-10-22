@@ -143,7 +143,10 @@ const noDoorImages: Record<string, string> = {
 };
 
 const noDoorAdditionalImages: Record<string, string[]> = {
-  Silver: ["/images/shower-boxes/walkin-shower-box-silver-01.jpg"],
+  Silver: [
+    "/images/shower-boxes/walkin-shower-box-sliver-01.png",
+    "/images/shower-boxes/walkin-shower-box-sliver-02.png",
+  ],
   Gunmetal: ["/images/shower-boxes/walkin-shower-box-gunmetal-01.png"],
 };
 
