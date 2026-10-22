@@ -109,21 +109,21 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           <p>The options listed here are supplied by JP Glass. Contact the team to discuss the right configuration for your project.</p>
         </div>
         {service.slug === "shower-boxes" && (
-          <nav className={styles.showerOptionCards} aria-label="Available shower box options">
+          <nav className={`${styles.showerOptionCards} ${styles.showerBoxOptionCards}`} aria-label="Available shower box options">
             <a className={styles.showerOptionCard} href="#frameless-shower-box">
-              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/frameless-straight-showerbox-black-02.jpg" alt="Black frameless straight shower box" fill sizes="(max-width: 640px) 100vw, 33vw" /></span>
+              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/frameless-straight-showerbox-black-02.jpg" alt="Black frameless straight shower box" fill sizes="(max-width: 640px) 50vw, 25vw" /></span>
               <span className={styles.showerOptionTitle}>Frameless Shower Box</span>
             </a>
             <a className={styles.showerOptionCard} href="#sliding-shower-box">
-              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/sliding-straight-shower-silver.png" alt="Silver straight sliding shower box" fill sizes="(max-width: 640px) 100vw, 33vw" /></span>
+              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/sliding-straight-shower-silver.png" alt="Silver straight sliding shower box" fill sizes="(max-width: 640px) 50vw, 25vw" /></span>
               <span className={styles.showerOptionTitle}>Sliding Shower Box</span>
             </a>
             <a className={styles.showerOptionCard} href="#no-door-shower-box">
-              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/walkin-shower-box-sliver-01.png" alt="Silver Walk In Shower Box" fill sizes="(max-width: 640px) 100vw, 33vw" /></span>
+              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/walkin-shower-box-sliver-01.png" alt="Silver Walk In Shower Box" fill sizes="(max-width: 640px) 50vw, 25vw" /></span>
               <span className={styles.showerOptionTitle}>Walk In Shower Box</span>
             </a>
             <a className={styles.showerOptionCard} href="#shower-set-options">
-              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/shower-set-box-black-02.png" alt="Black Shower Set Shower Box" fill sizes="(max-width: 640px) 100vw, 25vw" /></span>
+              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/shower-set-box-black-02.png" alt="Black Shower Set Shower Box" fill sizes="(max-width: 640px) 50vw, 25vw" /></span>
               <span className={styles.showerOptionTitle}>Shower Set Shower Box</span>
             </a>
           </nav>
@@ -135,7 +135,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
               <span className={styles.showerOptionTitle}>Glass Pool Fencing</span>
             </a>
             <a className={styles.showerOptionCard} href="#example-looks">
-              <span className={styles.showerOptionImage}><Image src="/images/pool-fence/06-silver-spigots-pool-fence-door.png" alt="Glass pool gate with silver spigots" fill sizes="(max-width: 640px) 100vw, 50vw" /></span>
+              <span className={styles.showerOptionImage}><Image src="/images/pool-fence/pool-fence-gate.png" alt="Glass pool gate beside a swimming pool" fill sizes="(max-width: 640px) 100vw, 50vw" /></span>
               <span className={styles.showerOptionTitle}>Glass Pool Gates</span>
             </a>
           </nav>

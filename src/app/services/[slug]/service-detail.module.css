@@ -9,6 +9,7 @@
 
 .poolFenceOptionCards{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:640px){.poolFenceOptionCards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.poolFenceOptionCards .showerOptionTitle{padding:10px;font-size:12px}}
+@media(max-width:640px){.showerBoxOptionCards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.showerBoxOptionCards .showerOptionTitle{padding:10px;font-size:12px}}
 
 .finish.balustradeOption{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-content:start;row-gap:7px;min-height:0;padding:14px;border-top:2px solid #8ebbe8}.finish.balustradeOption .optionImage{margin:-14px -14px 7px}.finish.balustradeOption .finishName{align-self:start;font-size:15px}.finish.balustradeOption .finishNote{align-self:start;font-size:11px}
 
