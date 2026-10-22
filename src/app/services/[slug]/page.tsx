@@ -99,7 +99,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
               <span className={styles.showerOptionTitle}>Sliding Shower Box</span>
             </a>
             <a className={styles.showerOptionCard} href="#no-door-shower-box">
-              <span className={styles.showerOptionImage}><Image src="/images/shower-grey-walk-in.jpg" alt="No door walk-in shower screen" fill sizes="(max-width: 640px) 100vw, 33vw" /></span>
+              <span className={styles.showerOptionImage}><Image src="/images/shower-boxes/walkin-shower-box-silver-01.jpg" alt="Silver Walk In Shower Box" fill sizes="(max-width: 640px) 100vw, 33vw" /></span>
               <span className={styles.showerOptionTitle}>Walk In Shower Box</span>
             </a>
             <a className={styles.showerOptionCard} href="#shower-set-options">

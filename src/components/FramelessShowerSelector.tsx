@@ -15,7 +15,7 @@ const temporaryExamples: Record<string, string[]> = {
   Silver: [
     "/images/shower-grey-glass-corner.jpg",
     "/images/shower-marble-bathroom.jpg",
-    "/images/shower-grey-walk-in.jpg",
+    "/images/shower-boxes/walkin-shower-box-silver-01.jpg",
   ],
   Black: [
     "/images/shower-black-framed-marble.jpg",
@@ -45,6 +45,7 @@ const diamondExamples: Record<string, string> = {
   Gunmetal: "/images/shower-boxes/frameless-shower-box-diamond-gunmetal.png",
   "Brushed Nickel": "/images/shower-boxes/frameless-shower-box-diamond-brushed-nickel.png",
   Gold: "/images/shower-boxes/frameless-shower-box-diamond-gold.png",
+  Bronze: "/images/shower-boxes/frameless-shower-box-diamond-bronze.png",
 };
 
 const rectangularExamples: Record<string, string> = {
@@ -53,6 +54,7 @@ const rectangularExamples: Record<string, string> = {
   Gunmetal: "/images/shower-boxes/frameless-shower-box-rectangular-gunmetal.png",
   "Brushed Nickel": "/images/shower-boxes/frameless-shower-box-rectangular-brushed-nickel.png",
   Gold: "/images/shower-boxes/frameless-shower-box-rectangular-gold.png",
+  Bronze: "/images/shower-boxes/frameless-shower-box-rectangular-bronze.png",
 };
 
 const rectangularAdditionalExamples: Record<string, string[]> = {
@@ -65,6 +67,7 @@ const rectangularAdditionalExamples: Record<string, string[]> = {
     "/images/shower-boxes/frameless-rectangular-showerbox-gunmetal-02.png",
   ],
   Gold: ["/images/shower-boxes/frameless-rectangular-showerbox-gold.png"],
+  Bronze: ["/images/shower-boxes/frameless-rectangular-showerbox-bronze.png"],
 };
 
 const straightExamples: Record<string, string> = {
@@ -73,6 +76,7 @@ const straightExamples: Record<string, string> = {
   Gunmetal: "/images/shower-boxes/frameless-shower-box-straight-gunmetal.png",
   "Brushed Nickel": "/images/shower-boxes/frameless-shower-box-straight-brushed-nickel.png",
   Gold: "/images/shower-boxes/frameless-shower-box-straight-gold.png",
+  Bronze: "/images/shower-boxes/frameless-shower-box-straight-bronze.png",
 };
 
 const straightAdditionalExamples: Record<string, string[]> = {
@@ -85,7 +89,9 @@ const straightAdditionalExamples: Record<string, string[]> = {
   Gold: [
     "/images/shower-boxes/frameless-straight-showerbox-gold.png",
     "/images/shower-boxes/frameless-straight-showerbox-gold-02.png",
+    "/images/shower-boxes/frameless-straight-showerbox-gold-03.png",
   ],
+  Bronze: ["/images/shower-boxes/frameless-straight-showerbox-bronze.png"],
 };
 
 const slidingStraightExamples: Record<string, string> = {
@@ -129,6 +135,11 @@ const noDoorImages: Record<string, string> = {
   Gold: "/images/shower-boxes/walkin-shower-box-gold.png",
 };
 
+const noDoorAdditionalImages: Record<string, string[]> = {
+  Silver: ["/images/shower-boxes/walkin-shower-box-silver-01.jpg"],
+  Gunmetal: ["/images/shower-boxes/walkin-shower-box-gunmetal-01.png"],
+};
+
 const showerSetImages: Record<string, string> = {
   Silver: "/images/shower-boxes/shower-set-box-silver.png",
   Black: "/images/shower-boxes/shower-set-box-black.png",
@@ -147,7 +158,9 @@ type ShowerGalleryImage = {
 
 function getShapeImages(shape: ShowerBoxShape, colour: string, variant: "frameless" | "sliding" | "noDoor" | "showerSet", shapeIndex: number) {
   const images = temporaryExamples[colour] ?? temporaryExamples.Silver;
-  if (variant === "noDoor") return [noDoorImages[colour] ?? noDoorImages.Silver];
+  if (variant === "noDoor") {
+    return [noDoorImages[colour] ?? noDoorImages.Silver, ...(noDoorAdditionalImages[colour] ?? [])];
+  }
   if (variant === "showerSet") {
     return [showerSetImages[colour] ?? showerSetImages.Silver, ...(showerSetAdditionalImages[colour] ?? [])];
   }
@@ -182,6 +195,9 @@ function getShapeImages(shape: ShowerBoxShape, colour: string, variant: "framele
   }
   if (shape === "Diamond" && colour === "Gold") {
     return [primaryImage, "/images/shower-boxes/frameless-diamond-corner-showerbox-gold-03.png"];
+  }
+  if (shape === "Diamond" && colour === "Bronze") {
+    return [primaryImage, "/images/shower-boxes/frameless-diamond-corner-showerbox-bronze-01.png"];
   }
   if (shape === "Diamond" && colour === "Gunmetal") {
     return [primaryImage, "/images/shower-boxes/frameless-diamond-corner-showerbox-gunmetal.png"];

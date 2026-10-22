@@ -130,7 +130,7 @@ export const services: Service[] = [
       { title: "Sliding Shower Box — Black", image: "/images/shower-marble-tile-walk-in.jpg", alt: "Walk-in glass shower with dark marble-look tiles" },
       { title: "Frameless Shower Box — Silver", image: "/images/shower-marble-frosted-window.jpg", alt: "Glass shower in a marble bathroom with a frosted window" },
       { title: "Frameless Shower Box — Silver", image: "/images/shower-marble-walk-in.jpg", alt: "Walk-in glass shower with marble feature tiles" },
-      { title: "Frameless Shower Box — Silver", image: "/images/shower-grey-walk-in.jpg", alt: "Walk-in glass shower in a modern grey tiled bathroom" },
+      { title: "Frameless Shower Box — Silver", image: "/images/shower-boxes/walkin-shower-box-silver-01.jpg", alt: "Silver Walk In Shower Box" },
       { title: "Frameless Shower Box — Black", image: "/images/shower-geometric-tile.jpg", alt: "Glass shower with geometric patterned bathroom tiles" },
       { title: "Frameless Shower Box — Gold", image: "/images/shower-frameless-gold-custom.jpg", alt: "Frameless glass shower box with gold hardware in a stone-tiled bathroom" },
     ],
