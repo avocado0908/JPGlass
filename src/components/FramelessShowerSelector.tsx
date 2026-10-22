@@ -91,7 +91,10 @@ const straightAdditionalExamples: Record<string, string[]> = {
     "/images/shower-boxes/frameless-straight-showerbox-gold-02.png",
     "/images/shower-boxes/frameless-straight-showerbox-gold-03.png",
   ],
-  Bronze: ["/images/shower-boxes/frameless-straight-showerbox-bronze.png"],
+  Bronze: [
+    "/images/shower-boxes/frameless-straight-showerbox-bronze.png",
+    "/images/shower-boxes/frameless-straight-showerbox-bronze-02.png",
+  ],
 };
 
 const slidingStraightExamples: Record<string, string> = {
