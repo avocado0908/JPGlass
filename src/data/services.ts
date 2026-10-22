@@ -40,6 +40,18 @@ const showerSetOptions: ServiceOption[] = [
   { name: "Gold Shower Set", tone: "#b9975b", note: "Gold finish" },
 ];
 
+const balustradeGlassPanels: ServiceOption[] = [
+  { name: "Clear", tone: "#dceef3", note: "Clear glass balustrade panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
+  { name: "Euro Black", tone: "#252a2e", note: "Euro Black glass balustrade panel", image: "/images/fence-glass/euro-black-glass-panel.png", imageAlt: "Euro Black glass panel" },
+];
+
+const balustradeGlassSupports: ServiceOption[] = [
+  { name: "Silver Round Glass Standoffs", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-round-standoffs.jpg", imageAlt: "Silver round glass standoff fixed through a glass panel" },
+  { name: "Black Round Glass Standoffs", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-round-standoffs.jpg", imageAlt: "Black round glass standoff fixed through a glass panel" },
+  { name: "Silver Bottom Glass Spigots", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-bottom-spigots.jpg", imageAlt: "Silver bottom glass spigot supporting a glass panel" },
+  { name: "Black Bottom Glass Spigots", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-bottom-spigots.jpg", imageAlt: "Black bottom glass spigot supporting a glass panel" },
+];
+
 const showerBoxOptions = (boxType: string): ServiceOption[] => [
   {
     name: "Silver",
@@ -138,14 +150,17 @@ export const services: Service[] = [
     imageIsIllustrative: true,
     number: "02",
     examples: [
-      { title: "Frameless glass pool fence", image: "/images/glass-pool-fence-upright.jpg", alt: "Frameless glass pool fence with stainless steel spigots beside a home", isIllustrative: false },
       { title: "Pool fence glass — Silver spigots", image: "/images/pool-fence/01-silver-spigots-pool-fence.png", alt: "Frameless pool fence with silver spigots beside a swimming pool", isIllustrative: false },
       { title: "Pool fence glass — Silver spigots and frame", image: "/images/pool-fence/02-silver-spigots-silver-frame-pool-fence.png", alt: "Pool fence glass with silver spigots and a silver frame beside a home", isIllustrative: false },
+      { title: "Pool fence glass — Silver spigots", image: "/images/pool-fence/03-silver-spigots-pool-fence.png", alt: "Glass pool fence with silver spigots around a landscaped pool", isIllustrative: false },
+      { title: "Pool fence glass — Black spigots", image: "/images/pool-fence/04-black-spigots-pool-fence.png", alt: "Glass pool fence with black spigots along a timber deck", isIllustrative: false },
+      { title: "Pool fence glass — Silver spigots", image: "/images/pool-fence/05-silver-spigots-pool-fence.png", alt: "Glass pool fence with silver spigots beside a swimming pool", isIllustrative: false },
+      { title: "Pool fence glass — Silver spigots with gate", image: "/images/pool-fence/06-silver-spigots-pool-fence-door.png", alt: "Glass pool fence and gate with silver spigots", isIllustrative: false },
+      { title: "Pool fence glass — Silver spigots", image: "/images/pool-fence/07-silver-spigots-pool-fence.png", alt: "Glass pool fence with silver spigots around a curved swimming pool", isIllustrative: false },
     ],
-    options: [
-      { name: "Silver Pool Fence Glass", tone: "#b9c3ca", note: "Silver finish", image: "/images/glass-pool-fence-upright.jpg", imageAlt: "Glass pool fence with silver metal spigots" },
-      { name: "Black Pool Fence Glass", tone: "#202a32", note: "Black finish" },
-    ],
+    options: [],
+    glassPanels: balustradeGlassPanels,
+    glassSupports: balustradeGlassSupports,
   },
   {
     slug: "handrails",
@@ -248,16 +263,8 @@ export const services: Service[] = [
       { name: "Fence Glass", tone: "#dceef3", note: "Glass balustrades for fences", image: "/images/outside/02-silver-standoffs-fence.jpg", imageAlt: "Glass fence balustrade with silver standoffs" },
       { name: "Outdoor Stair Glass", tone: "#dceef3", note: "Glass balustrades for outdoor stairs", image: "/images/custom-stairs/02-black-standoff-outdoor-stairs.jpg", imageAlt: "Glass balustrade along outdoor stairs" },
     ],
-    glassPanels: [
-      { name: "Clear", tone: "#dceef3", note: "Clear glass balustrade panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
-      { name: "Euro Black", tone: "#252a2e", note: "Euro Black glass balustrade panel", image: "/images/fence-glass/euro-black-glass-panel.png", imageAlt: "Euro Black glass panel" },
-    ],
-    glassSupports: [
-      { name: "Silver Round Glass Standoffs", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-round-standoffs.jpg", imageAlt: "Silver round glass standoff fixed through a glass panel" },
-      { name: "Black Round Glass Standoffs", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-round-standoffs.jpg", imageAlt: "Black round glass standoff fixed through a glass panel" },
-      { name: "Silver Bottom Glass Spigots", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-bottom-spigots.jpg", imageAlt: "Silver bottom glass spigot supporting a glass panel" },
-      { name: "Black Bottom Glass Spigots", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-bottom-spigots.jpg", imageAlt: "Black bottom glass spigot supporting a glass panel" },
-    ],
+    glassPanels: balustradeGlassPanels,
+    glassSupports: balustradeGlassSupports,
   },
 ];
 
