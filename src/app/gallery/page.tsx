@@ -1,8 +1,52 @@
-import Image from "next/image";
-import { projects } from "@/data/projects";
 import CTA from "@/components/CTA";
+import { services } from "@/data/services";
+import GalleryContent from "./GalleryContent";
 
-export const metadata = { title: "Gallery | JP Glass Balustrades", description: "View glass project concepts and installations by JP Glass Balustrades." };
+export const metadata = {
+  title: "Gallery | JP Glass Balustrades",
+  description:
+    "Browse glass balustrade, pool fence, shower box, stair, and handrail examples from JP Glass.",
+};
+
 export default function GalleryPage() {
-  return <main id="main-content"><section className="page-hero wrap"><p className="eyebrow">Selected work</p><h1>Glass in<br/><span>good company.</span></h1><p>Explore project concepts and return soon for approved JP Glass project photography.</p></section><section className="section gallery-section"><div className="wrap gallery-grid gallery-page-grid">{projects.map((project, index) => <article className={`gallery-item gallery-item-${index + 1}`} key={project.title}><div className="gallery-image"><Image src={project.image} alt={project.alt} fill sizes="(max-width: 700px) 100vw, 50vw"/><span className="image-tag">Illustrative placeholder</span></div><div className="gallery-caption"><span>{project.title}</span><span>{project.category}</span></div></article>)}</div><p className="wrap placeholder-note">These illustrations are placeholders, not photographs of JP Glass projects.</p></section><CTA/></main>;
+  const servicesWithExamples = services
+    .map((service) => ({
+      slug: service.slug,
+      title: service.title,
+      description: service.description,
+      items: service.examples
+        .filter((example) => !example.isIllustrative)
+        .map((example) => ({
+          title: example.title,
+          image: example.image,
+          alt: example.alt,
+          category: example.category ?? service.cardTitle,
+        })),
+    }))
+    .filter((service) => service.items.length > 0);
+
+  const totalExamples = servicesWithExamples.reduce(
+    (total, service) => total + service.items.length,
+    0,
+  );
+
+  return (
+    <main id="main-content">
+      <section className={`page-hero wrap ${styles.hero}`}>
+        <p className="eyebrow">Project gallery</p>
+        <h1>
+          Glass in
+          <br />
+          <span>good company.</span>
+        </h1>
+        <p>
+          Browse {totalExamples} examples across our glass services, from pool
+          fencing and balustrades to shower boxes and stair glass.
+        </p>
+      </section>
+
+      <GalleryContent sections={servicesWithExamples} />
+      <CTA />
+    </main>
+  );
 }

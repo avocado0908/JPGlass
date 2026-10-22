@@ -43,7 +43,7 @@ const showerSetOptions: ServiceOption[] = [
 const poolFenceGlassPanels: ServiceOption[] = [
   { name: "Clear", tone: "#dceef3", note: "Clear glass panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
   { name: "Euro Black", tone: "#252a2e", note: "Euro Black glass panel", image: "/images/fence-glass/euro-black-glass-panel.png", imageAlt: "Euro Black glass balustrade panel" },
-  { name: "Silver Frame", tone: "#b9c3ca", note: "Clear glass panel with silver frame", image: "/images/custom-stairs/clear-glass-silver-frame.png", imageAlt: "Clear glass balustrade panel with silver frame" },
+  { name: "Silver Frame", tone: "#b9c3ca", note: "Clear glass panel with silver frame", image: "/images/fence-glass/clear-glass-sliver-frame.png", imageAlt: "Clear glass balustrade panel with silver frame" },
   { name: "Black Frame", tone: "#202a32", note: "Clear glass panel with black frame", image: "/images/custom-stairs/clear-glass-black-frame.png", imageAlt: "Clear glass balustrade panel with black frame" },
 ];
 
@@ -133,7 +133,7 @@ export const services: Service[] = [
       { title: "Sliding Shower Box — Black", image: "/images/shower-marble-tile-walk-in.jpg", alt: "Walk-in glass shower with dark marble-look tiles" },
       { title: "Frameless Shower Box — Silver", image: "/images/shower-marble-frosted-window.jpg", alt: "Glass shower in a marble bathroom with a frosted window" },
       { title: "Frameless Shower Box — Silver", image: "/images/shower-marble-walk-in.jpg", alt: "Walk-in glass shower with marble feature tiles" },
-      { title: "Frameless Shower Box — Silver", image: "/images/shower-boxes/walkin-shower-box-silver-01.jpg", alt: "Silver Walk In Shower Box" },
+      { title: "Walk In Shower Box — Silver", image: "/images/shower-boxes/walkin-shower-box-sliver-01.png", alt: "Silver walk-in shower box in a grey tiled bathroom" },
       { title: "Frameless Shower Box — Black", image: "/images/shower-geometric-tile.jpg", alt: "Glass shower with geometric patterned bathroom tiles" },
       { title: "Frameless Shower Box — Gold", image: "/images/shower-frameless-gold-custom.jpg", alt: "Frameless glass shower box with gold hardware in a stone-tiled bathroom" },
     ],
@@ -226,7 +226,7 @@ export const services: Service[] = [
     ],
     options: [
       { name: "Glass Balustrade Panel — Clear", tone: "#dceef3", note: "Clear glass panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
-      { name: "Glass Balustrade Panel — Silver Frame", tone: "#b9c3ca", note: "Clear glass with silver frame", image: "/images/custom-stairs/clear-glass-silver-frame.png", imageAlt: "Clear glass balustrade panel with a silver frame" },
+      { name: "Glass Balustrade Panel — Silver Frame", tone: "#b9c3ca", note: "Clear glass with silver frame", image: "/images/fence-glass/clear-glass-sliver-frame.png", imageAlt: "Clear glass balustrade panel with a silver frame" },
       { name: "Glass Balustrade Panel — Black Frame", tone: "#202a32", note: "Clear glass with black frame", image: "/images/custom-stairs/clear-glass-black-frame.png", imageAlt: "Clear glass balustrade panel with a black frame" },
     ],
     glassSupports: [
