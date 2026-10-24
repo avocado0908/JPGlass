@@ -57,7 +57,7 @@ export default function QuoteForm() {
       <Field label="Email" error={errors.email?.message}><input type="email" autoComplete="email" placeholder="you@example.com" {...register("email")}/></Field>
       <Field label="Suburb" error={errors.suburb?.message}><input autoComplete="address-level2" placeholder="Where is your project?" {...register("suburb")}/></Field>
       <Field label="Service" error={errors.service?.message}><select defaultValue="" {...register("service", { onChange: () => setValue("colour", "") })}><option value="" disabled>Select a service</option>{services.map(service => <option key={service}>{service}</option>)}</select></Field>
-      {colourOptions.length > 0 && <Field label="Colour / finish"><select defaultValue="" {...register("colour")}><option value="">Not sure yet</option>{colourOptions.map(colour => <option key={colour} value={colour}>{colour}</option>)}</select></Field>}
+      {colourOptions.length > 0 && <Field label="Colour / finish" required={false}><select defaultValue="" {...register("colour")}><option value="">Not sure yet</option>{colourOptions.map(colour => <option key={colour} value={colour}>{colour}</option>)}</select></Field>}
       <div className="field"><label htmlFor="photos">Project photos <span>(optional)</span></label><label className="file-picker" htmlFor="photos"><Paperclip size={16}/><span>{files.length ? `${files.length} photo${files.length === 1 ? "" : "s"} selected` : "Add photos (up to 4, 5 MB each)"}</span></label><input id="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple className="sr-only" onChange={event => { const chosen = Array.from(event.target.files ?? []); if (chosen.length > 4 || chosen.some(file => file.size > 5 * 1024 * 1024)) { setMessage({ type: "error", text: "Choose up to 4 images, each smaller than 5 MB." }); event.target.value = ""; setFiles([]); } else { setMessage(null); setFiles(chosen); } }}/></div>
       <Field label="Project details" error={errors.details?.message} className="field-full"><textarea rows={5} placeholder="Tell us a little about what you have in mind…" {...register("details")}/></Field>
     </div>
@@ -66,7 +66,7 @@ export default function QuoteForm() {
   </form>;
 }
 
-function Field({ label, error, className = "", children }: { label: string; error?: string; className?: string; children: React.ReactNode }) {
+function Field({ label, error, className = "", required = true, children }: { label: string; error?: string; className?: string; required?: boolean; children: React.ReactNode }) {
   const id = `field-${label.toLowerCase().replaceAll(" ", "-")}`;
-  return <div className={`field ${className}`}><label htmlFor={id}>{label}<span> *</span></label>{React.cloneElement(children as React.ReactElement<{ id?: string; "aria-invalid"?: boolean; "aria-describedby"?: string }>, { id, "aria-invalid": Boolean(error), "aria-describedby": error ? `${id}-error` : undefined })}{error && <small className="field-error" id={`${id}-error`}>{error}</small>}</div>;
+  return <div className={`field ${className}`}><label htmlFor={id}>{label}<span>{required ? " *" : " (optional)"}</span></label>{React.cloneElement(children as React.ReactElement<{ id?: string; "aria-invalid"?: boolean; "aria-describedby"?: string }>, { id, "aria-invalid": Boolean(error), "aria-describedby": error ? `${id}-error` : undefined })}{error && <small className="field-error" id={`${id}-error`}>{error}</small>}</div>;
 }

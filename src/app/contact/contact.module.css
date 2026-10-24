@@ -1,0 +1,362 @@
+.intro {
+  padding: 76px 0 84px;
+  background: #fff;
+}
+
+.introInner {
+  display: grid;
+  grid-template-columns: 1fr 0.86fr;
+  align-items: center;
+  gap: 8%;
+}
+
+.introCopy {
+  padding: 16px 0;
+}
+
+.introCopy h1 {
+  max-width: 680px;
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(48px, 5.7vw, 76px);
+  font-weight: 570;
+  line-height: 0.99;
+  letter-spacing: -0.067em;
+}
+
+.introCopy h1 span {
+  color: #6987a6;
+}
+
+.introText {
+  max-width: 470px;
+  margin: 23px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.introActions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.introActions .button {
+  min-height: 46px;
+}
+
+.quoteLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.quoteLink:hover {
+  color: var(--blue);
+}
+
+.introVisual {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+  background: #dce6e8;
+}
+
+.introVisual img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.imageCaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 34px 18px 16px;
+  background: linear-gradient(transparent, rgba(11, 31, 58, 0.64));
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+.contactSection {
+  padding: 78px 0 100px;
+  background: #f7f9fb;
+}
+
+.contactLayout {
+  display: grid;
+  grid-template-columns: 0.76fr 1.24fr;
+  align-items: start;
+  gap: 8%;
+}
+
+.contactAside {
+  padding-top: 10px;
+}
+
+.contactAside h2 {
+  max-width: 400px;
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(30px, 3.3vw, 42px);
+  font-weight: 560;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+}
+
+.asideIntro {
+  max-width: 390px;
+  margin: 17px 0 26px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.contactDetails {
+  border-top: 1px solid #dfe5ec;
+}
+
+.contactDetail {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 12px;
+  min-height: 66px;
+  border-bottom: 1px solid #dfe5ec;
+  color: #33465c;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.contactDetail > span:nth-child(2) {
+  display: grid;
+  gap: 4px;
+}
+
+.contactDetail small {
+  color: #718095;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contactDetail > svg {
+  color: #91a2b5;
+}
+
+.contactDetail[href]:hover {
+  color: var(--blue);
+}
+
+.detailIcon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid #dce5ee;
+  color: var(--blue);
+}
+
+.serviceArea {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-top: 22px;
+  color: var(--blue);
+}
+
+.serviceArea > span {
+  display: grid;
+  gap: 5px;
+  color: #66778c;
+  font-size: 11px;
+}
+
+.serviceArea strong {
+  color: var(--navy);
+  font-size: 10px;
+}
+
+.nextSteps {
+  margin-top: 42px;
+}
+
+.nextSteps h3 {
+  margin: 0 0 14px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.nextSteps ol {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #dfe5ec;
+  list-style: none;
+}
+
+.nextSteps li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #dfe5ec;
+  color: #718095;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.nextSteps li > span:first-child {
+  color: var(--blue);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.nextSteps li > span:last-child {
+  display: grid;
+  gap: 3px;
+}
+
+.nextSteps strong {
+  color: #33465c;
+  font-size: 11px;
+}
+
+.formCard {
+  min-width: 0;
+  padding: 38px 40px;
+  border: 1px solid #e9edf2;
+  background: #fff;
+  box-shadow: 0 12px 42px rgba(11, 31, 58, 0.035);
+}
+
+.formHeading h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: 27px;
+  font-weight: 570;
+  letter-spacing: -0.04em;
+}
+
+.formHeading > p:last-child {
+  margin: 8px 0 26px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.formHeading .eyebrow {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1000px) {
+  .introInner {
+    grid-template-columns: 1fr 0.8fr;
+    gap: 5%;
+  }
+
+  .introCopy h1 {
+    font-size: clamp(46px, 6vw, 64px);
+  }
+
+  .introVisual {
+    min-height: 340px;
+  }
+
+  .contactLayout {
+    gap: 5%;
+  }
+
+  .formCard {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  .intro {
+    padding: 58px 0 50px;
+  }
+
+  .introInner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .introCopy {
+    padding: 0;
+  }
+
+  .introCopy h1 {
+    font-size: clamp(48px, 10vw, 66px);
+  }
+
+  .introText {
+    margin-top: 17px;
+    font-size: 13px;
+  }
+
+  .introActions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 23px;
+  }
+
+  .introVisual {
+    min-height: 58vw;
+    max-height: 420px;
+  }
+
+  .contactSection {
+    padding: 55px 0 70px;
+  }
+
+  .contactLayout {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .contactAside h2 {
+    max-width: 500px;
+    font-size: 36px;
+  }
+
+  .asideIntro {
+    max-width: 520px;
+  }
+
+  .nextSteps {
+    margin-top: 30px;
+  }
+
+  .formCard {
+    padding: 28px 22px;
+  }
+}
+
+@media (max-width: 420px) {
+  .intro {
+    padding-top: 46px;
+  }
+
+  .introCopy h1 {
+    font-size: 44px;
+  }
+
+  .introVisual {
+    min-height: 240px;
+  }
+
+  .contactAside h2 {
+    font-size: 32px;
+  }
+
+  .formCard {
+    padding: 24px 16px;
+  }
+}
