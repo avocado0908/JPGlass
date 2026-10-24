@@ -10,6 +10,7 @@ const quoteSchema = z.object({
   colour: z.string().max(60).optional(),
   details: z.string().trim().min(10).max(3000),
 });
+
 const allowedTypes = new Set(["image/jpeg", "image/png", "image/webp"]);
 
 export async function POST(request: Request) {
@@ -23,21 +24,35 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const recipient = process.env.QUOTE_TO_EMAIL || "avocado0908@gmail.com";
-  const sender = process.env.RESEND_FROM_EMAIL;
-  if (!apiKey || !recipient || !sender) return Response.json({ error: "Quote enquiries are not available just yet. Please contact the business directly." }, { status: 503 });
+  const configuredRecipient = process.env.QUOTE_TO_EMAIL?.trim().replace(/^(['"])(.*)\1$/, "$2");
+  const recipient = configuredRecipient || "avocado0908@gmail.com";
+  const sender = process.env.RESEND_FROM_EMAIL?.trim();
+  if (!apiKey || !sender) return Response.json({ error: "Quote enquiries are not available just yet. Please contact the business directly." }, { status: 503 });
+  if (!z.string().email().safeParse(recipient).success) {
+    return Response.json({ error: "Quote email recipient is not configured correctly. Please contact the business directly." }, { status: 503 });
+  }
 
   const { name, phone, email, suburb, service, colour, details } = parsed.data;
   const attachments = await Promise.all(uploads.map(async file => ({ filename: file.name, content: Buffer.from(await file.arrayBuffer()).toString("base64") })));
   const resend = new Resend(apiKey);
-  const { error } = await resend.emails.send({
-    from: sender,
-    to: recipient,
-    replyTo: email,
-    subject: `Website enquiry: ${service} — ${name}`,
-    text: `New JP Glass quote enquiry\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nSuburb: ${suburb}\nService: ${service}${colour ? `\nColour / finish: ${colour}` : ""}\n\nProject details:\n${details}`,
-    attachments,
-  });
-  if (error) return Response.json({ error: "We couldn’t send your enquiry just now. Please try again later." }, { status: 502 });
+
+  try {
+    const { error } = await resend.emails.send({
+      from: sender,
+      to: recipient,
+      replyTo: email,
+      subject: `Website enquiry: ${service} — ${name}`,
+      text: `New JP Glass quote enquiry\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nSuburb: ${suburb}\nService: ${service}${colour ? `\nColour / finish: ${colour}` : ""}\n\nProject details:\n${details}`,
+      attachments,
+    });
+    if (error) {
+      console.error("Quote email delivery failed", { name: error.name, message: error.message, statusCode: error.statusCode });
+      return Response.json({ error: "We couldn’t send your enquiry just now. Please try again later." }, { status: 502 });
+    }
+  } catch (error) {
+    console.error("Quote email delivery failed", error);
+    return Response.json({ error: "We couldn’t send your enquiry just now. Please try again later." }, { status: 502 });
+  }
+
   return Response.json({ ok: true });
 }
