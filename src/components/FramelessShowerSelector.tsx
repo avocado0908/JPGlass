@@ -58,17 +58,25 @@ const rectangularExamples: Record<string, string> = {
 };
 
 const rectangularAdditionalExamples: Record<string, string[]> = {
-  Silver: ["/images/shower-boxes/frameless-rectangular-showerbox-silver-01.png"],
+  Silver: [
+    "/images/shower-boxes/frameless-rectangular-showerbox-silver-01.png",
+    "/images/shower-boxes/frameless-rectangular-showerbox-sliver-03.png",
+    "/images/shower-boxes/frameless-rectangular-showerbox-sliver-02.png",
+  ],
   Black: [
     "/images/shower-boxes/frameless-rectangular-showerbox-black.png",
+    "/images/shower-boxes/frameless-rectangular-showerbox-black-02.png",
   ],
   "Brushed Nickel": ["/images/shower-boxes/frameless-rectangular-showerbox-brushed-nickel.png"],
   Gunmetal: [
-    "/images/shower-boxes/frameless-rectangular-showerbox-gunmetal.png",
+    "/images/shower-boxes/frameless-rectangular-showerbox-gunmetal-03.png",
     "/images/shower-boxes/frameless-rectangular-showerbox-gunmetal-01.png",
     "/images/shower-boxes/frameless-rectangular-showerbox-gunmetal-02.png",
   ],
-  Gold: ["/images/shower-boxes/frameless-rectangular-showerbox-gold.png"],
+  Gold: [
+    "/images/shower-boxes/frameless-rectangular-showerbox-gold.png",
+    "/images/shower-boxes/frameless-rectangular-showerbox-gold-02.png",
+  ],
   Bronze: ["/images/shower-boxes/frameless-rectangular-showerbox-bronze.png"],
 };
 
@@ -82,12 +90,25 @@ const straightExamples: Record<string, string> = {
 };
 
 const straightAdditionalExamples: Record<string, string[]> = {
-  Silver: ["/images/shower-boxes/frameless-straight-showerbox-silver-02.jpg"],
+  Silver: [
+    "/images/shower-boxes/frameless-straight-showerbox-silver-02.jpg",
+    "/images/shower-boxes/frameless-straight-showerbox-silver-03.png",
+    "/images/shower-boxes/frameless-straight-showerbox-silver-04.png",
+  ],
   Black: [
     "/images/shower-boxes/frameless-straight-showerbox-black-02.jpg",
-    "/images/shower-boxes/frameless-straight-showerbox-black-03.png",
+    "/images/shower-boxes/frameless-straight-showerbox-black-04.png",
+    "/images/shower-boxes/frameless-straight-showerbox-black-05.png",
   ],
-  Gunmetal: ["/images/shower-boxes/frameless-straight-showerbox-gunmetal.jpg"],
+  Gunmetal: [
+    "/images/shower-boxes/frameless-straight-showerbox-gunmetal.jpg",
+    "/images/shower-boxes/frameless-straight-showerbox-gunmetal-02.png",
+    "/images/shower-boxes/frameless-straight-showerbox-gunmetal-03.png",
+  ],
+  "Brushed Nickel": [
+    "/images/shower-boxes/frameless-straight-showerbox-brushednickel-01.png",
+    
+  ],
   Gold: [
     "/images/shower-boxes/frameless-straight-showerbox-gold.png",
     "/images/shower-boxes/frameless-straight-showerbox-gold-02.png",
@@ -116,8 +137,15 @@ const slidingRectangularExamples: Record<string, string> = {
 };
 
 const slidingRectangularAdditionalExamples: Record<string, string[]> = {
-  Silver: ["/images/shower-boxes/sliding-rectangular-shower-silver.png"],
-  Gunmetal: ["/images/shower-boxes/sliding-rectangular-shower-gunmetal.png"],
+  Silver: [
+    "/images/shower-boxes/sliding-rectangular-shower-silver-02.png",
+    "/images/shower-boxes/sliding-rectangular-shower-silver.png",
+    "/images/shower-boxes/sliding-rectangular-shower-silver-03.png",
+  ],
+  Gunmetal: [
+    "/images/shower-boxes/sliding-rectangular-shower-gunmetal.png",
+    "/images/shower-boxes/sliding-rectangular-shower-gunmetal-02.png",    
+  ],
   Black: [
     "/images/shower-boxes/sliding-rectangular-shower-black-01.png",
     "/images/shower-boxes/sliding-rectangular-shower-black-02.png",
@@ -127,9 +155,14 @@ const slidingRectangularAdditionalExamples: Record<string, string[]> = {
 
 const slidingAdditionalExamples: Record<string, string[]> = {
   Silver: [
+    "/images/shower-boxes/sliding-straight-shower-sliver-01.png",
     "/images/shower-boxes/sliding-straight-shower-sliver-02.png",
   ],
-  Black: ["/images/shower-boxes/sliding-shower-straight-black-02.jpg"],
+  Black: [
+    "/images/shower-boxes/sliding-shower-straight-black-03.png",
+    "/images/shower-boxes/sliding-shower-straight-black-02.jpg",
+    "/images/shower-boxes/sliding-shower-straight-black-01.png",
+  ],
   Gunmetal: ["/images/shower-boxes/sliding-straight-shower-gunmetal.png"],
   "Brushed Nickel": ["/images/shower-boxes/sliding-shower-straight-brushed-nickel-02.png"],
   Gold: ["/images/shower-boxes/sliding-straight-shower-gold.png"],
@@ -157,7 +190,11 @@ const showerSetImages: Record<string, string> = {
 };
 
 const showerSetAdditionalImages: Record<string, string[]> = {
-  Silver: ["/images/shower-boxes/shower-set-box-silver-02.png"],
+  Silver: [
+    "/images/shower-boxes/shower-set-box-silver-02.png",
+    "/images/shower-boxes/shower-set-box-sliver-03.png",
+    "/images/shower-boxes/shower-set-box-sliver-04.png",
+  ],
   Black: ["/images/shower-boxes/shower-set-box-black-02.png"],
 };
 
@@ -209,8 +246,9 @@ function getShapeImages(shape: ShowerBoxShape, colour: string, variant: "framele
   if (shape === "Diamond" && colour === "Black") {
     return [
       primaryImage, 
-      "/images/shower-boxes/frameless-diamond-corner-showerbox-black-01.jpg",
-      "/images/shower-boxes/frameless-diamond-corner-showerbox-black-02.png"
+      "/images/shower-boxes/frameless-diamond-corner-showerbox-black-03.png",
+      "/images/shower-boxes/frameless-diamond-corner-showerbox-black-01.jpg",      
+      "/images/shower-boxes/frameless-diamond-corner-showerbox-black-02.png",      
     ];
   }
   if (shape === "Diamond" && colour === "Gold") {
@@ -219,6 +257,9 @@ function getShapeImages(shape: ShowerBoxShape, colour: string, variant: "framele
       "/images/shower-boxes/frameless-diamond-corner-showerbox-gold-03.png",
       "/images/shower-boxes/frameless-diamond-corner-showerbox-gold-04.png",
     ];
+  }
+  if (shape === "Diamond" && colour === "Brushed Nickel") {
+    return [primaryImage, "/images/shower-boxes/frameless-diamond-corner-showerbox-brushednickel-01.png"];
   }
   if (shape === "Diamond" && colour === "Bronze") {
     return [primaryImage, "/images/shower-boxes/frameless-diamond-corner-showerbox-bronze-01.png"];
