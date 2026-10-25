@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import styles from "./gallery.module.css";
 
 type GalleryItem = {
@@ -33,6 +35,9 @@ export default function GalleryContent({
               <p className="eyebrow">Gallery</p>
               <h2 id={`gallery-${section.slug}`}>{section.title}</h2>
               <p>{section.description}</p>
+              <Link className={`text-link ${styles.serviceLink}`} href={`/services/${section.slug}`}>
+                View service <ArrowRight size={15} />
+              </Link>
             </div>
             <div className={styles.grid}>
               {section.items.map((item) => (
