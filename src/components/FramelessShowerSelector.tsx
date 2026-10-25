@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { ServiceOption, ShowerBoxShape } from "@/data/services";
 import styles from "./frameless-shower-selector.module.css";
@@ -9,6 +11,7 @@ type FramelessShowerSelectorProps = {
   shapes: ShowerBoxShape[];
   colours: ServiceOption[];
   variant?: "frameless" | "sliding" | "noDoor" | "showerSet";
+  contactLinkClassName?: string;
 };
 
 const temporaryExamples: Record<string, string[]> = {
@@ -280,7 +283,7 @@ function getShapeImages(shape: ShowerBoxShape, colour: string, variant: "framele
   return [primaryImage];
 }
 
-export default function FramelessShowerSelector({ shapes, colours, variant = "frameless" }: FramelessShowerSelectorProps) {
+export default function FramelessShowerSelector({ shapes, colours, variant = "frameless", contactLinkClassName }: FramelessShowerSelectorProps) {
   const [selectedColours, setSelectedColours] = useState<Record<string, string>>({});
   const [imageIndexes, setImageIndexes] = useState<Record<string, number>>({});
   const [lightboxShape, setLightboxShape] = useState<ShowerBoxShape | null>(null);
@@ -422,6 +425,9 @@ export default function FramelessShowerSelector({ shapes, colours, variant = "fr
                   ))}
                 </div>
               </div>
+              {contactLinkClassName && (
+                <Link href="/contact" className={contactLinkClassName}>Ask about these options <ArrowUpRight size={16} /></Link>
+              )}
             </article>
           );
         })}

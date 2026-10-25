@@ -154,6 +154,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
                 shapes={group.shapes}
                 colours={group.options}
                 variant={group.title === "Sliding Shower Boxes" ? "sliding" : "frameless"}
+                contactLinkClassName={service.slug === "shower-boxes" ? styles.contactLink : undefined}
               />
             ) : (
               <>
@@ -188,13 +189,12 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           <div className={styles.showerBoxExtraGrid}>
             <div className={`${styles.subOptionGroup} ${styles.showerChoiceSection}`} id="no-door-shower-box">
               <h3 className={styles.subOptionHeading}>Walk In Shower Box</h3>
-              <p className={styles.showerChoiceDescription}>Choose a hardware colour for your open walk-in shower screen.</p>
-              <FramelessShowerSelector shapes={["No Door"]} colours={service.optionGroups?.[0]?.options.filter((option) => option.name !== "Bronze") ?? []} variant="noDoor" />
+              <FramelessShowerSelector shapes={["No Door"]} colours={service.optionGroups?.[0]?.options.filter((option) => option.name !== "Bronze") ?? []} variant="noDoor" contactLinkClassName={styles.contactLink} />
             </div>
             {service.showerSets && (
               <div className={styles.subOptionGroup} id="shower-set-options">
                 <h3 className={styles.subOptionHeading}>Shower Set Shower Box</h3>
-                <FramelessShowerSelector shapes={["Straight"]} colours={service.showerSets} variant="showerSet" />
+                <FramelessShowerSelector shapes={["Straight"]} colours={service.showerSets} variant="showerSet" contactLinkClassName={styles.contactLink} />
               </div>
             )}
           </div>
@@ -252,7 +252,9 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           </div>
         )}
         <p className={styles.note}>Colour swatches are visual guides. Contact JP Glass to discuss your project requirements.</p>
-        <Link href="/contact" className={styles.contactLink}>Ask about these options <ArrowUpRight size={16} /></Link>
+        {service.slug !== "shower-boxes" && (
+          <Link href="/contact" className={styles.contactLink}>Ask about these options <ArrowUpRight size={16} /></Link>
+        )}
       </section>
 
 
