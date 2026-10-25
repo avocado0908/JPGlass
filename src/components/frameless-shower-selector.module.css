@@ -14,3 +14,5 @@
 @media(max-width:520px){.shapeGrid,.twoShapeGrid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.lightboxOverlay{padding:8px}.lightboxDialog{width:100%;height:calc(100dvh - 16px);max-height:calc(100dvh - 16px);padding:48px 8px 10px}.lightboxStage{width:100%;height:min(68dvh,calc(100dvh - 210px));max-height:none;flex:none}.lightboxMainImage{width:100%;height:100%;max-height:none}.lightboxThumbnailViewport{min-height:0}.lightboxThumbnails{margin-inline:auto}.lightboxClose{top:6px;right:8px;width:44px;height:44px}.lightboxColour{margin:7px 0 9px}.lightboxThumbnail{width:82px;min-height:84px}.lightboxThumbnailImage{width:68px;height:50px}}
 @media(max-height:520px) and (max-width:900px){.lightboxDialog{padding-top:42px}.lightboxStage{height:calc(100dvh - 190px)}.lightboxColour{margin:3px 0 5px}.lightboxThumbnail{width:74px;min-height:70px;padding:3px}.lightboxThumbnailImage{width:60px;height:40px}.lightboxThumbnails{gap:6px;padding-bottom:4px}}
+
+.singleShapeGrid{grid-template-columns:minmax(0,1fr)}

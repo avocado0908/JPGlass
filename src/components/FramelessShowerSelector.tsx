@@ -336,7 +336,7 @@ export default function FramelessShowerSelector({ shapes, colours, variant = "fr
 
   return (
     <div className={styles.selector}>
-      <div className={`${styles.shapeGrid} ${variant === "sliding" ? styles.twoShapeGrid : ""}`}>
+      <div className={`${styles.shapeGrid} ${variant === "sliding" ? styles.twoShapeGrid : ""} ${variant === "noDoor" || variant === "showerSet" ? styles.singleShapeGrid : ""}`}>
         {shapes.map((shape, index) => {
           const selectedColour = selectedColours[shape] ?? "Silver";
           const boxLabel = variant === "noDoor"

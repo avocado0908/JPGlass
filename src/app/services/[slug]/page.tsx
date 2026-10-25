@@ -185,10 +185,18 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
           </div>
         )) : service.options.length > 0 ? <div className={styles.finishGrid}>{renderOptionCards(service.options)}</div> : null}
         {service.slug === "shower-boxes" && (
-          <div className={`${styles.subOptionGroup} ${styles.showerChoiceSection}`} id="no-door-shower-box">
-            <h3 className={styles.subOptionHeading}>Walk In Shower Box</h3>
-            <p className={styles.showerChoiceDescription}>Choose a hardware colour for your open walk-in shower screen.</p>
-            <FramelessShowerSelector shapes={["No Door"]} colours={service.optionGroups?.[0]?.options.filter((option) => option.name !== "Bronze") ?? []} variant="noDoor" />
+          <div className={styles.showerBoxExtraGrid}>
+            <div className={`${styles.subOptionGroup} ${styles.showerChoiceSection}`} id="no-door-shower-box">
+              <h3 className={styles.subOptionHeading}>Walk In Shower Box</h3>
+              <p className={styles.showerChoiceDescription}>Choose a hardware colour for your open walk-in shower screen.</p>
+              <FramelessShowerSelector shapes={["No Door"]} colours={service.optionGroups?.[0]?.options.filter((option) => option.name !== "Bronze") ?? []} variant="noDoor" />
+            </div>
+            {service.showerSets && (
+              <div className={styles.subOptionGroup} id="shower-set-options">
+                <h3 className={styles.subOptionHeading}>Shower Set Shower Box</h3>
+                <FramelessShowerSelector shapes={["Straight"]} colours={service.showerSets} variant="showerSet" />
+              </div>
+            )}
           </div>
         )}
         {service.glassPanels && (
@@ -213,12 +221,6 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
                 <div className={styles.finishGrid}>{renderOptionCards(service.glassPanels)}</div>
               </>
             )}
-          </div>
-        )}
-        {service.showerSets && (
-          <div className={styles.subOptionGroup} id="shower-set-options">
-            <h3 className={styles.subOptionHeading}>Shower Set Shower Box</h3>
-            <FramelessShowerSelector shapes={["Straight"]} colours={service.showerSets} variant="showerSet" />
           </div>
         )}
         {service.glassSupports && (
