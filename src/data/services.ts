@@ -60,9 +60,9 @@ const showerBoxOptions = (boxType: string): ServiceOption[] => [
     tone: "#b9c3ca",
     note: "Silver finish",
     ...(boxType === "Frameless Shower Box"
-      ? { image: "/images/frameless-box-silver.jpg", imageAlt: "Frameless shower box with silver hardware" }
+      ? { image: "/images/shower-boxes/frameless-shower-box-straight-silver.png", imageAlt: "Frameless shower box with silver hardware" }
       : boxType === "Sliding Shower Box"
-        ? { image: "/images/sliding-box-silver.jpg", imageAlt: "Sliding shower box with silver hardware" }
+        ? { image: "/images/shower-boxes/sliding-shower-straight-silver.png", imageAlt: "Sliding shower box with silver hardware" }
         : {}),
   },
   {
@@ -70,9 +70,9 @@ const showerBoxOptions = (boxType: string): ServiceOption[] => [
     tone: "#202a32",
     note: "Black finish",
     ...(boxType === "Frameless Shower Box"
-      ? { image: "/images/frameless-box-black.jpg", imageAlt: "Frameless shower box with black hardware" }
+      ? { image: "/images/shower-boxes/frameless-shower-box-straight-black.png", imageAlt: "Frameless shower box with black hardware" }
       : boxType === "Sliding Shower Box"
-        ? { image: "/images/sliding-box-black.jpg", imageAlt: "Sliding shower box with black hardware" }
+        ? { image: "/images/shower-boxes/sliding-shower-straight-black.png", imageAlt: "Sliding shower box with black hardware" }
         : {}),
   },
   {
@@ -80,9 +80,9 @@ const showerBoxOptions = (boxType: string): ServiceOption[] => [
     tone: "#515b65",
     note: "Gunmetal finish",
     ...(boxType === "Frameless Shower Box"
-      ? { image: "/images/frameless-box-gunmetal.jpg", imageAlt: "Frameless shower box with gunmetal hardware" }
+      ? { image: "/images/shower-boxes/frameless-shower-box-straight-gunmetal.png", imageAlt: "Frameless shower box with gunmetal hardware" }
       : boxType === "Sliding Shower Box"
-        ? { image: "/images/sliding-box-gunmetal.jpg", imageAlt: "Sliding shower box with gunmetal hardware" }
+        ? { image: "/images/shower-boxes/sliding-shower-straight-gunmetal.png", imageAlt: "Sliding shower box with gunmetal hardware" }
         : {}),
   },
   {
@@ -90,9 +90,9 @@ const showerBoxOptions = (boxType: string): ServiceOption[] => [
     tone: "#a4adb2",
     note: "Brushed nickel finish",
     ...(boxType === "Frameless Shower Box"
-      ? { image: "/images/frameless-box-brushed-nickel.jpg", imageAlt: "Frameless shower box with brushed nickel hardware" }
+      ? { image: "/images/shower-boxes/frameless-shower-box-straight-brushed-nickel.png", imageAlt: "Frameless shower box with brushed nickel hardware" }
       : boxType === "Sliding Shower Box"
-        ? { image: "/images/sliding-box-brushed-nickel.jpg", imageAlt: "Sliding shower box with brushed nickel hardware" }
+        ? { image: "/images/shower-boxes/sliding-shower-straight-brushed-nickel.png", imageAlt: "Sliding shower box with brushed nickel hardware" }
         : {}),
   },
   ...(boxType === "Frameless Shower Box"
@@ -103,9 +103,9 @@ const showerBoxOptions = (boxType: string): ServiceOption[] => [
     tone: "#b9975b",
     note: "Gold finish",
     ...(boxType === "Frameless Shower Box"
-      ? { image: "/images/frameless-box-gold.jpg", imageAlt: "Frameless shower box with gold hardware" }
+      ? { image: "/images/shower-boxes/frameless-shower-box-straight-gold.png", imageAlt: "Frameless shower box with gold hardware" }
       : boxType === "Sliding Shower Box"
-        ? { image: "/images/sliding-box-gold.jpg", imageAlt: "Sliding shower box with gold hardware" }
+        ? { image: "/images/shower-boxes/sliding-shower-straight-gold.png", imageAlt: "Sliding shower box with gold hardware" }
         : {}),
   },
 ];

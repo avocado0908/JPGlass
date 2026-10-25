@@ -46,7 +46,7 @@ export default function ContactPage() {
           </div>
           <div className={styles.introVisual}>
             <Image
-              src="/images/hero-glass-balustrade.jpg"
+              src="/images/hero-balcony-sunset.jpg"
               alt="Glass balustrade on a modern home overlooking the outdoors"
               fill
               fetchPriority="high"

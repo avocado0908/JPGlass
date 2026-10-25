@@ -15,7 +15,7 @@ const temporaryExamples: Record<string, string[]> = {
   Silver: [
     "/images/shower-grey-glass-corner.jpg",
     "/images/shower-marble-bathroom.jpg",
-    "/images/shower-boxes/walkin-shower-box-silver-01.jpg",
+    "/images/shower-boxes/walkin-shower-box-silver.png",
   ],
   Black: [
     "/images/shower-black-framed-marble.jpg",
@@ -23,19 +23,19 @@ const temporaryExamples: Record<string, string[]> = {
     "/images/shower-geometric-tile.jpg",
   ],
   Gunmetal: [
-    "/images/frameless-box-gunmetal.jpg",
+    "/images/shower-boxes/frameless-shower-box-straight-gunmetal.png",
     "/images/shower-marble-frosted-window.jpg",
     "/images/shower-stone-spa.jpg",
   ],
   "Brushed Nickel": [
-    "/images/frameless-box-brushed-nickel.jpg",
+    "/images/shower-boxes/frameless-shower-box-straight-brushed-nickel.png",
     "/images/shower-marble-walk-in.jpg",
     "/images/shower-attic-glass.jpg",
   ],
   Gold: [
     "/images/shower-brass-framed-glass.jpg",
     "/images/shower-frameless-gold-custom.jpg",
-    "/images/frameless-box-gold.jpg",
+    "/images/shower-boxes/frameless-shower-box-straight-gold.png",
   ],
 };
 
@@ -125,7 +125,6 @@ const slidingRectangularAdditionalExamples: Record<string, string[]> = {
 
 const slidingAdditionalExamples: Record<string, string[]> = {
   Silver: [
-    "/images/shower-boxes/sliding-straight-shower-silver.png",
     "/images/shower-boxes/sliding-straight-shower-sliver-02.png",
   ],
   Black: ["/images/shower-boxes/sliding-shower-straight-black-02.jpg"],
