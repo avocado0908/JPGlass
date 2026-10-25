@@ -124,7 +124,7 @@ const slidingStraightExamples: Record<string, string> = {
   Silver: "/images/shower-boxes/sliding-shower-straight-silver.png",
   Black: "/images/shower-boxes/sliding-shower-straight-black.png",
   Gunmetal: "/images/shower-boxes/sliding-shower-straight-gunmetal.png",
-  "Brushed Nickel": "/images/shower-boxes/sliding-shower-straight-brushed-nickel.png",
+  "Brushed Nickel": "/images/shower-boxes/sliding-shower-straight-brushednickel.png",
   Gold: "/images/shower-boxes/sliding-shower-straight-gold.png",
 };
 
