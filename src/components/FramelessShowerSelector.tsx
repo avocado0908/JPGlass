@@ -59,7 +59,9 @@ const rectangularExamples: Record<string, string> = {
 
 const rectangularAdditionalExamples: Record<string, string[]> = {
   Silver: ["/images/shower-boxes/frameless-rectangular-showerbox-silver-01.png"],
-  Black: ["/images/shower-boxes/frameless-rectangular-showerbox-black.png"],
+  Black: [
+    "/images/shower-boxes/frameless-rectangular-showerbox-black.png",
+  ],
   "Brushed Nickel": ["/images/shower-boxes/frameless-rectangular-showerbox-brushed-nickel.png"],
   Gunmetal: [
     "/images/shower-boxes/frameless-rectangular-showerbox-gunmetal.png",
@@ -197,19 +199,36 @@ function getShapeImages(shape: ShowerBoxShape, colour: string, variant: "framele
   }
 
   if (shape === "Diamond" && colour === "Silver") {
-    return [primaryImage, "/images/shower-marble-bathroom.jpg", "/images/shower-boxes/frameless-diamond-corner-showerbox-silver-03.png"];
+    return [
+      primaryImage,
+      "/images/shower-marble-bathroom.jpg",
+      "/images/shower-boxes/frameless-diamond-corner-showerbox-silver-02.png",
+      "/images/shower-boxes/frameless-diamond-corner-showerbox-silver-03.png",
+    ];
   }
   if (shape === "Diamond" && colour === "Black") {
-    return [primaryImage, "/images/shower-boxes/frameless-diamond-corner-showerbox-black-01.jpg"];
+    return [
+      primaryImage, 
+      "/images/shower-boxes/frameless-diamond-corner-showerbox-black-01.jpg",
+      "/images/shower-boxes/frameless-diamond-corner-showerbox-black-02.png"
+    ];
   }
   if (shape === "Diamond" && colour === "Gold") {
-    return [primaryImage, "/images/shower-boxes/frameless-diamond-corner-showerbox-gold-03.png"];
+    return [
+      primaryImage,
+      "/images/shower-boxes/frameless-diamond-corner-showerbox-gold-03.png",
+      "/images/shower-boxes/frameless-diamond-corner-showerbox-gold-04.png",
+    ];
   }
   if (shape === "Diamond" && colour === "Bronze") {
     return [primaryImage, "/images/shower-boxes/frameless-diamond-corner-showerbox-bronze-01.png"];
   }
   if (shape === "Diamond" && colour === "Gunmetal") {
-    return [primaryImage, "/images/shower-boxes/frameless-diamond-corner-showerbox-gunmetal.png"];
+    return [
+      primaryImage, 
+      "/images/shower-boxes/frameless-diamond-corner-showerbox-gunmetal-01.png",
+      "/images/shower-boxes/frameless-diamond-corner-showerbox-gunmetal-02.png",
+    ];
   }
   if (shape === "Rectangular" && rectangularAdditionalExamples[colour]) {
     return [primaryImage, ...rectangularAdditionalExamples[colour]];
