@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import ServiceExampleGallery from "@/components/ServiceExampleGallery";
 import styles from "./gallery.module.css";
 
 type GalleryItem = {
@@ -39,24 +39,7 @@ export default function GalleryContent({
                 View service <ArrowRight size={15} />
               </Link>
             </div>
-            <div className={styles.grid}>
-              {section.items.map((item) => (
-                <figure className={styles.card} key={item.image}>
-                  <div className={styles.image}>
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
-                    />
-                  </div>
-                  <figcaption>
-                    <span>{item.title}</span>
-                    <span>{item.category}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
+            <ServiceExampleGallery examples={section.items} groupByCategory={false} variant="gallery" />
           </div>
         </section>
       ))}

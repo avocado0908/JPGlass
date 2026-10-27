@@ -6,9 +6,13 @@ import { useEffect, useRef, useState } from "react";
 import type { ServiceExample } from "@/data/services";
 import styles from "./service-example-gallery.module.css";
 
-type ServiceExampleGalleryProps = { examples: ServiceExample[] };
+type ServiceExampleGalleryProps = {
+  examples: ServiceExample[];
+  groupByCategory?: boolean;
+  variant?: "service" | "gallery";
+};
 
-export default function ServiceExampleGallery({ examples }: ServiceExampleGalleryProps) {
+export default function ServiceExampleGallery({ examples, groupByCategory = true, variant = "service" }: ServiceExampleGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const triggerRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const lastTriggerIndex = useRef<number | null>(null);
@@ -53,7 +57,7 @@ export default function ServiceExampleGallery({ examples }: ServiceExampleGaller
     setActiveIndex((i) => i === null ? null : (i + direction + examples.length) % examples.length);
   };
   const activeExample = activeIndex === null ? null : examples[activeIndex];
-  const exampleGroups = examples.some((example) => example.category)
+  const exampleGroups = groupByCategory && examples.some((example) => example.category)
     ? Array.from(examples.reduce((groups, example) => {
       const category = example.category ?? "Other examples";
       const group = groups.get(category) ?? [];
@@ -66,11 +70,11 @@ export default function ServiceExampleGallery({ examples }: ServiceExampleGaller
   const renderExamples = (groupExamples: ServiceExample[]) => groupExamples.map((example) => {
     const index = examples.indexOf(example);
     return (
-      <figure className={styles.example} key={example.image}>
+      <figure className={variant === "gallery" ? styles.galleryExample : styles.example} key={example.image}>
         <button
           ref={(element) => { triggerRefs.current[index] = element; }}
           type="button"
-          className={styles.thumbnail}
+          className={variant === "gallery" ? styles.galleryThumbnail : styles.thumbnail}
           onClick={() => {
             lastTriggerIndex.current = index;
             setActiveIndex(index);
@@ -79,7 +83,14 @@ export default function ServiceExampleGallery({ examples }: ServiceExampleGaller
         >
           <Image src={example.image} alt={example.alt} fill sizes="(max-width: 700px) 100vw, 50vw" />
         </button>
-        <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{example.title}</figcaption>
+        {variant === "gallery" ? (
+          <figcaption className={styles.galleryCaption}>
+            <span>{example.title}</span>
+            <span>{example.category}</span>
+          </figcaption>
+        ) : (
+          <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{example.title}</figcaption>
+        )}
       </figure>
     );
   });
@@ -92,7 +103,7 @@ export default function ServiceExampleGallery({ examples }: ServiceExampleGaller
           <div className={styles.grid}>{renderExamples(groupExamples)}</div>
         </section>
       )) : (
-        <div className={styles.grid}>{renderExamples(examples)}</div>
+        <div className={`${styles.grid} ${variant === "gallery" ? styles.galleryGrid : ""}`}>{renderExamples(examples)}</div>
       )}
 
       {activeExample && activeIndex !== null && (
