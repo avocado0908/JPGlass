@@ -192,7 +192,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             </section>
             <section className={styles.poolPanelOptionColumn}>
               <h3 className={styles.subOptionHeading}>Frame options</h3>
-              <div className={styles.finishGrid}>{renderOptionCards(service.options.slice(1))}</div>
+              <div className={`${styles.finishGrid} ${styles.frameOptionsCardGrid}`}>{renderOptionCards(service.options.slice(1))}</div>
             </section>
           </div>
         ) : <div className={styles.finishGrid}>{renderOptionCards(service.options)}</div> : null}
