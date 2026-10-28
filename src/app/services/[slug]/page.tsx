@@ -184,7 +184,18 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
               </>
             )}
           </div>
-        )) : service.options.length > 0 ? <div className={styles.finishGrid}>{renderOptionCards(service.options)}</div> : null}
+        )) : service.options.length > 0 ? service.slug === "custom-stairs-glass" ? (
+          <div className={`${styles.poolPanelOptionColumns} ${styles.customStairsPanelOptions}`}>
+            <section className={styles.poolPanelOptionColumn}>
+              <h3 className={styles.subOptionHeading}>Glass Balustrade Panel options</h3>
+              <div className={styles.finishGrid}>{renderOptionCards(service.options.slice(0, 1))}</div>
+            </section>
+            <section className={styles.poolPanelOptionColumn}>
+              <h3 className={styles.subOptionHeading}>Frame options</h3>
+              <div className={styles.finishGrid}>{renderOptionCards(service.options.slice(1))}</div>
+            </section>
+          </div>
+        ) : <div className={styles.finishGrid}>{renderOptionCards(service.options)}</div> : null}
         {service.slug === "shower-boxes" && (
           <div className={styles.showerBoxExtraGrid}>
             <div className={`${styles.subOptionGroup} ${styles.showerChoiceSection}`} id="no-door-shower-box">

@@ -173,8 +173,8 @@ export const services: Service[] = [
     slug: "handrails",
     title: "Handrails",
     cardTitle: "Handrails",
-    description: "Silver and black handrails, including all fittings.",
-    intro: "Choose from silver or black handrails, including all fittings. Contact JP Glass to discuss your project.",
+    description: "Silver, black, and gunmetal handrails, including all fittings.",
+    intro: "Choose from silver, black, or gunmetal handrails, including all fittings. Contact JP Glass to discuss your project.",
     image: "/images/service-handrails.jpg",
     alt: "Metal handrails and glass balustrade beside an indoor staircase",
     imageIsIllustrative: true,
@@ -194,10 +194,14 @@ export const services: Service[] = [
       { title: "Wall-mounted stair handrail — Silver", image: "/images/handrails/12-silver-wall-handrail.jpg", alt: "Silver wall-mounted handrail above a white staircase" },
       { title: "Framed glass handrail — Silver", image: "/images/handrails/13-silver-framed-glass-handrail.jpg", alt: "Silver handrail and glass railing above an indoor staircase" },
       { title: "Framed glass handrail — Black", image: "/images/handrails/14-black-handrail-black-frame.png", alt: "Black handrail with a black-framed glass balustrade beside carpeted stairs" },
+      { title: "Wall-mounted staircase handrail — Gunmetal", image: "/images/handrails/handrails-gunmetal-01.png", alt: "Gunmetal handrails following a carpeted staircase with a landing turn" },
+      { title: "Wall-mounted staircase handrail — Gunmetal", image: "/images/handrails/handrails-gunmetal-02.png", alt: "Gunmetal handrail ascending a carpeted staircase beside a timber stair edge" },
+      { title: "Wall-mounted staircase handrail — Gunmetal", image: "/images/handrails/handrails-gunmetal-04.png", alt: "Gunmetal handrail following an upstairs landing and staircase" },
     ],
     options: [
       { name: "Silver Handrail", tone: "#b9c3ca", note: "Including all fittings", image: "/images/handrails/option-silver-handrail.jpg", imageAlt: "Close-up of a silver wall-mounted handrail and bracket" },
       { name: "Black Handrail", tone: "#202a32", note: "Including all fittings", image: "/images/handrails/option-black-handrail.jpg", imageAlt: "Close-up of a black wall-mounted handrail and bracket" },
+      { name: "Gunmetal Handrail", tone: "#4b4b49", note: "Including all fittings", image: "/images/handrails/option-gunmetal-handrail.png", imageAlt: "Close-up of a gunmetal handrail and bracket" },
     ],
   },
   {
@@ -232,10 +236,13 @@ export const services: Service[] = [
     glassSupports: [
       { name: "Silver Round Glass Standoffs", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-round-standoffs.jpg", imageAlt: "Silver round glass standoff fixed through a glass panel" },
       { name: "Black Round Glass Standoffs", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-round-standoffs.jpg", imageAlt: "Black round glass standoff fixed through a glass panel" },
+      { name: "Silver Bottom Glass Spigots", tone: "#b9c3ca", note: "Silver support hardware", image: "/images/fence-support-silver-bottom-spigots.jpg", imageAlt: "Silver bottom glass spigot supporting a glass panel" },
+      { name: "Black Bottom Glass Spigots", tone: "#202a32", note: "Black support hardware", image: "/images/fence-support-black-bottom-spigots.jpg", imageAlt: "Black bottom glass spigot supporting a glass panel" },
     ],
     handrails: [
       { name: "Silver Handrail", tone: "#b9c3ca", note: "Including all fittings", image: "/images/handrails/option-silver-handrail.jpg", imageAlt: "Close-up of a silver handrail and bracket" },
       { name: "Black Handrail", tone: "#202a32", note: "Including all fittings", image: "/images/handrails/option-black-handrail.jpg", imageAlt: "Close-up of a black handrail and bracket" },
+      { name: "Gunmetal Handrail", tone: "#4b4b49", note: "Including all fittings", image: "/images/handrails/option-gunmetal-handrail.png", imageAlt: "Close-up of a gunmetal handrail and bracket" },
     ],
   },
   {
