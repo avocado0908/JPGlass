@@ -104,8 +104,8 @@ const straightAdditionalExamples: Record<string, string[]> = {
     "/images/shower-boxes/frameless-straight-showerbox-black-05.png",
   ],
   Gunmetal: [
+    "/images/shower-boxes/frameless-straight-showerbox-gunmetal-06.png",
     "/images/shower-boxes/frameless-straight-showerbox-gunmetal.jpg",
-    "/images/shower-boxes/frameless-straight-showerbox-gunmetal-02.png",
     "/images/shower-boxes/frameless-straight-showerbox-gunmetal-03.png",
   ],
   "Brushed Nickel": [
