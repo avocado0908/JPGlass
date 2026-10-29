@@ -227,6 +227,12 @@ export const services: Service[] = [
       { title: "Indoor stair glass — Silver handrail and standoffs", image: "/images/custom-stairs/10-silver-handrail-glass-stairs.jpg", alt: "Silver handrail and standoff-mounted glass panels along an indoor staircase" },
       { title: "Stair glass — Silver frame and handrail", image: "/images/custom-stairs/11-silver-framed-stair-glass.jpg", alt: "Silver handrail beside framed glass panels in a stairwell" },
       { title: "Outdoor stair balustrade — Silver handrail", image: "/images/custom-stairs/12-silver-outdoor-handrail-glass-stairs.jpg", alt: "Outdoor glass stair balustrade with silver handrail" },
+      { title: "Indoor stair glass — Silver frame, standoffs and handrail", image: "/images/custom-stairs/stair-glass-sliver-frame-standoffs-handrails-02.png", alt: "Silver-framed clear glass stair balustrade with standoffs and a handrail" },
+      { title: "Indoor stair glass — Silver frame, standoffs and handrail", image: "/images/custom-stairs/stair-glass-sliver-frame-standoffs-handrails-03.png", alt: "Silver-framed glass balustrade and handrail along an indoor staircase" },
+      { title: "Indoor stair glass — Silver frame, standoffs and handrail", image: "/images/custom-stairs/stair-glass-sliver-frame-standoffs-handrails-04.png", alt: "Staircase with silver-framed glass panels, standoffs and handrail" },
+      { title: "Indoor stair glass — Silver frame, standoffs and handrail", image: "/images/custom-stairs/stair-glass-sliver-frame-standoffs-handrails-05.png", alt: "Timber stairs with silver-framed glass balustrade and handrail" },
+      { title: "Indoor stair glass — Silver frame, standoffs and handrail", image: "/images/custom-stairs/stair-glass-sliver-frame-standoffs-handrails-06.png", alt: "Overhead view of a timber staircase with glass balustrade and silver handrail" },
+      { title: "Indoor stair glass — Silver frame, spigots and handrail", image: "/images/custom-stairs/stair-glass-sliver-frame-spigots-handrails.png", alt: "Silver-framed glass stair balustrade secured with spigots and finished with a handrail" },
     ],
     options: [
       { name: "Glass Balustrade Panel — Clear", tone: "#dceef3", note: "Clear glass panel", image: "/images/custom-stairs/clear-glass-panel.png", imageAlt: "Clear glass balustrade panel" },
